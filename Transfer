@@ -1,18 +1,27 @@
-
+for _, area in pairs(workspace.VipTimXavierSpawnedInToys:GetChildren()) do
+if area.Name == "BombMissile" then
 local args = {
     [1] = {
-        ["Radius"] = 1700,
-        ["TimeLength"] = 0.0,
-        ["Hitbox"] = workspace.VipTimXavierSpawnedInToys.BombMissile.PartHitDetector,
-        ["ExplodesByFire"] = false,
+        ["Radius"] = 17.5,
+        ["TimeLength"] = 0.5,
+        ["Hitbox"] = area.PartHitDetector,
+        ["ExplodesByFire"] = true,
         ["MaxForcePerStudSquared"] = 225,
         ["DestroysModel"] = true,
-        ["Model"] = workspace.VipTimXavierSpawnedInToys.BombMissile,
+        ["Model"] = area,
         ["ExplodesByPointy"] = false,
-        ["ImpactSpeed"] = 200,
-        ["PositionPart"] = workspace.VipTimXavier.HumanoidRootPart
+        ["ImpactSpeed"] = 20,
+        ["PositionPart"] = game.Workspace.Passport2009.HumanoidRootPart
     },
-    [2] = Vector3.new(99999, 99999, 99999)
+    [2] = Vector3.new(99, 999, 99)
 }
 
 game:GetService("ReplicatedStorage").BombEvents.BombExplode:FireServer(unpack(args))
+local args = {
+    [1] = area.PyramidOctagon,
+    [2] = area.PyramidOctagon.CFrame * CFrame.Angles(-2.522822380065918, 0.31072917580604553, 2.927225112915039)
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
+end
+end
