@@ -1,1 +1,18 @@
 
+local args = {
+    [1] = {
+        ["Radius"] = 1700,
+        ["TimeLength"] = 0.0,
+        ["Hitbox"] = workspace.VipTimXavierSpawnedInToys.BombMissile.PartHitDetector,
+        ["ExplodesByFire"] = false,
+        ["MaxForcePerStudSquared"] = 225,
+        ["DestroysModel"] = true,
+        ["Model"] = workspace.VipTimXavierSpawnedInToys.BombMissile,
+        ["ExplodesByPointy"] = false,
+        ["ImpactSpeed"] = 200,
+        ["PositionPart"] = workspace.VipTimXavier.HumanoidRootPart
+    },
+    [2] = Vector3.new(99999, 99999, 99999)
+}
+
+game:GetService("ReplicatedStorage").BombEvents.BombExplode:FireServer(unpack(args))
