@@ -9,7 +9,7 @@ for _, block in pairs(Blocks:GetChildren()) do
                     Root.CFrame = block.CFrame * CFrame.new(0,4,0)
                     local args = {
                         [1] = block,
-                        [2] = tonumber(pickaxe)
+                        [2] = Pickaxes.Wood
                     }
                         
                     EDamage:FireServer(unpack(args))
