@@ -5,7 +5,7 @@ local Player = game.Players.LocalPlayer
 local Character = Player.Character
 local Root = Character.HumanoidRootPart
 
-local Portals = game.Workspace.Portals
+local Portals = game:GetService("Workspace"):FindFisrChild("Main").Portals
 
 local Portal = {
     ["Coal"] = Portals:FindFisrChild("Coal"),
