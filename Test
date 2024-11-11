@@ -1,0 +1,120 @@
+local TweenService = game:GetService("TweenService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local Root = Character.HumanoidRootPart
+
+local Portals = game.Workspace.Portals
+
+local Portal = {
+    ["Coal"] = Portals:FindFisrChild("Coal"),
+    ["Copper"] = Portals:FindFisrChild("Copper"),
+    ["Iron"] = Portals:FindFisrChild("Iron"),
+    ["Gold"] = Portals:FindFisrChild("Gold"),
+    ["Sapphire"] = Portals:FindFisrChild("Sapphire"),
+    ["Ruby"] = Portals:FindFisrChild("Ruby"),
+    ["Lobby"] = Portals:FindFisrChild("Lobby"),
+}
+
+local Pickaxes = {
+    ["Wood"] = 1731551043,
+    ["Stone"] = 1731554328,
+    ["Iron"] = 1731434122,
+    ["Gold"] = 1731895045,
+    ["Sapphire"] = 1731774976,
+    ["Ruby"] = 0,
+    ["Prestige"] = 0,
+    ["God"] = 0,
+}
+
+local RBXItemsID = {
+	["PickaxesID"] = {
+		["Wood_Pickaxe"] = "rbxassetid://124571203214280",
+		["Stone_Pickaxe"] = "rbxassetid://128519697848822",
+		["Iron_Pickaxe"] = "rbxassetid://75019443601728",
+		["Gold_Pickaxe"] = "rbxassetid://83985811483184",
+		["Sapphire_Pickaxe"] = "rbxassetid://138415390798857",
+		["Ruby_Pickaxe"] = "rbxassetid://id",
+		["God_Pickaxe"] = "rbxassetid://id",
+		["Prestige_Pickaxe"] = "rbxassetid://id",
+	},
+	["ItemsID"] = {
+		["Legendary_Shard"] = "rbxassetid://124571203214280",
+		["Rare_Shard"] = "rbxassetid://128519697848822",
+		["Uncommon_Shard"] = "rbxassetid://75019443601728",
+		["Common_Shard"] = "rbxassetid://83985811483184",
+		["Energy"] = "rbxassetid://127679710326843",
+
+	}
+}
+
+--[Get]
+local Blocks = game:GetService("Workspace"):FindFisrChild("Main"):FindFisrChild("Blocks")
+local Inventory = Player.PlayerGui:FindFisrChild("MainUI"):FindFisrChild("Frames"):FindFisrChild("Inventory"):FindFisrChild("Main")
+
+--[Stats]
+local PrestigeS = Player:FindFisrChild("Stats"):FindFisrChild("Prestige")
+local TokensS = Player:FindFisrChild("Stats"):FindFisrChild("Tokens")
+local LevelS = Player:FindFisrChild("Stats"):FindFisrChild("Level")
+local XPS = Player:FindFisrChild("Stats"):FindFisrChild("XP")
+local CashS = Player:FindFisrChild("Stats"):FindFisrChild("Cash")
+
+--[Events]
+local EDamage = ReplicatedStorage.Events.DamageBlock --(FireServer)
+
+--[Functions]
+local FDaily = ReplicatedStorage.Events.ClaimDaily --(InvokeServer)
+local FUseShard = ReplicatedStorage.Events.UseShard --(InvokeServer)
+local FTeleport = ReplicatedStorage.Events.Teleport --(InvokeServer)
+local FPrestige = ReplicatedStorage.Events.Prestige --(InvokeServer)
+local FChangeSlot = ReplicatedStorage.Events.ChangeSlot --(InvokeServer)
+
+
+for _, block in pairs(Blocks:GetChildren()) do
+    if not block:FindFisrChildOfClass("Part") then
+        return
+    elseif block:FindFisrChildOfClass("Part") then
+
+        for _, inv in pairs(Inventory:GetDescendants()) do
+
+            if inv:IsA("ImageButton") then
+                if inv.IconImage.Image == RBXItemsID.PickaxesID.Wood_Pickaxe then
+                    for i = 1, 10 do
+                        Root.CFrame = block.CFrame * CFrame.new(0,4,0)
+                        local args = {
+                            [1] = block,
+                            [2] = Pickaxes.Wood
+                        }
+                        
+                        game:GetService("ReplicatedStorage").Events.DamageBlock:FireServer(unpack(args))
+                        wait()
+                elseif inv.IconImage.Image == RBXItemsID.PickaxesID.Stone_Pickaxe then
+                    for i = 1, 10 do
+                            Root.CFrame = block.CFrame * CFrame.new(0,4,0)
+                            local args = {
+                                [1] = block,
+                                [2] = Pickaxes.Stone
+                            }
+                            
+                            game:GetService("ReplicatedStorage").Events.DamageBlock:FireServer(unpack(args))
+                            wait()
+                elseif inv.IconImage.Image == RBXItemsID.PickaxesID.Iron_Pickaxe then
+                    for i = 1, 10 do
+                        Root.CFrame = block.CFrame * CFrame.new(0,4,0)
+                        local args = {
+                            [1] = block,
+                            [2] = Pickaxes.Iron
+                            }
+                                    
+                            game:GetService("ReplicatedStorage").Events.DamageBlock:FireServer(unpack(args))
+                            wait()
+                    end
+                end
+
+            end
+
+        end
+
+    end
+end
