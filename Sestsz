@@ -1,8 +1,7 @@
-local TweenService = game:GetService("TweenService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Player = game.Players.LocalPlayer
-local Character = Player.Character
+local Character = Player.Character or Player.CharacterAdded:Wait()
 local Root = Character.HumanoidRootPart
 
 local Portals = game:GetService("Workspace").Main.Portals
