@@ -1,3 +1,74 @@
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Player = game.Players.LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Root = Character.HumanoidRootPart
+
+local Portals = game:GetService("Workspace").Main.Portals
+
+local Portal = {
+    ["Coal"] = Portals.Coal,
+    ["Copper"] = Portals.Copper,
+    ["Iron"] = Portals.Iron,
+    ["Gold"] = Portals.Gold,
+    ["Sapphire"] = Portals.Sapphire,
+    ["Ruby"] = Portals.Ruby,
+    ["Lobby"] = Portals.Lobby,
+}
+
+local Pickaxes = {
+    ["Wood"] = 1731551043,
+    ["Stone"] = 1731554328,
+    ["Iron"] = 1731434122,
+    ["Gold"] = 1731895045,
+    ["Sapphire"] = 1731774976,
+    ["Ruby"] = 0,
+    ["Prestige"] = 0,
+    ["God"] = 0,
+}
+
+local RBXItemsID = {
+	["PickaxesID"] = {
+		["Wood_Pickaxe"] = "rbxassetid://124571203214280",
+		["Stone_Pickaxe"] = "rbxassetid://128519697848822",
+		["Iron_Pickaxe"] = "rbxassetid://75019443601728",
+		["Gold_Pickaxe"] = "rbxassetid://83985811483184",
+		["Sapphire_Pickaxe"] = "rbxassetid://138415390798857",
+		["Ruby_Pickaxe"] = "rbxassetid://id",
+		["God_Pickaxe"] = "rbxassetid://id",
+		["Prestige_Pickaxe"] = "rbxassetid://id",
+	},
+	["ItemsID"] = {
+		["Legendary_Shard"] = "rbxassetid://124571203214280",
+		["Rare_Shard"] = "rbxassetid://128519697848822",
+		["Uncommon_Shard"] = "rbxassetid://75019443601728",
+		["Common_Shard"] = "rbxassetid://83985811483184",
+		["Energy"] = "rbxassetid://127679710326843",
+
+	}
+}
+
+--[Get]
+local Blocks = game:GetService("Workspace").Main.Blocks
+local Inventory = Player.PlayerGui.MainUI.Frames.Inventory.Main
+
+--[Stats]
+local PrestigeS = Player.Stats.Prestige
+local TokensS = Player.Stats.Tokens
+local LevelS = Player.Stats.Level
+local XPS = Player.Stats.XP
+local CashS = Player.Stats.Cash
+
+--[Events]
+local EDamage = ReplicatedStorage.Events.DamageBlock --(FireServer)
+
+--[Functions]
+local FDaily = ReplicatedStorage.Events.ClaimDaily --(InvokeServer)
+local FUseShard = ReplicatedStorage.Events.UseShard --(InvokeServer)
+local FTeleport = ReplicatedStorage.Events.Teleport --(InvokeServer)
+local FPrestige = ReplicatedStorage.Events.Prestige --(InvokeServer)
+local FChangeSlot = ReplicatedStorage.Events.ChangeSlot --(InvokeServer)
+
 for _, block in pairs(Blocks:GetChildren()) do
     for _1, inv in pairs(Inventory:GetDescendants()) do
         if not block:IsA("Part") then
