@@ -5,7 +5,7 @@ local Player = game.Players.LocalPlayer
 local Character = Player.Character
 local Root = Character.HumanoidRootPart
 
-local Portals = game:GetService("Workspace"):FindFisrChild("Main").Portals
+local Portals = game:GetService("Workspace").Main.Portals
 
 local Portal = {
     ["Coal"] = Portals:FindFisrChild("Coal"),
@@ -50,7 +50,7 @@ local RBXItemsID = {
 }
 
 --[Get]
-local Blocks = game:GetService("Workspace"):FindFisrChild("Main"):FindFisrChild("Blocks")
+local Blocks = game:GetService("Workspace").Main.Blocks
 local Inventory = Player.PlayerGui:FindFisrChild("MainUI"):FindFisrChild("Frames"):FindFisrChild("Inventory"):FindFisrChild("Main")
 
 --[Stats]
