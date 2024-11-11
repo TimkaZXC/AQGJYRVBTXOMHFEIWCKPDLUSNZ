@@ -1,8 +1,8 @@
 for _, block in pairs(Blocks:GetChildren()) do
-    if not block:IsA("Part") then
-        return
-    elseif block:IsA("Part") then
-        for _, pickaxe in pairs(Pickaxes) do
+    for _, pickaxe in pairs(Pickaxes) do
+        if not block:IsA("Part") then
+          return
+        elseif block:IsA("Part") then
             for i = 1, 10 do
                 Root.CFrame = block.CFrame * CFrame.new(0,4,0)
                 local args = {
@@ -11,8 +11,8 @@ for _, block in pairs(Blocks:GetChildren()) do
                 }
                     
                 EDamage:FireServer(unpack(args))
-                wait()
+                wait(0.000000001)
             end
-        end
-    end    
+        end    
+    end
 end
