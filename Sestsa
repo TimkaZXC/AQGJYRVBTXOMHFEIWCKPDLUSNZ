@@ -51,14 +51,14 @@ local RBXItemsID = {
 
 --[Get]
 local Blocks = game:GetService("Workspace").Main.Blocks
-local Inventory = Player.PlayerGui:FindFisrChild("MainUI"):FindFisrChild("Frames"):FindFisrChild("Inventory"):FindFisrChild("Main")
+local Inventory = Player.PlayerGui.MainUI.Frames.Inventory.Main
 
 --[Stats]
-local PrestigeS = Player:FindFisrChild("Stats"):FindFisrChild("Prestige")
-local TokensS = Player:FindFisrChild("Stats"):FindFisrChild("Tokens")
-local LevelS = Player:FindFisrChild("Stats"):FindFisrChild("Level")
-local XPS = Player:FindFisrChild("Stats"):FindFisrChild("XP")
-local CashS = Player:FindFisrChild("Stats"):FindFisrChild("Cash")
+local PrestigeS = Player.Stats.Prestige
+local TokensS = Player.Stats.Tokens
+local LevelS = Player.Stats.Level
+local XPS = Player.Stats.XP
+local CashS = Player.Stats").Cash
 
 --[Events]
 local EDamage = ReplicatedStorage.Events.DamageBlock --(FireServer)
