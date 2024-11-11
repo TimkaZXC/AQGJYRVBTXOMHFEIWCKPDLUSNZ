@@ -1,17 +1,22 @@
 for _, block in pairs(Blocks:GetChildren()) do
-    for _, pickaxe in pairs(Pickaxes) do
+    for _1, inv in pairs(Inventory:GetDescendants()) do
         if not block:IsA("Part") then
-          return
+            return
         end
-            for i = 1, 10 do
-                Root.CFrame = block.CFrame * CFrame.new(0,4,0)
-                local args = {
-                    [1] = block,
-                    [2] = tonumber(pickaxe)
-                }
-                    
-                EDamage:FireServer(unpack(args))
-                wait(0.000000001)
-            end 
+        if inv:IsA("ImageButton") then
+            if inv.IconImage.Image == RBXItemsID.PickaxesID.Wood_Pickaxe then
+                for i = 1, 10 do
+                    Root.CFrame = block.CFrame * CFrame.new(0,4,0)
+                    local args = {
+                        [1] = block,
+                        [2] = tonumber(pickaxe)
+                    }
+                        
+                    EDamage:FireServer(unpack(args))
+                    wait(0.000000001)
+                end
+            end
+        end
+
     end
 end
