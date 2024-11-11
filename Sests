@@ -8,13 +8,13 @@ local Root = Character.HumanoidRootPart
 local Portals = game:GetService("Workspace").Main.Portals
 
 local Portal = {
-    ["Coal"] = Portals:FindFisrChild("Coal"),
-    ["Copper"] = Portals:FindFisrChild("Copper"),
-    ["Iron"] = Portals:FindFisrChild("Iron"),
-    ["Gold"] = Portals:FindFisrChild("Gold"),
-    ["Sapphire"] = Portals:FindFisrChild("Sapphire"),
-    ["Ruby"] = Portals:FindFisrChild("Ruby"),
-    ["Lobby"] = Portals:FindFisrChild("Lobby"),
+    ["Coal"] = Portals.Coal,
+    ["Copper"] = Portals.Copper,
+    ["Iron"] = Portals.Iron,
+    ["Gold"] = Portals.Gold,
+    ["Sapphire"] = Portals.Sapphire,
+    ["Ruby"] = Portals.Ruby,
+    ["Lobby"] = Portals.Lobby,
 }
 
 local Pickaxes = {
