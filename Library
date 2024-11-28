@@ -420,7 +420,8 @@ function Lib.Hub(name)
 						Info.Parent = ActiveB
 
 						ActiveB.MouseButton1Click:Connect(function()
-							if Toggle == false then
+							pcall(function()
+								if Toggle == false then
 								Toggle = true
 								ImageL.Image = ImTg[2]
 								while Toggle == true do
@@ -436,10 +437,11 @@ function Lib.Hub(name)
 										wait()
 									end
 								end
-							elseif Toggle == true then
+								elseif Toggle == true then
 								Toggle = false
 								ImageL.Image = ImTg[1]
-							end
+								end
+							end)
 						end)
 
 						function Lib:ChangeB(name,color,functuin:FunctionalTest)
