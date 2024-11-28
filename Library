@@ -373,7 +373,9 @@ function Lib.Hub(name)
 					Info.Parent = ActiveB
 
 					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
 						functuin()
+						end)
 					end)
 
 					function Lib:ToggleB(name, speed ,color ,functuin:FunctionalTest)
@@ -422,24 +424,24 @@ function Lib.Hub(name)
 						ActiveB.MouseButton1Click:Connect(function()
 							pcall(function()
 								if Toggle == false then
-								Toggle = true
-								ImageL.Image = ImTg[2]
-								while Toggle == true do
-									if speed < 1 then
-										for s = 1, 1 do
-											functuin()
+									Toggle = true
+									ImageL.Image = ImTg[2]
+									while Toggle == true do
+										if speed < 1 then
+											for s = 1, 1 do
+												functuin()
+											end
+											wait()
+										elseif speed > 0 then
+											for s = 1, speed do
+												functuin()
+											end
+											wait()
 										end
-										wait()
-									elseif speed > 0 then
-										for s = 1, speed do
-											functuin()
-										end
-										wait()
 									end
-								end
 								elseif Toggle == true then
-								Toggle = false
-								ImageL.Image = ImTg[1]
+									Toggle = false
+									ImageL.Image = ImTg[1]
 								end
 							end)
 						end)
@@ -500,7 +502,9 @@ function Lib.Hub(name)
 							Info.Parent = ActiveB
 
 							ActiveB.MouseButton1Click:Connect(function()
+								pcall(function)
 								functuin(tonumber(Number.Text))
+								end)
 							end)
 
 							Number:GetPropertyChangedSignal("Text"):Connect(function()
@@ -666,7 +670,9 @@ function Lib.Hub(name)
 									game.Players.PlayerAdded:Connect(CheckPlayer)
 									game.Players.PlayerRemoving:Connect(CheckPlayer)
 									ActiveB.MouseButton1Click:Connect(function()
+										pcall(function)
 										functuin(ChoiseText.Value)
+										end)
 									end)
 								end
 							end
