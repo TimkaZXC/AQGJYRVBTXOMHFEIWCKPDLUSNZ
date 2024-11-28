@@ -12,7 +12,6 @@ local Lib = {}
 function Lib.Hub(name)
 	if not CoreGui:FindFirstChild(name) then
 		local Window = Instance.new("ScreenGui")
-		Window.ResetOnSpawn = false
 		local UICorner = Instance.new("UICorner")
 		local UIList = Instance.new("UIListLayout")
 		UIList.Padding = UDim.new(0,5)
@@ -36,7 +35,7 @@ function Lib.Hub(name)
 
 		Window.Enabled = true
 		Window.DisplayOrder = math.huge
-		Window.ResetOnSpawn = true
+		Window.ResetOnSpawn = false
 		Window.Name = name
 		Window.Parent = CoreGui
 
@@ -667,13 +666,13 @@ function Lib.Hub(name)
 									ActiveB.MouseButton1Click:Connect(function()
 										functuin(ChoiseText.Value)
 									end)
+								end
 							end
 						end
 					end
 				end
 			end
 		end
-	end
 	elseif CoreGui:FindFirstChild(name) then
 		CoreGui:FindFirstChild(name):Destroy()
 	end
