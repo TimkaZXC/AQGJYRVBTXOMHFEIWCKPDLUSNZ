@@ -2,7 +2,11 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/
 local Hub = Lib.Hub("Test")
 local SPiano = Hub:Section("🎹Piano🎹")
 
-local P1 = {
+
+
+SPiano:Toggle("🎶Giorno Giavano🎶", 1,Color3.fromRGB(255,255,255), function()
+pcall(function()
+	local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
 	}
@@ -103,9 +107,7 @@ local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp.CFrame
 	}
-	--[End]
 
-SPiano:Toggle("🎶Giorno Giavano🎶", 1,Color3.fromRGB(255,255,255), function(n)
 	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H8))
 	wait(0.5)
 	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
@@ -147,12 +149,13 @@ SPiano:Toggle("🎶Giorno Giavano🎶", 1,Color3.fromRGB(255,255,255), function(
 	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
 	wait(1)
 end)
-SPiano:Toggle("🎶🎶", 2,Color3.fromRGB(255,255,255), function(n)
+end)
+SPiano:Toggle("🎶🎶", 2,Color3.fromRGB(255,255,255), function()
 	print(n)
 end)
-SPiano:Toggle("🎶🎶", 3,Color3.fromRGB(255,255,255), function(n)
+SPiano:Toggle("🎶🎶", 3,Color3.fromRGB(255,255,255), function()
 	print(n)
 end)
-SPiano:Toggle("🎶🎶", 4,Color3.fromRGB(255,255,255), function(n)
+SPiano:Toggle("🎶🎶", 4,Color3.fromRGB(255,255,255), function()
 	print(n)
 end)
