@@ -1,91 +1,16 @@
---local Sect1 = Lib:Section("TESTING")
---Lib:ActiveB("NameAction", Color3.fromRGB(255,255,255), function()
-
---end)
---Lib:ToggleB("NameToggle", 5,Color3.fromRGB(255,255,255), function()
-
---end)
---Lib:ChangeB("NameChange", Color3.fromRGB(255,255,255), function(n)
-  
---end)
---Lib:ChoiceB("NameChoise", 1,Color3.fromRGB(255,255,255), function(n)
-  
---end)
-local Player = game.Players.LocalPlayer
-local Character = Player.Character
-local hr = Character.HumanoidRootPart
-
-
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("Test")
+local SPiano = Hub:Section("🎹Piano🎹")
 
-local Test = Lib.Hub("Подруженька")
-local Sect1 = Lib:Section("Как")
-Lib:ActiveB("Дела??", Color3.fromRGB(255,255,255), function()
-
+SPiano:Change("Change 1", 1,Color3.fromRGB(255,255,0), function(n)
+	print(n)
 end)
-Lib:ToggleB("Strength Inf", 1,Color3.fromRGB(255,255,255), function()
-if not game.Workspace:FindFirstChild("GrabParts") then
-elseif game.Workspace:FindFirstChild("GrabParts") then
-local grab = game.Workspace:FindFirstChild("GrabParts")
-local drag = grab:WaitForChild("DragPart")
-local pos = drag:WaitForChild("AlignPosition")
-pos.MaxForce = 99999999996966969669696696696696999999999996966969669696696696696969669696696696966966696669696696
-end
+SPiano:Change("Change 2", 2,Color3.fromRGB(255,255,0), function(n)
+	print(n)
 end)
-Lib:ToggleB("BlobGrab", 1,Color3.fromRGB(255,255,255), function()
-for _, plrs in pairs(game.Players:GetChildren()) do
-  if plrs.Name ~= Player.Name then
-pcall(function()
-  local args = {
-    [1] = workspace.VipTimXavierSpawnedInToys.CreatureBlobman.LeftDetector,
-    [2] = plrs.Character.HumanoidRootPart,
-    [3] = workspace.VipTimXavierSpawnedInToys.CreatureBlobman.LeftDetector.LeftWeld
-}
-
-workspace.VipTimXavierSpawnedInToys.CreatureBlobman.BlobmanSeatAndOwnerScript.CreatureGrab:FireServer(unpack(args))
-wait()
-local args = {
-    [1] = plrs.Character.HumanoidRootPart,
-    [2] = plrs.Character.HumanoidRootPart
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-wait()
-local args = {
-    [1] = workspace.VipTimXavierSpawnedInToys.CreatureBlobman.LeftDetector.LeftWeld,
-    [2] = plrs.Character.HumanoidRootPart
-}
-
-workspace.VipTimXavierSpawnedInToys.CreatureBlobman.BlobmanSeatAndOwnerScript.CreatureDrop:FireServer(unpack(args))
+SPiano:Change("Change 3", 3,Color3.fromRGB(255,255,0), function(n)
+	print(n)
 end)
-  end
- end
-end)
-Lib:ToggleB("Aura Grab Other", 10,Color3.fromRGB(255,255,255), function()
-for _, plrs in pairs(game.Players:GetChildren()) do
-  if plrs.Name ~= Player.Name then
-  local args = {
-    [1] = plrs.Character.Head,
-    [2] = CFrame.new(0, 0.2, -0.001)
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.CreateGrabLine:FireServer(unpack(args))
-wait()
-local args = {
-    [1] = plrs.Character.Head
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-  end
- end
-end)
-Lib:ChangeB("Gravity change", Color3.fromRGB(255,255,255), function(n)
-    game.Workspace.Gravity = n
-end)
-Lib:ChoiceB("Teleport", 1, Color3.fromRGB(255,255,255), function(n)
- for _, plrs in pairs(game.Players:GetChildren()) do
-  if plrs.Name == n then
-  hr.CFrame = plrs.Character.HumanoidRootPart.CFrame * CFrame.new(0,2,5)
-  end
- end
+SPiano:Change("Change 3", 4,Color3.fromRGB(255,255,0), function(n)
+	print(n)
 end)
