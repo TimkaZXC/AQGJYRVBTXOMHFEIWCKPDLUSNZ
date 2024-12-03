@@ -1,5 +1,6 @@
---[HackPanel]
-local CoreGui = game:GetService("CoreGui")
+local Kavo = {}
+
+local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui --game:GetService("CoreGui")
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -7,9 +8,7 @@ local RunService = game:GetService("RunService")
 
 local SortSections = -2
 
-local Lib = {}
-
-function Lib.Hub(name)
+function Kavo.Wind(name)
 	if not CoreGui:FindFirstChild(name) then
 		local Window = Instance.new("ScreenGui")
 		local UICorner = Instance.new("UICorner")
@@ -32,6 +31,59 @@ function Lib.Hub(name)
 		local C3 = UICorner:Clone()
 		local C4 = UICorner:Clone()
 		local C5 = UICorner:Clone()
+
+		local function OnDragged(frame, speed)
+			local gui = frame
+
+			local dragging
+			local dragInput
+			local dragStart
+			local startPos
+
+			function Lerp(a, b, m)
+				return a + (b - a) * m
+			end;
+
+			local lastMousePos
+			local lastGoalPos
+			local DRAG_SPEED = (speed); -- // The speed of the UI darg.
+			function Update(dt)
+				if not (startPos) then return end;
+				if not (dragging) and (lastGoalPos) then
+					gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+					return 
+				end;
+
+				local delta = (lastMousePos - UserInputService:GetMouseLocation())
+				local xGoal = (startPos.X.Offset - delta.X);
+				local yGoal = (startPos.Y.Offset - delta.Y);
+				lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+				gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+			end;
+
+			gui.InputBegan:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+					dragging = true
+					dragStart = input.Position
+					startPos = gui.Position
+					lastMousePos = UserInputService:GetMouseLocation()
+
+					input.Changed:Connect(function()
+						if input.UserInputState == Enum.UserInputState.End then
+							dragging = false
+						end
+					end)
+				end
+			end)
+
+			gui.InputChanged:Connect(function(input)
+				if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+					dragInput = input
+				end
+			end)
+
+			RunService.Heartbeat:Connect(Update)
+		end
 
 		Window.Enabled = true
 		Window.DisplayOrder = math.huge
@@ -150,390 +202,217 @@ function Lib.Hub(name)
 				Open.Visible = true
 			end
 		end)
-		local gui = Background
 
-		local dragging
-		local dragInput
-		local dragStart
-		local startPos
+		OnDragged(Open, 7) OnDragged(Background, 7)
+		print(name)
 
-		function Lerp(a, b, m)
-			return a + (b - a) * m
-		end;
+	local Test = {}
+	function Test:Section(name)
+		print(name)
+		SortSections += 1
+		local SectionB = Instance.new("TextButton")
+		local SectionF = Instance.new("Frame")
+		local SectionS = Instance.new("ScrollingFrame")
+		local TitleF = Instance.new("TextLabel")
+		local UIList1 = Instance.new("UIListLayout")
+		UIList1.Padding = UDim.new(0,5)
+		UIList1.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		UIList1.VerticalAlignment = Enum.VerticalAlignment.Top
+		UIList1.SortOrder = Enum.SortOrder.LayoutOrder
 
-		local lastMousePos
-		local lastGoalPos
-		local DRAG_SPEED = (6); -- // The speed of the UI darg.
-		function Update(dt)
-			if not (startPos) then return end;
-			if not (dragging) and (lastGoalPos) then
-				gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-				return 
-			end;
+		SectionB.LayoutOrder = SortSections
+		SectionB.BackgroundTransparency = 0.75
+		SectionB.BackgroundColor3 = Color3.fromRGB(0,0,0)
+		SectionB.Size = UDim2.new(0, 95, 0, 30)
+		SectionB.Text = name
+		SectionB.Visible = true
+		SectionB.Font = Enum.Font.PatrickHand
+		SectionB.TextColor3 = Color3.fromRGB(255,255,255)
+		SectionB.TextScaled = true
+		SectionB.Name = name
+		SectionB.Parent = ScrollLeftPanel
 
-			local delta = (lastMousePos - UserInputService:GetMouseLocation())
-			local xGoal = (startPos.X.Offset - delta.X);
-			local yGoal = (startPos.Y.Offset - delta.Y);
-			lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-		end;
+		SectionF.ZIndex = 1
+		SectionF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		SectionF.BackgroundTransparency = 0.8
+		SectionF.Size = UDim2.new(0, 281, 0, 220)
+		SectionF.Position = UDim2.new(0, 0, 0.102, 0)
+		SectionF.Visible = false
+		SectionF.Name = name
+		SectionF.Parent = HeadPanel
 
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-				lastMousePos = UserInputService:GetMouseLocation()
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		RunService.Heartbeat:Connect(Update)
-
-		local gui = Open
-
-		local dragging
-		local dragInput
-		local dragStart
-		local startPos
-
-		function Lerp(a, b, m)
-			return a + (b - a) * m
-		end;
-
-		local lastMousePos
-		local lastGoalPos
-		local DRAG_SPEED = (5); -- // The speed of the UI darg.
-		function Update(dt)
-			if not (startPos) then return end;
-			if not (dragging) and (lastGoalPos) then
-				gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
-				return 
-			end;
-
-			local delta = (lastMousePos - UserInputService:GetMouseLocation())
-			local xGoal = (startPos.X.Offset - delta.X);
-			local yGoal = (startPos.Y.Offset - delta.Y);
-			lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
-			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
-		end;
-
-		gui.InputBegan:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-				dragging = true
-				dragStart = input.Position
-				startPos = gui.Position
-				lastMousePos = UserInputService:GetMouseLocation()
-
-				input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						dragging = false
-					end
-				end)
-			end
-		end)
-
-		gui.InputChanged:Connect(function(input)
-			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-				dragInput = input
-			end
-		end)
-
-		RunService.Heartbeat:Connect(Update)
-		function Lib:Section(name)
-			if not ScrollLeftPanel:FindFirstChild(name) then
-				print(name)
-				SortSections += 1
-				local SectionB = Instance.new("TextButton")
-				local SectionF = Instance.new("Frame")
-				local SectionS = Instance.new("ScrollingFrame")
-				local TitleF = Instance.new("TextLabel")
-				local UIList1 = Instance.new("UIListLayout")
-				UIList1.Padding = UDim.new(0,5)
-				UIList1.HorizontalAlignment = Enum.HorizontalAlignment.Center
-				UIList1.VerticalAlignment = Enum.VerticalAlignment.Top
-				UIList1.SortOrder = Enum.SortOrder.LayoutOrder
-
-				SectionB.LayoutOrder = SortSections
-				SectionB.BackgroundTransparency = 0.75
-				SectionB.BackgroundColor3 = Color3.fromRGB(0,0,0)
-				SectionB.Size = UDim2.new(0, 95, 0, 30)
-				SectionB.Text = name
-				SectionB.Visible = true
-				SectionB.Font = Enum.Font.PatrickHand
-				SectionB.TextColor3 = Color3.fromRGB(255,255,255)
-				SectionB.TextScaled = true
-				SectionB.Name = name
-				SectionB.Parent = ScrollLeftPanel
-
-				SectionF.ZIndex = 1
-				SectionF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				SectionF.BackgroundTransparency = 0.8
-				SectionF.Size = UDim2.new(0, 281, 0, 220)
-				SectionF.Position = UDim2.new(0, 0, 0.102, 0)
-				SectionF.Visible = false
-				SectionF.Name = name
-				SectionF.Parent = HeadPanel
-
-				SectionS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				SectionS.BackgroundTransparency = 1
-				SectionS.ScrollBarThickness = 0
-				SectionS.CanvasSize = UDim2.new(0,0,0,0)
-				SectionS.Position = UDim2.new(0,0,0.011,0)
-				SectionS.Size = UDim2.new(0, 281, 0, 217)
-				SectionS.Visible = true
-				SectionS.AutomaticCanvasSize = Enum.AutomaticSize.Y
-				SectionS.ScrollingDirection = Enum.ScrollingDirection.Y
-				SectionS.Name = "ScrollList"
-				SectionS.Parent = SectionF
-				UIList1.Parent = SectionS
+		SectionS.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		SectionS.BackgroundTransparency = 1
+		SectionS.ScrollBarThickness = 0
+		SectionS.CanvasSize = UDim2.new(0,0,0,0)
+		SectionS.Position = UDim2.new(0,0,0.011,0)
+		SectionS.Size = UDim2.new(0, 281, 0, 217)
+		SectionS.Visible = true
+		SectionS.AutomaticCanvasSize = Enum.AutomaticSize.Y
+		SectionS.ScrollingDirection = Enum.ScrollingDirection.Y
+		SectionS.Name = "ScrollList"
+		SectionS.Parent = SectionF
+		UIList1.Parent = SectionS
 
 
-				TitleF.LayoutOrder = -99
-				TitleF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				TitleF.BackgroundTransparency = 0.35
-				TitleF.Size = UDim2.new(0, 281, 0, 25)
-				TitleF.Active = false
-				TitleF.Visible = true
-				TitleF.TextColor3 = Color3.fromRGB(255,255,255)
-				TitleF.TextScaled = true
-				TitleF.RichText = true
-				TitleF.Font = Enum.Font.PatrickHand
-				TitleF.TextXAlignment = Enum.TextXAlignment.Center
-				TitleF.Name = "Title"
-				TitleF.Text = tostring(" "..name):upper()
-				TitleF.Parent = SectionS
+		TitleF.LayoutOrder = -99
+		TitleF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		TitleF.BackgroundTransparency = 0.35
+		TitleF.Size = UDim2.new(0, 281, 0, 25)
+		TitleF.Active = false
+		TitleF.Visible = true
+		TitleF.TextColor3 = Color3.fromRGB(255,255,255)
+		TitleF.TextScaled = true
+		TitleF.RichText = true
+		TitleF.Font = Enum.Font.PatrickHand
+		TitleF.TextXAlignment = Enum.TextXAlignment.Center
+		TitleF.Name = "Title"
+		TitleF.Text = tostring(" "..name):upper()
+		TitleF.Parent = SectionS
 
-				SectionB.MouseButton1Click:Connect(function()
-					for _, other in pairs(HeadPanel:GetChildren()) do
-						if other:IsA("Frame") then
-							if SectionB.Name ~= other.Name then
-								other.Visible = false
+		SectionB.MouseButton1Click:Connect(function()
+			for _, other in pairs(HeadPanel:GetChildren()) do
+				if other:IsA("Frame") then
+					if SectionB.Name ~= other.Name then
+						other.Visible = false
 
-							elseif SectionB.Name == other.Name then
-								if other.Visible == false then
-									other.Visible = true
-								elseif other.Visible == true then
-									other.Visible = false
-								end
-							end
+					elseif SectionB.Name == other.Name then
+						if other.Visible == false then
+							other.Visible = true
+						elseif other.Visible == true then
+							other.Visible = false
 						end
 					end
-				end)
+				end
+			end
+		end)
+	print(name)
+	local Buttons = {}
 
-				function Lib:ActiveB(name, color ,functuin:FunctionalTest)
-					local ActiveB = Instance.new("TextButton")
-					local Inco = Instance.new("Frame")
-					local Image = Instance.new("ImageLabel")
-					local Info = Instance.new("TextLabel")
+	function Buttons:Active(name, color ,functuin:FunctionalTest)
+		local ActiveB = Instance.new("TextButton")
+		local Inco = Instance.new("Frame")
+		local Image = Instance.new("ImageLabel")
+		local Info = Instance.new("TextLabel")
 
-					ActiveB.LayoutOrder = -2
-					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-					ActiveB.BackgroundTransparency = 0.75
-					ActiveB.Size = UDim2.new(0, 280, 0, 35)
-					ActiveB.MaxVisibleGraphemes = 0
-					ActiveB.Visible = true
-					ActiveB.Name = "Active"
-					ActiveB.Text = ""
-					ActiveB.Parent = SectionS
+		ActiveB.LayoutOrder = -2
+		ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		ActiveB.BackgroundTransparency = 0.75
+		ActiveB.Size = UDim2.new(0, 280, 0, 35)
+		ActiveB.MaxVisibleGraphemes = 0
+		ActiveB.Visible = true
+		ActiveB.Name = "Active"
+		ActiveB.Text = ""
+		ActiveB.Parent = SectionS
 
-					Image.Parent = ActiveB
-					Image.BackgroundTransparency = 1
-					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
-					Image.Size = UDim2.new(0,30,0,30)
-					Image.Image = "rbxassetid://88969209134354"
-					Image.ImageColor3 = color
+		Image.Parent = ActiveB
+		Image.BackgroundTransparency = 1
+		Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+		Image.Size = UDim2.new(0,30,0,30)
+		Image.Image = "rbxassetid://88969209134354"
+		Image.ImageColor3 = color
 
-					Inco.Size = UDim2.new(0, 4, 0, 35)
-					Inco.Parent = ActiveB
-					Inco.BackgroundColor3 = color
+		Inco.Size = UDim2.new(0, 4, 0, 35)
+		Inco.Parent = ActiveB
+		Inco.BackgroundColor3 = color
 
-					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-					Info.BackgroundTransparency = 1
-					Info.Size = UDim2.new(0, 231, 0, 33)
-					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
-					Info.Visible = true
-					Info.TextColor3 = Color3.fromRGB(255,255,255)
-					Info.TextScaled = true
-					Info.RichText = true
-					Info.Font = Enum.Font.PatrickHand
-					Info.TextXAlignment = Enum.TextXAlignment.Left
-					Info.Text = " "..name
-					Info.Parent = ActiveB
+		Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Info.BackgroundTransparency = 1
+		Info.Size = UDim2.new(0, 231, 0, 33)
+		Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+		Info.Visible = true
+		Info.TextColor3 = Color3.fromRGB(255,255,255)
+		Info.TextScaled = true
+		Info.RichText = true
+		Info.Font = Enum.Font.PatrickHand
+		Info.TextXAlignment = Enum.TextXAlignment.Left
+		Info.Text = " "..name
+		Info.Parent = ActiveB
 
-					ActiveB.MouseButton1Click:Connect(function()
-						pcall(function()
-							functuin()
-						end)
-					end)
+		ActiveB.MouseButton1Click:Connect(function()
+			pcall(function()
+				functuin()
+			end)
+		end)
+		print(name)
+	end
 
-					function Lib:ToggleB(name, speed ,color ,functuin:FunctionalTest)
+			function Buttons:Toggle(name, speed ,color ,functuin:FunctionalTest)
 
-						local ActiveB = Instance.new("TextButton")
-						local ImageL = Instance.new("ImageLabel")
-						local Inco = Instance.new("Frame")
-						local Info = Instance.new("TextLabel")
+				local ActiveB = Instance.new("TextButton")
+				local ImageL = Instance.new("ImageLabel")
+				local Inco = Instance.new("Frame")
+				local Info = Instance.new("TextLabel")
 
-						local Toggle = false
-						local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
-						ActiveB.LayoutOrder = 0
-						ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-						ActiveB.BackgroundTransparency = 0.75
-						ActiveB.Size = UDim2.new(0, 280, 0, 35)
-						ActiveB.MaxVisibleGraphemes = 0
-						ActiveB.Visible = true
-						ActiveB.Name = "Toggle"
-						ActiveB.Text = " "
-						ActiveB.Parent = SectionS
+				local Toggle = false
+				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
+				ActiveB.LayoutOrder = 0
+				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				ActiveB.BackgroundTransparency = 0.75
+				ActiveB.Size = UDim2.new(0, 280, 0, 35)
+				ActiveB.MaxVisibleGraphemes = 0
+				ActiveB.Visible = true
+				ActiveB.Name = "Toggle"
+				ActiveB.Text = " "
+				ActiveB.Parent = SectionS
 
-						ImageL.Parent = ActiveB
-						ImageL.BackgroundTransparency = 1
-						ImageL.Position = UDim2.new(0.885, 0, 0.071, 0)
-						ImageL.Size = UDim2.new(0,30,0,30)
-						ImageL.Image = ImTg[1]
-						ImageL.ImageColor3 = color
+				ImageL.Parent = ActiveB
+				ImageL.BackgroundTransparency = 1
+				ImageL.Position = UDim2.new(0.885, 0, 0.071, 0)
+				ImageL.Size = UDim2.new(0,30,0,30)
+				ImageL.Image = ImTg[1]
+				ImageL.ImageColor3 = color
 
-						Inco.Size = UDim2.new(0, 4, 0, 35)
-						Inco.Parent = ActiveB
-						Inco.BackgroundColor3 = color
+				Inco.Size = UDim2.new(0, 4, 0, 35)
+				Inco.Parent = ActiveB
+				Inco.BackgroundColor3 = color
 
-						Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-						Info.BackgroundTransparency = 1
-						Info.Size = UDim2.new(0, 231, 0, 33)
-						Info.Position = UDim2.new(0.02, 0, 0.029, 0)
-						Info.Visible = true
-						Info.TextColor3 = Color3.fromRGB(255,255,255)
-						Info.TextScaled = true
-						Info.RichText = true
-						Info.Font = Enum.Font.PatrickHand
-						Info.TextXAlignment = Enum.TextXAlignment.Left
-						Info.Text = " "..name
-						Info.Parent = ActiveB
+				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				Info.BackgroundTransparency = 1
+				Info.Size = UDim2.new(0, 231, 0, 33)
+				Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+				Info.Visible = true
+				Info.TextColor3 = Color3.fromRGB(255,255,255)
+				Info.TextScaled = true
+				Info.RichText = true
+				Info.Font = Enum.Font.PatrickHand
+				Info.TextXAlignment = Enum.TextXAlignment.Left
+				Info.Text = " "..name
+				Info.Parent = ActiveB
 
-						ActiveB.MouseButton1Click:Connect(function()
-							pcall(function()
-								if Toggle == false then
-									Toggle = true
-									ImageL.Image = ImTg[2]
-									while Toggle == true do
-										if speed < 1 then
-											for s = 1, 1 do
-												functuin()
-											end
-											wait()
-										elseif speed > 0 then
-											for s = 1, speed do
-												functuin()
-											end
-											wait()
-										end
+				ActiveB.MouseButton1Click:Connect(function()
+					pcall(function()
+						if Toggle == false then
+							Toggle = true
+							ImageL.Image = ImTg[2]
+							while Toggle == true do
+								if speed < 1 then
+									for s = 1, 1 do
+										functuin()
 									end
-								elseif Toggle == true then
-									Toggle = false
-									ImageL.Image = ImTg[1]
+									wait()
+								elseif speed > 0 then
+									for s = 1, speed do
+										functuin()
+									end
+									wait()
 								end
-							end)
-						end)
-
-						function Lib:ChangeB(name,color,functuin:FunctionalTest)
-							local ActiveB = Instance.new("TextButton")
-							local Image = Instance.new("ImageLabel")
-							local Inco = Instance.new("Frame")
-							local Info = Instance.new("TextLabel")
-							local Number = Instance.new("TextBox")
-
-							ActiveB.LayoutOrder = -1
-							ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-							ActiveB.BackgroundTransparency = 0.75
-							ActiveB.Size = UDim2.new(0, 280, 0, 35)
-							ActiveB.MaxVisibleGraphemes = 0
-							ActiveB.Visible = true
-							ActiveB.Name = "Change"
-							ActiveB.Text = " "
-							ActiveB.Parent = SectionS
-
-							Image.Parent = ActiveB
-							Image.BackgroundTransparency = 1
-							Image.Position = UDim2.new(0.885, 0, 0.071, 0)
-							Image.Size = UDim2.new(0,30,0,30)
-							Image.Image = "rbxassetid://88969209134354"
-							Image.ImageColor3 = color
-
-							Inco.Size = UDim2.new(0, 4, 0, 35)
-							Inco.Parent = ActiveB
-							Inco.BackgroundColor3 = color
-
-							Number.BackgroundColor3 = Color3.fromRGB(0,0,0)
-							Number.BackgroundTransparency = 0.85
-							Number.TextColor3 = Color3.fromRGB(255,255,255)
-							Number.TextScaled = true
-							Number.MultiLine = true
-							Number.PlaceholderText = "Number..."
-							Number.Text = ""
-							Number.RichText = true
-							Number.Font = Enum.Font.PatrickHand
-							Number.TextXAlignment = Enum.TextXAlignment.Left
-							Number.Position = UDim2.new(0.636, 0, 0.056, 0)
-							Number.Size = UDim2.new(0, 60, 0, 30)
-							Number.Parent = ActiveB
-
-							Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-							Info.BackgroundTransparency = 1
-							Info.Size = UDim2.new(0, 231, 0, 33)
-							Info.Position = UDim2.new(0.02, 0, 0.029, 0)
-							Info.Visible = true
-							Info.TextColor3 = Color3.fromRGB(255,255,255)
-							Info.TextScaled = true
-							Info.RichText = true
-							Info.Font = Enum.Font.PatrickHand
-							Info.TextXAlignment = Enum.TextXAlignment.Left
-							Info.Text = " "..name
-							Info.Parent = ActiveB
-
-							ActiveB.MouseButton1Click:Connect(function()
-								pcall(function()
-								functuin(tonumber(Number.Text))
-								end)
-						end)
-
-						Number:GetPropertyChangedSignal("Text"):Connect(function()
-	Number.Text = Number.Text:gsub('%D+', '')
-end)
-
-function Lib:ChoiceB(name,class,color,functuin:FunctionalTest)
-	--{1 - PlayerList}
-	if class == 1 then
-		local ChoiseText = Instance.new("StringValue")
-		ChoiseText.Parent = SectionS
-		ChoiseText.Name = "Choise"
-		ChoiseText.Value = ""
-
+							end
+						elseif Toggle == true then
+							Toggle = false
+							ImageL.Image = ImTg[1]
+						end
+					end)
+				end)
+				print(name)
+			end
+			
+	function Buttons:Change(name, types, color, functuin:FunctionalTest)
 		local ActiveB = Instance.new("TextButton")
 		local Image = Instance.new("ImageLabel")
 		local Inco = Instance.new("Frame")
 		local Info = Instance.new("TextLabel")
-		local Background = Instance.new("Frame")
-		local List = Instance.new("ScrollingFrame")
-		local UILIST = Instance.new("UIListLayout")
-
-		UILIST.Padding = UDim.new(0,5)
-		UILIST.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		UILIST.HorizontalFlex = Enum.UIFlexAlignment.Fill
-		UILIST.VerticalFlex = Enum.UIFlexAlignment.SpaceBetween
-		UILIST.VerticalAlignment = Enum.VerticalAlignment.Top
-		UILIST.SortOrder = Enum.SortOrder.LayoutOrder
-		UILIST.Parent = List
+		local Number = Instance.new("TextBox")
 
 		ActiveB.LayoutOrder = -1
 		ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -556,22 +435,19 @@ function Lib:ChoiceB(name,class,color,functuin:FunctionalTest)
 		Inco.Parent = ActiveB
 		Inco.BackgroundColor3 = color
 
-		Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
-		Background.BackgroundTransparency = 0.9
-		Background.Position = UDim2.new(0.568, 0, 0.056, 0)
-		Background.Size = UDim2.new(0, 80, 0, 30)
-		Background.Parent = ActiveB
-
-		List.Parent = Background
-		List.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		List.BackgroundTransparency = 0.9
-		List.ScrollBarThickness = 0
-		List.CanvasSize = UDim2.new(0,0,0,0)
-		List.Position = UDim2.new(0,0,0,0)
-		List.Size = UDim2.new(0, 80, 0, 30)
-		List.Visible = true
-		List.AutomaticCanvasSize = Enum.AutomaticSize.Y
-		List.ScrollingDirection = Enum.ScrollingDirection.Y
+		Number.BackgroundColor3 = Color3.fromRGB(0,0,0)
+		Number.BackgroundTransparency = 0.85
+		Number.TextColor3 = Color3.fromRGB(255,255,255)
+		Number.TextScaled = true
+		Number.MultiLine = true
+		Number.PlaceholderText = "Number..."
+		Number.Text = ""
+		Number.RichText = true
+		Number.Font = Enum.Font.PatrickHand
+		Number.TextXAlignment = Enum.TextXAlignment.Left
+		Number.Position = UDim2.new(0.636, 0, 0.056, 0)
+		Number.Size = UDim2.new(0, 60, 0, 30)
+		Number.Parent = ActiveB
 
 		Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		Info.BackgroundTransparency = 1
@@ -586,119 +462,201 @@ function Lib:ChoiceB(name,class,color,functuin:FunctionalTest)
 		Info.Text = " "..name
 		Info.Parent = ActiveB
 
-		local function CheckPlayer(plrs:Players)
-			for _, buttons in pairs(List:GetChildren()) do
-				if buttons:IsA("TextButton") then
-					buttons:Destroy()
-				end
-			end
-			for _, plr in pairs(game.Players:GetPlayers()) do
-				local Button = Instance.new("TextButton")
-
-				local Avatars = Instance.new("ImageLabel")
-				local Names = Instance.new("TextLabel")
-				local Displays =Instance.new("TextLabel")
-
-				local c1 = Instance.new("UICorner")
-				local c2 = Instance.new("UICorner")
-				local c3 = Instance.new("UICorner")
-				local c4 = Instance.new("UICorner")
-
-				Button.Name = plr.Name
-				Button.Text = ""
-				Button.Size = UDim2.new(0, 80, 0, 30)
-				Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Button.BackgroundTransparency = 0.9
-				Button.Visible = true
-				Button.TextColor3 = Color3.fromRGB(255,255,255)
-				Button.TextScaled = true
-				Button.RichText = true
-				Button.Font = Enum.Font.PatrickHand
-				Button.TextXAlignment = Enum.TextXAlignment.Left
-
-				Avatars.Size = UDim2.new(0, 25, 0, 25)
-				Avatars.Position = UDim2.new(0, 0, 0.084, 0)
-				Avatars.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Avatars.BackgroundTransparency = 1
-				Avatars.Image = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-
-				Names.Text = " @"..plr.Name
-				Names.Position = UDim2.new(0.313, 0, 0.5, 0)
-				Names.Size = UDim2.new(0, 55, 0, 12)
-				Names.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Names.BackgroundTransparency = 1
-				Names.Visible = true
-				Names.TextColor3 = Color3.fromRGB(144,144,144)
-				Names.TextScaled = true
-				Names.RichText = true
-				Names.Font = Enum.Font.PatrickHand
-				Names.TextXAlignment = Enum.TextXAlignment.Left
-
-				Displays.Text = " "..plr.DisplayName
-				Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
-				Displays.Size = UDim2.new(0, 55, 0, 12)
-				Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Displays.BackgroundTransparency = 1
-				Displays.Visible = true
-				Displays.TextColor3 = Color3.fromRGB(255,255,255)
-				Displays.TextScaled = true
-				Displays.RichText = true
-				Displays.Font = Enum.Font.PatrickHand
-				Displays.TextXAlignment = Enum.TextXAlignment.Left
-
-				Displays.Parent = Button
-				Names.Parent = Button
-				Avatars.Parent = Button
-				Button.Parent = List
-
-				Button.MouseButton1Click:Connect(function()
-					ChoiseText.Value = Button.Name
-				end)
-				Button.MouseEnter:Connect(function()
-					Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
-					Names.TextColor3 = Color3.fromRGB(50, 149, 0)
-					Avatars.ImageColor3 = Color3.fromRGB(85, 255, 0)
-				end)
-				Button.MouseLeave:Connect(function()
-					Displays.TextColor3 = Color3.fromRGB(255,255,255)
-					Names.TextColor3 = Color3.fromRGB(144,144,144)
-					Avatars.ImageColor3 = Color3.fromRGB(255, 255, 255)
-				end)
-			end
-		end
-		CheckPlayer()
-		game.Players.PlayerAdded:Connect(CheckPlayer)
-		game.Players.PlayerRemoving:Connect(CheckPlayer)
 		ActiveB.MouseButton1Click:Connect(function()
 			pcall(function()
-			functuin(ChoiseText.Value)
+				functuin(Number.Text)
 			end)
-	end)
+		end)
+		if types == 1 then
+			Number:GetPropertyChangedSignal("Text"):Connect(function()
+				Number.Text = Number.Text:gsub('%D+', '')
+			end)
+		elseif types == 2 then
+			Number:GetPropertyChangedSignal("Text"):Connect(function()
+				Number.Text = Number.Text:gsub('%s+', '')
+			end)
+		elseif types == 3 then
+			Number:GetPropertyChangedSignal("Text"):Connect(function()
+				Number.Text = Number.Text:gsub('%W+', '')
+			end)
+		elseif types == 4 then
+			Number:GetPropertyChangedSignal("Text"):Connect(function()
+				Number.Text = Number.Text:gsub('%a+', '')
+			end)
+		end
+	end
+	function Buttons:Choice(name, types, color, functuin:FunctionalTest)
+		--{1 - PlayerList}
+		if types == 1 then
+			local ChoiseText = Instance.new("StringValue")
+			ChoiseText.Parent = SectionS
+			ChoiseText.Name = "Choise"
+			ChoiseText.Value = ""
+
+			local ActiveB = Instance.new("TextButton")
+			local Image = Instance.new("ImageLabel")
+			local Inco = Instance.new("Frame")
+			local Info = Instance.new("TextLabel")
+			local Background = Instance.new("Frame")
+			local List = Instance.new("ScrollingFrame")
+			local UILIST = Instance.new("UIListLayout")
+
+			UILIST.Padding = UDim.new(0,5)
+			UILIST.HorizontalAlignment = Enum.HorizontalAlignment.Center
+			UILIST.HorizontalFlex = Enum.UIFlexAlignment.Fill
+			UILIST.VerticalFlex = Enum.UIFlexAlignment.SpaceBetween
+			UILIST.VerticalAlignment = Enum.VerticalAlignment.Top
+			UILIST.SortOrder = Enum.SortOrder.LayoutOrder
+			UILIST.Parent = List
+
+			ActiveB.LayoutOrder = -1
+			ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			ActiveB.BackgroundTransparency = 0.75
+			ActiveB.Size = UDim2.new(0, 280, 0, 35)
+			ActiveB.MaxVisibleGraphemes = 0
+			ActiveB.Visible = true
+			ActiveB.Name = "Change"
+			ActiveB.Text = " "
+			ActiveB.Parent = SectionS
+
+			Image.Parent = ActiveB
+			Image.BackgroundTransparency = 1
+			Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+			Image.Size = UDim2.new(0,30,0,30)
+			Image.Image = "rbxassetid://88969209134354"
+			Image.ImageColor3 = color
+
+			Inco.Size = UDim2.new(0, 4, 0, 35)
+			Inco.Parent = ActiveB
+			Inco.BackgroundColor3 = color
+
+			Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
+			Background.BackgroundTransparency = 0.9
+			Background.Position = UDim2.new(0.568, 0, 0.056, 0)
+			Background.Size = UDim2.new(0, 80, 0, 30)
+			Background.Parent = ActiveB
+
+			List.Parent = Background
+			List.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			List.BackgroundTransparency = 0.9
+			List.ScrollBarThickness = 0
+			List.CanvasSize = UDim2.new(0,0,0,0)
+			List.Position = UDim2.new(0,0,0,0)
+			List.Size = UDim2.new(0, 80, 0, 30)
+			List.Visible = true
+			List.AutomaticCanvasSize = Enum.AutomaticSize.Y
+			List.ScrollingDirection = Enum.ScrollingDirection.Y
+
+			Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Info.BackgroundTransparency = 1
+			Info.Size = UDim2.new(0, 231, 0, 33)
+			Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+			Info.Visible = true
+			Info.TextColor3 = Color3.fromRGB(255,255,255)
+			Info.TextScaled = true
+			Info.RichText = true
+			Info.Font = Enum.Font.PatrickHand
+			Info.TextXAlignment = Enum.TextXAlignment.Left
+			Info.Text = " "..name
+			Info.Parent = ActiveB
+
+			local function CheckPlayer(plrs:Players)
+				for _, buttons in pairs(List:GetChildren()) do
+					if buttons:IsA("TextButton") then
+						buttons:Destroy()
+					end
+				end
+				for _, plr in pairs(game.Players:GetPlayers()) do
+					local Button = Instance.new("TextButton")
+
+					local Avatars = Instance.new("ImageLabel")
+					local Names = Instance.new("TextLabel")
+					local Displays =Instance.new("TextLabel")
+
+					local c1 = Instance.new("UICorner")
+					local c2 = Instance.new("UICorner")
+					local c3 = Instance.new("UICorner")
+					local c4 = Instance.new("UICorner")
+
+					Button.Name = plr.Name
+					Button.Text = ""
+					Button.Size = UDim2.new(0, 80, 0, 30)
+					Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Button.BackgroundTransparency = 0.9
+					Button.Visible = true
+					Button.TextColor3 = Color3.fromRGB(255,255,255)
+					Button.TextScaled = true
+					Button.RichText = true
+					Button.Font = Enum.Font.PatrickHand
+					Button.TextXAlignment = Enum.TextXAlignment.Left
+
+					Avatars.Size = UDim2.new(0, 25, 0, 25)
+					Avatars.Position = UDim2.new(0, 0, 0.084, 0)
+					Avatars.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Avatars.BackgroundTransparency = 1
+					Avatars.Image = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+
+					Names.Text = " @"..plr.Name
+					Names.Position = UDim2.new(0.313, 0, 0.5, 0)
+					Names.Size = UDim2.new(0, 55, 0, 12)
+					Names.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Names.BackgroundTransparency = 1
+					Names.Visible = true
+					Names.TextColor3 = Color3.fromRGB(144,144,144)
+					Names.TextScaled = true
+					Names.RichText = true
+					Names.Font = Enum.Font.PatrickHand
+					Names.TextXAlignment = Enum.TextXAlignment.Left
+
+					Displays.Text = " "..plr.DisplayName
+					Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
+					Displays.Size = UDim2.new(0, 55, 0, 12)
+					Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Displays.BackgroundTransparency = 1
+					Displays.Visible = true
+					Displays.TextColor3 = Color3.fromRGB(255,255,255)
+					Displays.TextScaled = true
+					Displays.RichText = true
+					Displays.Font = Enum.Font.PatrickHand
+					Displays.TextXAlignment = Enum.TextXAlignment.Left
+
+					Displays.Parent = Button
+					Names.Parent = Button
+					Avatars.Parent = Button
+					Button.Parent = List
+
+					Button.MouseButton1Click:Connect(function()
+						ChoiseText.Value = Button.Name
+					end)
+					Button.MouseEnter:Connect(function()
+						Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
+						Names.TextColor3 = Color3.fromRGB(50, 149, 0)
+						Avatars.ImageColor3 = Color3.fromRGB(85, 255, 0)
+					end)
+					Button.MouseLeave:Connect(function()
+						Displays.TextColor3 = Color3.fromRGB(255,255,255)
+						Names.TextColor3 = Color3.fromRGB(144,144,144)
+						Avatars.ImageColor3 = Color3.fromRGB(255, 255, 255)
+					end)
+				end
+			end
+			CheckPlayer()
+			game.Players.PlayerAdded:Connect(CheckPlayer)
+			game.Players.PlayerRemoving:Connect(CheckPlayer)
+			ActiveB.MouseButton1Click:Connect(function()
+				pcall(function()
+					functuin(ChoiseText.Value)
+				end)
+			end)
+			
+		end
+		return Buttons
 	end
 	end
-	end
-	end
-	end
-	end
-	end
+	return Test
+	
 	elseif CoreGui:FindFirstChild(name) then
-	CoreGui:FindFirstChild(name):Destroy()
+		CoreGui:FindFirstChild(name):Destroy()
+	end
 end
-end
-
---local Test = Lib.Hub("TEst")
---local Sect1 = Lib:Section("TESTING")
---Lib:ActiveB("NameAction", Color3.fromRGB(255,255,255), function()
-
---end)
---Lib:ToggleB("NameToggle", 5,Color3.fromRGB(255,255,255), function()
-
---end)
---Lib:ChangeB("NameChange", Color3.fromRGB(255,255,255), function()
-
---end)
---Lib:ChoiceB("NameChoise", 1,Color3.fromRGB(255,255,255), function()
-
---end)
-
-return Lib
+return Kavo
