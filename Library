@@ -8,7 +8,7 @@ local RunService = game:GetService("RunService")
 
 local SortSections = -2
 
-function Kavo.Wind(name)
+function Kavo.Hub(name)
 	if not CoreGui:FindFirstChild(name) then
 		local Window = Instance.new("ScreenGui")
 		local UICorner = Instance.new("UICorner")
