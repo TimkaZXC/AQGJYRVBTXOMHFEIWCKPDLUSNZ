@@ -5,7 +5,6 @@ local SPiano = Hub:Section("[🎹]Piano")
 
 
 SPiano:Toggle("[🎶]Giorno Giavano", 1,Color3.fromRGB(255,255,255), function()
-pcall(function()
 	local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -66,7 +65,6 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C.CFrame
 	}
-	--[Helping Button]
 	local H1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp.CFrame
@@ -107,52 +105,52 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp.CFrame
 	}
-
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H8))
-	wait(0.5)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.5)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H8))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-	wait(0.5)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P7))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
-	wait(0.3)
-	game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-	wait(1)
-	end)
+pcall(function()
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H8))
+			wait(0.5)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.5)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H8))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
+			wait(0.5)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P7))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P10))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H6))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
+			wait(0.3)
+			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
+			wait(0.5)
+		end)
+		wait(0.5)
 end)
 SPiano:Toggle("[🎶]Bella Ciao", 1,Color3.fromRGB(255,255,255), function()
-pcall(function()
-	local P1 = {
+local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
 	}
@@ -212,7 +210,6 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C.CFrame
 	}
-	--[Helping Button]
 	local H1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp.CFrame
@@ -253,6 +250,7 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp.CFrame
 	}
+pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P6))
 			wait(0.5)
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P9))
@@ -328,12 +326,12 @@ pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P12))
 			wait(0.5)
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-			wait(0.8)
+			wait(0.3)
 		end)
+		wait(0.5)
 end)
 SPiano:Toggle("[🎶]Love me, love me💖", 1,Color3.fromRGB(255,255,255), function()
-pcall(function()
-	local P1 = {
+local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
 	}
@@ -393,7 +391,6 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C.CFrame
 	}
-	--[Helping Button]
 	local H1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp.CFrame
@@ -434,6 +431,7 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp.CFrame
 	}
+pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
 			wait(0.5)
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
@@ -494,12 +492,12 @@ pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H3))
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P5))
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(1.5)
-	end)
+			wait(1)
+		end)
+		wait(0.5)
 end)
 SPiano:Toggle("[🎶] Music 1", 1,Color3.fromRGB(255,255,255), function()
-pcall(function()
-	local P1 = {
+local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
 	}
@@ -559,7 +557,6 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3C.CFrame
 	}
-	--[Helping Button]
 	local H1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1Csharp.CFrame
@@ -600,67 +597,7 @@ pcall(function()
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key3Asharp.CFrame
 	}
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
-			wait(0.3)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(0.3)
-			
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P2))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P4))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P6))
-			wait(1)
-			
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-			wait(0.3)
-
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P4))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P6))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P8))
-			wait(1)
-			
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-			wait(0.5)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
-			wait(0.3)
-			
-
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P1))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P3))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P5))
-			wait(1)
-			
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P14))
-			wait(0.3)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P13))
-			wait(0.3)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P12))
-			wait(0.3)
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P12))
-			wait(0.5)
-			
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P1))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(H3))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P5))
-			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P11))
-			wait(1)
+pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P8))
 			wait(0.3)
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P6))
@@ -762,6 +699,7 @@ pcall(function()
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P6))
 			wait(0.25)
 			game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(P15))
-			wait(0.8)
+			wait(0.3)
 		end)
+		wait(0.5)
 end)
