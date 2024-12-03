@@ -1,9 +1,15 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library1"))()
 local Hub = Lib.Hub("[🎄]Fling Things and People")
+local SHack = Hub:Section("[🕷]Main")
+SHack:Toggle("Inf Strenght💪", 1, Color3.fromRGB(255,255,255), function()
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	grab.DragPart.AlignPosition.MaxForce = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+	end
+end)
+
 local SPiano = Hub:Section("[🎹]Piano")
-
-
-
 SPiano:Toggle("[🎶]Giorno Giavano", 1,Color3.fromRGB(255,255,255), function()
 	local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
