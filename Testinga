@@ -651,7 +651,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Coffin Dance Official Music☠", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Rip Dance☠", 1,Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
