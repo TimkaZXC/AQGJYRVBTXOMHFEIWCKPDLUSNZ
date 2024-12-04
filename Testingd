@@ -19,7 +19,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 
 	for _ grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
-			grabs.Touched:Connect(function(hit)
+			grabs.DragPart.Touched:Connect(function(hit)
 			if hit.Parent.Name == Player.Name then
 			HumanoidRootPart.Anchored = true
 			Struggle:FireServer()
