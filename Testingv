@@ -10,13 +10,11 @@ SHack:Toggle("Inf Strenght💪", 1, Color3.fromRGB(255,255,255), function()
 end)
 
 SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
-	local Players = game:GetService("Players")
-	local Player = Players.LocalPlayer
+pcall(function()
+	local Player = game:GetService("Players").LocalPlayer
 	local Character = Player.Character
-	local Humanoid = Character.Humanoid
 	local HumanoidRootPart = Character.HumanoidRootPart
 	local Struggle = game.ReplicatedStorage.CharacterEvents.Struggle
-pcall(function()
 	for _ grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
 			grabs.DragPart.Touched:Connect(function(hit)
