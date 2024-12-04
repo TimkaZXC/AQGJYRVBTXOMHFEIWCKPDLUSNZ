@@ -15,7 +15,7 @@ pcall(function()
 	local Character = Player.Character
 	local HumanoidRootPart = Character.HumanoidRootPart
 	local Struggle = game.ReplicatedStorage.CharacterEvents.Struggle
-	for _ grabs in pairs(game.Workspace:GetDescendants()) do
+	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
 			grabs.DragPart.Touched:Connect(function(hit)
 			if hit.Parent.Name == Player.Name then
