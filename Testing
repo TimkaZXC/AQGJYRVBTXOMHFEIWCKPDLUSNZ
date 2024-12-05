@@ -10,24 +10,24 @@ SHack:Toggle("Inf Strenght💪", 1, Color3.fromRGB(255,255,255), function()
 end)
 
 SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
-pcall(function()
 	local Player = game:GetService("Players").LocalPlayer
 	local Character = Player.Character
 	local HumanoidRootPart = Character.HumanoidRootPart
 	local Struggle = game.ReplicatedStorage.CharacterEvents.Struggle
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
-		if grabs.Name == "GrabParts" then
-			grabs.DragPart.Touched:Connect(function(hit)
-			if hit.Parent.Name == Player.Name then
-			HumanoidRootPart.Anchored = true
-			Struggle:FireServer()
-			wait(0.2)
-			HumanoidRootPart.Anchored = false
-			end
-			end)
+	if not grabs:FindFirstChild("GrabParts") then
+	print("Cry Baby")
+	elseif grabs:FindFirstChild("GrabParts") then
+		
+		local grab = grabs:FindFirstChild("GrabParts")
+		grab.Touched:Connect(function(hit)
+		if hit.Parent.Name == Player.Name then
+		Struggle:FireServer()
 		end
+		end)
+
 		end
-	end)
+	end
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
