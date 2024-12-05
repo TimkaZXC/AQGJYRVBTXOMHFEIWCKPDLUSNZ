@@ -13,6 +13,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
+		if grabs.Parent.Name ~= "Workspace" then
 		local Player = game.Players.LocalPlayer
 		local PlayerRoot = Player.Character.HumanoidRootPart
 		local Grab = grabs:FindFirstChild("DragPart")
@@ -30,6 +31,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 		PlayerRoot.Anchored = false
 		wait(0.15)
 		PlayerRoot.CFrame = PlrPos
+		end
 		end
 		end
 	end
