@@ -14,6 +14,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	local Character = Player.Character
 	local HumanoidRootPart = Character.HumanoidRootPart
 	local Struggle = game.ReplicatedStorage.CharacterEvents.Struggle
+	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
 		local grab = grabs:FindFirstChild("DragPart")
@@ -28,6 +29,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 		end
 	wait()
 	end
+	end)
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
