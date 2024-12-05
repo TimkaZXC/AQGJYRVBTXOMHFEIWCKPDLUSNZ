@@ -28,6 +28,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 		Event:FireServer()
 		wait(0.2)
 		PlayerRoot.Anchored = false
+		wait(0.15)
 		PlayerRoot.CFrame = PlrPos
 		end
 		end
