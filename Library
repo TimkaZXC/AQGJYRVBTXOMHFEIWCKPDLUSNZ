@@ -479,7 +479,7 @@ function Kavo.Hub(name)
 				elseif types == 4 then
 				end
 			end
-			function Butt:ChoiceB(name,class,color,functuin:FunctionalTest)
+			function Butt:Choice(name,class,color,functuin:FunctionalTest)
 				--{1 - PlayerList}
 				if class == 1 then
 					local ChoiseText = Instance.new("StringValue")
