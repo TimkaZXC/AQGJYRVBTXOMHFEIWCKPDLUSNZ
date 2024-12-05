@@ -15,13 +15,12 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	local HumanoidRootPart = Character.HumanoidRootPart
 	local Struggle = game.ReplicatedStorage.CharacterEvents.Struggle
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
-	if not grabs:FindFirstChild("GrabParts") then
-	print("Cry Baby")
-	elseif grabs:FindFirstChild("GrabParts") then
-		
-		local grab = grabs:FindFirstChild("GrabParts")
-		grab.DragPart.Touched:Connect(function(hit)
+		if grabs.Name = "GrabParts" then
+		local grab = grabs:FindFirstChild("DragPart")
+		grab.Touched:Connect(function(hit)
+		print(hit.Parent.Name)
 		if hit.Parent.Name == Player.Name then
+		print(hit.Parent.Name)
 		Struggle:FireServer()
 		end
 		end)
