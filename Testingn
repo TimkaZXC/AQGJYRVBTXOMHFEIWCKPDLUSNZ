@@ -67,7 +67,7 @@ end)
 
 local SChange = Hub:Section("[🔗]Custom Line")
 SChange:Change("[🎨]Color", 4, Color3.new(1,1,1), function(n)
-local Color = ColorSequence.new(Color3.new(n))
+local Color = ColorSequence.new(Color3.fromRGB(n))
 if not game.Workspace:FindFirstChild("GrabParts") then
 
 elseif game.Workspace:FindFirstChild("GrabParts") then
