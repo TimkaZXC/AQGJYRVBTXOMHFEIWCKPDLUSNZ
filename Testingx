@@ -14,7 +14,6 @@ SHack:Toggle("[💪]Gravity Grab", 1, Color3.fromRGB(255,255,255), function()
 	local Char = Player.Character
 	for _, part in pairs(game.Workspace:GetDescendants()) do
 	if part:IsA("Part") then
-	if part.Parent.Name ~= Player.Name and part.Parent.Parent.Name ~= Player.Name then
 	if not part:FindFirstChild("[💪]Gravity Grab") then
 	local Force = Instance.new("VectorForce")
 	local Attach = Instance.new("Attachment")
@@ -26,7 +25,6 @@ SHack:Toggle("[💪]Gravity Grab", 1, Color3.fromRGB(255,255,255), function()
 	Force.Visible = false
 	Force.Enabled = true
 	Force.Active = true
-	end
 	end
 	end
 	end
@@ -62,13 +60,22 @@ SHack:Toggle("[❌]Anti Grab", 1, Color3.fromRGB(255,255,255), function()
 end)
 
 local SChange = Hub:Section("[🧠]Change")
-SChange:Change("[🌌]Gravity", 4, Color3.new(1,1,1), function(n)
+SChange:Change("[🌌]Gravity", 1, Color3.new(1,1,1), function(n)
 local Gravity = game.Workspace.Gravity
 Gravity = n
 end)
-SChange:Change("[🌌]Gravity", 4, Color3.new(1,1,1), function(n)
-local Gravity = game.Workspace.Gravity
-Gravity = n
+
+local SChange = Hub:Section("[🔗]Custom Line")
+SChange:Change("[🎨]Color", 1, Color3.new(1,1,1), function(n)
+local Color = ColorSequence.new(Color3.new(n))
+if not game.Workspace:FindFirstChild("GrabParts") then
+
+elseif game.Workspace:FindFirstChild("GrabParts") then
+
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.Color = Color
+end
+
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
