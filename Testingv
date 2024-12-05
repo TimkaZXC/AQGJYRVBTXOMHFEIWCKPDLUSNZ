@@ -13,12 +13,15 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
-
+		local Player = game.Players.LocalPlayer
+		local PlayerRoot = Player.Character.HumanoidRootPart
+		local Grab = grabs:FindFirstChild("DragPart")
+		local Distance = (PlayerRoot.Position - Grab.Position).Magnitude
 		print("True")
-		grabs:FindFirstChild("GrabPart").Touched:Connect(function(hit)
-		grabs:FindFirstChild("GrabPart").CanTouch = true
-		print("Hit: "..hit.Name, "Parent: "..hit.Parent.Name)
-		end)
+		print(Distance)
+		if Distance < 10 then
+		print("TEST")
+		end
 		end
 	end
 	end)
