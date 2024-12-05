@@ -476,6 +476,7 @@ function Kavo.Hub(name)
 					Number:GetPropertyChangedSignal("Text"):Connect(function()
 						Number.Text = Number.Text:gsub('%W+', '')
 					end)
+				elseif types == 4 then
 				end
 			end
 			function Butt:ChoiceB(name,class,color,functuin:FunctionalTest)
