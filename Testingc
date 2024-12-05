@@ -15,8 +15,8 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 		if grabs.Name == "GrabParts" then
 
 		print("True")
-		grabs:FindFirstChild("DragPart").Touched:Connect(function(hit)
-		grabs:FindFirstChild("DragPart").CanTouch = true
+		grabs:FindFirstChild("GrabPart").Touched:Connect(function(hit)
+		grabs:FindFirstChild("GrabPart").CanTouch = true
 		print("Hit: "..hit.Name, "Parent: "..hit.Parent.Name)
 		end)
 		end
