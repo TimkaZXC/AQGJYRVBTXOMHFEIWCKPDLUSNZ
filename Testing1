@@ -20,13 +20,14 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	elseif grabs:FindFirstChild("GrabParts") then
 		
 		local grab = grabs:FindFirstChild("GrabParts")
-		grab.Touched:Connect(function(hit)
+		grab.DragPart.Touched:Connect(function(hit)
 		if hit.Parent.Name == Player.Name then
 		Struggle:FireServer()
 		end
 		end)
 
 		end
+	wait()
 	end
 end)
 
