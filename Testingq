@@ -1,7 +1,7 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Fling Things and People")
 local SHack = Hub:Section("[🕷]Main")
-SHack:Toggle("Inf Strenght💪", 1, Color3.fromRGB(255,255,255), function()
+SHack:Toggle("[💪]Inf Strenght", 1, Color3.fromRGB(255,255,255), function()
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -9,7 +9,30 @@ SHack:Toggle("Inf Strenght💪", 1, Color3.fromRGB(255,255,255), function()
 	end
 end)
 
-SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
+SHack:Toggle("[💪]Gravity Grab", 1, Color3.fromRGB(255,255,255), function()
+	local Player = game.Players.LocalPlayer
+	local Char = Player.Character
+	for _, part in pairs(game.Workspace:GetDescendants()) do
+	if part:IsA("Part") then
+	if part.Parent.Name ~= Player.Name and part.Parent.Parent.Name ~= Player.Name then
+	if not part:FindFirstChild("[💪]Gravity Grab") then
+	local Force = Instance.new("VectorForce")
+	local Attach = Instance.new("Attachment")
+	Attach.Name = "[💪]Gravity Grab"
+	Attach.Parent = part
+	Force.Parent = Attach
+	Force.Attachment0 = Attach
+	Force.Force = Vector3.new(0, 50000000, 0)
+	Force.Visible = false
+	Force.Enabled = true
+	Force.Active = true
+	end
+	end
+	end
+	end
+end)
+
+SHack:Toggle("[❌]Anti Grab", 1, Color3.fromRGB(255,255,255), function()
 	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
@@ -36,6 +59,16 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 		end
 	end
 	end)
+end)
+
+local SChange = Hub:Section("[🧠]Change")
+SChange:Change("[🌌]Gravity", 4, Color3.new(1,1,1), function(n)
+local Gravity = game.Workspace.Gravity
+Gravity = n
+end)
+SChange:Change("[🌌]Gravity", 4, Color3.new(1,1,1), function(n)
+local Gravity = game.Workspace.Gravity
+Gravity = n
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
