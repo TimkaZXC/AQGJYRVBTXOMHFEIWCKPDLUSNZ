@@ -17,6 +17,7 @@ SHack:Toggle("Anti Grab❌", 1, Color3.fromRGB(255,255,255), function()
 	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
+		print(grabs.Name)
 		local grab = grabs:FindFirstChild("DragPart")
 		grab.Touched:Connect(function(hit)
 		print(hit.Parent.Name)
