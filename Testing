@@ -65,17 +65,80 @@ local Gravity = game.Workspace.Gravity
 Gravity = n
 end)
 
-local SChange = Hub:Section("[🔗]Custom Line")
-SChange:Change("[🎨]Color", 4, Color3.new(1,1,1), function(n)
+local SLine = Hub:Section("[🔗]Custom Line")
+
+SLine:Change("[🎨]Color", 4, Color3.new(1,1,1), function(n)
 local Color = ColorSequence.new(Color3.fromRGB(n))
 if not game.Workspace:FindFirstChild("GrabParts") then
-
 elseif game.Workspace:FindFirstChild("GrabParts") then
-
 local grab = game.Workspace:FindFirstChild("GrabParts")
 grab.BeamPart.GrabBeam.Color = Color
 end
+end)
 
+SLine:Change("[⚡]Emission", 4, Color3.new(1,1,1), function(n)
+local Color = ColorSequence.new(Color3.fromRGB(n))
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.LightEmission = n
+end
+end)
+
+SLine:Change("[⚡]Influence", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.LightInfluence = n
+end
+end)
+
+SLine:Change("[⚡]Segments", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.Segments = n
+end
+end)
+
+SLine:Change("[⚡]Length", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.TextureLength = n
+end
+end)
+
+SLine:Change("[⚡]Speed", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.TextureSpeed = n
+end
+end)
+
+SLine:Change("[⚡]Width0", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.Width0 = n
+end
+end)
+
+SLine:Change("[⚡]Width1", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.Width1 = n
+end
+end)
+
+SLine:Change("[⚡]TextureID", 4, Color3.new(1,1,1), function(n)
+if not game.Workspace:FindFirstChild("GrabParts") then
+elseif game.Workspace:FindFirstChild("GrabParts") then
+local grab = game.Workspace:FindFirstChild("GrabParts")
+grab.BeamPart.GrabBeam.Texture = "rbxassetid://"..n
+end
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
