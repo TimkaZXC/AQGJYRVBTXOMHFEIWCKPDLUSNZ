@@ -159,7 +159,7 @@ SLine:Change("[⚡]TextureID", 1, 1, Color3.new(1,1,1), function(n)
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
-SPiano:Toggle("[🎶]Giorno Giavano", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Giorno Giavano", Color3.fromRGB(255,255,255), function()
 	local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -304,7 +304,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Bella Ciao", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Bella Ciao",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -485,7 +485,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Love me, love me💖", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Love me, love me💖",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -651,7 +651,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]White Night🌌", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]White Night🌌",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -806,7 +806,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Rip Dance☠", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Rip Dance☠",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -963,7 +963,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Music Sad😥", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Music Sad😥",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -1124,7 +1124,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Music 1", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Music 1",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -1331,7 +1331,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Music 2", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Music 2",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
@@ -1501,7 +1501,7 @@ pcall(function()
 		end)
 		wait(0.5)
 end)
-SPiano:Toggle("[🎶]Random Play🎲", 1,Color3.fromRGB(255,255,255), function()
+SPiano:Toggle("[🎶]Random Play🎲",Color3.fromRGB(255,255,255), function()
 local P1 = {
 		[1] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C,
 		[2] = workspace.VipTimXavierSpawnedInToys:FindFirstChild("MusicKeyboard").Key1C.CFrame
