@@ -61,8 +61,7 @@ end)
 
 local SChange = Hub:Section("[🧠]Change")
 SChange:Change("[🌌]Gravity", 1, 1, Color3.new(1,1,1), function(n)
-local Gravity = game.Workspace.Gravity
-Gravity = n
+game.Workspace.Gravity = n
 end)
 
 local SLine = Hub:Section("[🔗]Custom Line")
@@ -156,6 +155,79 @@ SLine:Change("[⚡]TextureID", 2, 1, Color3.new(1,1,1), function(n)
 	grab.BeamPart.GrabBeam.Texture = "rbxassetid://"..n
 	end
 	end
+end)
+
+local STime = Hub:Section("[🔗]Custom Time")
+local light = game:GetService("Lighting")
+
+STime:Change("[🎨]ColorShift_Bottom", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local Color = Color3.fromRGB(n1,n2,n3)
+light.ColorShift_Bottom = Color
+end)
+
+STime:Change("[🎨]ColorShift_Top", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local Color = Color3.fromRGB(n1,n2,n3)
+light.ColorShift_Top = Color
+end)
+
+STime:Change("[🎨]FogColor", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local Color = Color3.fromRGB(n1,n2,n3)
+light.FogColor = Color
+end)
+
+STime:Change("[🎨]Outdoor Ambient", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local Color = Color3.fromRGB(n1,n2,n3)
+light.OutdoorAmbient = Color
+end)
+
+STime:Change("[⌛]Abmient", 1, 1, Color3.new(1,1,1), function(n)
+light.Ambient = n
+end)
+
+STime:Change("[⌛]Brightness", 1, 1, Color3.new(1,1,1), function(n)
+light.Brightness = n
+end)
+
+STime:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
+light.ClockTime = n
+end)
+
+STime:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
+light.ClockTime = n
+end)
+
+STime:Change("[⌛]ExposureCompensation", 1, 1, Color3.new(1,1,1), function(n)
+light.ExposureCompensation = n
+end)
+
+STime:Change("[⌛]Fog Start", 1, 1, Color3.new(1,1,1), function(n)
+light.FogStart = n
+end)
+
+STime:Change("[⌛]Fog End", 1, 1, Color3.new(1,1,1), function(n)
+light.FogEnd = n
+end)
+
+STime:Change("[⌛]Geographic Latitude", 1, 1, Color3.new(1,1,1), function(n)
+light.GeographicLatitude = n
+end)
+
+local GS = light.GlobalShadows
+STime:Active("[⏳]Global Shadows", Color3.new(1,1,1), function(n)
+if GS then
+light.GlobalShadows = false
+else
+light.GlobalShadows = true
+end
+end)
+
+local Ol = light.Outlines
+STime:Active("[⏳]Outlines", Color3.new(1,1,1), function(n)
+if Ol then
+light.Outlines = false
+else
+light.Outlines = true
+end
 end)
 
 local SPiano = Hub:Section("[🎹]Piano")
