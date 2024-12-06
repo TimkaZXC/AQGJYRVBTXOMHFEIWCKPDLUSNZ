@@ -66,7 +66,7 @@ Gravity = n
 end)
 
 local SLine = Hub:Section("[🔗]Custom Line")
-pcall(function()
+
 SLine:Change("[🎨]Color", 4, 1, Color3.new(1,1,1), function(n1,n2,n3)
 	local Color = ColorSequence.new(Color3.fromRGB(n1),Color3.fromRGB(n2),Color3.fromRGB(n3))
 	if not game.Workspace:FindFirstChild("GrabParts") then
@@ -158,7 +158,7 @@ SLine:Change("[⚡]TextureID", 1, 1 Color3.new(1,1,1), function(n)
 	end
 	end
 end)
-end)
+
 local SPiano = Hub:Section("[🎹]Piano")
 SPiano:Toggle("[🎶]Giorno Giavano", 1,Color3.fromRGB(255,255,255), function()
 	local P1 = {
