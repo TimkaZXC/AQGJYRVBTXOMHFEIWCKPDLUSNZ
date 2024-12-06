@@ -1,6 +1,6 @@
 local Kavo = {}
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui --game:GetService("CoreGui")
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -335,7 +335,7 @@ function Kavo.Hub(name)
 				print(name)
 			end
 
-			function Butt:Toggle(name, speed ,color ,functuin:FunctionalTest)
+			function Butt:Toggle(name, color ,functuin:FunctionalTest)
 
 				local ActiveB = Instance.new("TextButton")
 				local ImageL = Instance.new("ImageLabel")
@@ -384,17 +384,8 @@ function Kavo.Hub(name)
 							Toggle = true
 							ImageL.Image = ImTg[2]
 							while Toggle == true do
-								if speed < 1 then
-									for s = 1, 1 do
-										functuin()
-									end
-									wait()
-								elseif speed > 0 then
-									for s = 1, speed do
-										functuin()
-									end
-									wait()
-								end
+								functuin()
+								wait()
 							end
 						elseif Toggle == true then
 							Toggle = false
@@ -404,82 +395,403 @@ function Kavo.Hub(name)
 				end)
 				print(name)
 			end
-			function Butt:Change(name, types, color, functuin:FunctionalTest)
+			function Butt:Change(name, typesB, typesT, color, functuin:FunctionalTest)
 				local ActiveB = Instance.new("TextButton")
 				local Image = Instance.new("ImageLabel")
 				local Inco = Instance.new("Frame")
 				local Info = Instance.new("TextLabel")
-				local Number = Instance.new("TextBox")
+				local Number1 = Instance.new("TextBox")
+				local Number2 = Instance.new("TextBox")
+				local Number3 = Instance.new("TextBox")
+				local Toggle = false
+				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
+				if typesB == 1 then
+					ActiveB.LayoutOrder = -1
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Change"
+					ActiveB.Text = " "
+					ActiveB.Parent = SectionS
 
-				ActiveB.LayoutOrder = -1
-				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				ActiveB.BackgroundTransparency = 0.75
-				ActiveB.Size = UDim2.new(0, 280, 0, 35)
-				ActiveB.MaxVisibleGraphemes = 0
-				ActiveB.Visible = true
-				ActiveB.Name = "Change"
-				ActiveB.Text = " "
-				ActiveB.Parent = SectionS
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = "rbxassetid://88969209134354"
+					Image.ImageColor3 = color
 
-				Image.Parent = ActiveB
-				Image.BackgroundTransparency = 1
-				Image.Position = UDim2.new(0.885, 0, 0.071, 0)
-				Image.Size = UDim2.new(0,30,0,30)
-				Image.Image = "rbxassetid://88969209134354"
-				Image.ImageColor3 = color
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
 
-				Inco.Size = UDim2.new(0, 4, 0, 35)
-				Inco.Parent = ActiveB
-				Inco.BackgroundColor3 = color
+					Number1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number1.BackgroundTransparency = 0.85
+					Number1.TextColor3 = Color3.fromRGB(255,255,255)
+					Number1.TextScaled = true
+					Number1.MultiLine = true
+					Number1.PlaceholderText = "Number..."
+					Number1.Text = ""
+					Number1.RichText = true
+					Number1.Font = Enum.Font.PatrickHand
+					Number1.TextXAlignment = Enum.TextXAlignment.Left
+					Number1.Position = UDim2.new(0.636, 0, 0.056, 0)
+					Number1.Size = UDim2.new(0, 60, 0, 30)
+					Number1.Parent = ActiveB
 
-				Number.BackgroundColor3 = Color3.fromRGB(0,0,0)
-				Number.BackgroundTransparency = 0.85
-				Number.TextColor3 = Color3.fromRGB(255,255,255)
-				Number.TextScaled = true
-				Number.MultiLine = true
-				Number.PlaceholderText = "Number..."
-				Number.Text = ""
-				Number.RichText = true
-				Number.Font = Enum.Font.PatrickHand
-				Number.TextXAlignment = Enum.TextXAlignment.Left
-				Number.Position = UDim2.new(0.636, 0, 0.056, 0)
-				Number.Size = UDim2.new(0, 60, 0, 30)
-				Number.Parent = ActiveB
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 231, 0, 33)
+					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
 
-				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Info.BackgroundTransparency = 1
-				Info.Size = UDim2.new(0, 231, 0, 33)
-				Info.Position = UDim2.new(0.02, 0, 0.029, 0)
-				Info.Visible = true
-				Info.TextColor3 = Color3.fromRGB(255,255,255)
-				Info.TextScaled = true
-				Info.RichText = true
-				Info.Font = Enum.Font.PatrickHand
-				Info.TextXAlignment = Enum.TextXAlignment.Left
-				Info.Text = " "..name
-				Info.Parent = ActiveB
-
-				ActiveB.MouseButton1Click:Connect(function()
-					pcall(function()
-						functuin(tonumber(Number.Text))
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							functuin(Number1.Text)
+						end)
 					end)
-				end)
-				if types == 1 then
-					Number:GetPropertyChangedSignal("Text"):Connect(function()
-						Number.Text = Number.Text:gsub('%D+', '')
+					if types == 1 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%D+', '')
+						end)
+					elseif types == 2 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%a+', '')
+						end)
+					elseif types == 3 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%W+', '')
+						end)
+					end
+					
+				elseif typesB == 2 then
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Change"
+					ActiveB.Text = " "
+					ActiveB.Parent = SectionS
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = ImTg[1]
+					Image.ImageColor3 = color
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+
+					Number1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number1.BackgroundTransparency = 0.85
+					Number1.TextColor3 = Color3.fromRGB(255,255,255)
+					Number1.TextScaled = true
+					Number1.MultiLine = true
+					Number1.PlaceholderText = "Number..."
+					Number1.Text = ""
+					Number1.RichText = true
+					Number1.Font = Enum.Font.PatrickHand
+					Number1.TextXAlignment = Enum.TextXAlignment.Left
+					Number1.Position = UDim2.new(0.636, 0, 0.056, 0)
+					Number1.Size = UDim2.new(0, 60, 0, 30)
+					Number1.Parent = ActiveB
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 231, 0, 33)
+					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+					
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							if Toggle == false then
+								Toggle = true
+								Image.Image = ImTg[2]
+								while Toggle == true do
+									functuin(Number1.Text)
+									wait()
+								end
+							elseif Toggle == true then
+								Toggle = false
+								Image.Image = ImTg[1]
+							end
+						end)
 					end)
-				elseif types == 2 then
-					Number:GetPropertyChangedSignal("Text"):Connect(function()
-						Number.Text = Number.Text:gsub('%a+', '')
+					
+					if typesT == 1 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%D+', '')
+						end)
+					elseif typesT == 2 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%a+', '')
+						end)
+					elseif typesT == 3 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%W+', '')
+						end)
+					elseif typesT == 4 then
+					end
+					
+				elseif typesB == 3 then
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Change"
+					ActiveB.Text = " "
+					ActiveB.Parent = SectionS
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = "rbxassetid://88969209134354"
+					Image.ImageColor3 = color
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+
+					Number1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number1.BackgroundTransparency = 0.85
+					Number1.TextColor3 = Color3.fromRGB(255,255,255)
+					Number1.TextScaled = true
+					Number1.MultiLine = true
+					Number1.PlaceholderText = "Number..."
+					Number1.Text = ""
+					Number1.RichText = true
+					Number1.Font = Enum.Font.PatrickHand
+					Number1.TextXAlignment = Enum.TextXAlignment.Left
+					Number1.Position = UDim2.new(0.5, 0, 0.071, 0)
+					Number1.Size = UDim2.new(0, 30, 0, 30)
+					Number1.Parent = ActiveB
+
+					Number2.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number2.BackgroundTransparency = 0.85
+					Number2.TextColor3 = Color3.fromRGB(255,255,255)
+					Number2.TextScaled = true
+					Number2.MultiLine = true
+					Number2.PlaceholderText = "Number..."
+					Number2.Text = ""
+					Number2.RichText = true
+					Number2.Font = Enum.Font.PatrickHand
+					Number2.TextXAlignment = Enum.TextXAlignment.Left
+					Number2.Position = UDim2.new(0.619, 0, 0.071, 0)
+					Number2.Size = UDim2.new(0, 30, 0, 30)
+					Number2.Parent = ActiveB
+
+					Number3.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number3.BackgroundTransparency = 0.85
+					Number3.TextColor3 = Color3.fromRGB(255,255,255)
+					Number3.TextScaled = true
+					Number3.MultiLine = true
+					Number3.PlaceholderText = "Number..."
+					Number3.Text = ""
+					Number3.RichText = true
+					Number3.Font = Enum.Font.PatrickHand
+					Number3.TextXAlignment = Enum.TextXAlignment.Left
+					Number3.Position = UDim2.new(0.742, 0, 0.071, 0)
+					Number3.Size = UDim2.new(0, 30, 0, 30)
+					Number3.Parent = ActiveB
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 130, 0, 33)
+					Info.Position = UDim2.new(0.018, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							functuin(Number1.Text, Number2.Text, Number3.Text)
+						end)
 					end)
-				elseif types == 3 then
-					Number:GetPropertyChangedSignal("Text"):Connect(function()
-						Number.Text = Number.Text:gsub('%W+', '')
+					if typesT == 1 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%D+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%D+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%D+', '')
+						end)
+					elseif typesT == 2 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%a+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%a+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%a+', '')
+						end)
+					elseif typesT == 3 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%W+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%W+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%W+', '')
+						end)
+					elseif typesT == 4 then
+					end
+				elseif typesB == 4 then
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Change"
+					ActiveB.Text = " "
+					ActiveB.Parent = SectionS
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = ImTg[1]
+					Image.ImageColor3 = color
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+
+					Number1.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number1.BackgroundTransparency = 0.85
+					Number1.TextColor3 = Color3.fromRGB(255,255,255)
+					Number1.TextScaled = true
+					Number1.MultiLine = true
+					Number1.PlaceholderText = "Number..."
+					Number1.Text = ""
+					Number1.RichText = true
+					Number1.Font = Enum.Font.PatrickHand
+					Number1.TextXAlignment = Enum.TextXAlignment.Left
+					Number1.Position = UDim2.new(0.5, 0, 0.071, 0)
+					Number1.Size = UDim2.new(0, 30, 0, 30)
+					Number1.Parent = ActiveB
+
+					Number2.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number2.BackgroundTransparency = 0.85
+					Number2.TextColor3 = Color3.fromRGB(255,255,255)
+					Number2.TextScaled = true
+					Number2.MultiLine = true
+					Number2.PlaceholderText = "Number..."
+					Number2.Text = ""
+					Number2.RichText = true
+					Number2.Font = Enum.Font.PatrickHand
+					Number2.TextXAlignment = Enum.TextXAlignment.Left
+					Number2.Position = UDim2.new(0.619, 0, 0.071, 0)
+					Number2.Size = UDim2.new(0, 30, 0, 30)
+					Number2.Parent = ActiveB
+
+					Number3.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number3.BackgroundTransparency = 0.85
+					Number3.TextColor3 = Color3.fromRGB(255,255,255)
+					Number3.TextScaled = true
+					Number3.MultiLine = true
+					Number3.PlaceholderText = "Number..."
+					Number3.Text = ""
+					Number3.RichText = true
+					Number3.Font = Enum.Font.PatrickHand
+					Number3.TextXAlignment = Enum.TextXAlignment.Left
+					Number3.Position = UDim2.new(0.742, 0, 0.071, 0)
+					Number3.Size = UDim2.new(0, 30, 0, 30)
+					Number3.Parent = ActiveB
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 130, 0, 33)
+					Info.Position = UDim2.new(0.018, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							if Toggle == false then
+								Toggle = true
+								Image.Image = ImTg[2]
+								while Toggle == true do
+									functuin(Number1.Text, Number2.Text, Number3.Text)
+									wait()
+								end
+							elseif Toggle == true then
+								Toggle = false
+								Image.Image = ImTg[1]
+							end
+						end)
 					end)
-				elseif types == 4 then
+					
+					if typesT == 1 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%D+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%D+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%D+', '')
+						end)
+					elseif typesT == 2 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%a+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%a+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%a+', '')
+						end)
+					elseif typesT == 3 then
+						Number1:GetPropertyChangedSignal("Text"):Connect(function()
+							Number1.Text = Number1.Text:gsub('%W+', '')
+						end)
+						Number2:GetPropertyChangedSignal("Text"):Connect(function()
+							Number2.Text = Number2.Text:gsub('%W+', '')
+						end)
+						Number3:GetPropertyChangedSignal("Text"):Connect(function()
+							Number3.Text = Number3.Text:gsub('%W+', '')
+						end)
+					elseif typesT == 4 then
+					end
 				end
 			end
-			function Butt:Choice(name,class,color,functuin:FunctionalTest)
+			function Butt:ChoiceB(name,class,color,functuin:FunctionalTest)
 				--{1 - PlayerList}
 				if class == 1 then
 					local ChoiseText = Instance.new("StringValue")
