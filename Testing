@@ -200,10 +200,6 @@ STime:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
 light.ClockTime = n
 end)
 
-STime:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
-light.ClockTime = n
-end)
-
 STime:Change("[⌛]ExposureCompensation", 1, 1, Color3.new(1,1,1), function(n)
 light.ExposureCompensation = n
 end)
