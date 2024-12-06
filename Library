@@ -1,6 +1,6 @@
 local Kavo = {}
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui --game:GetService("CoreGui")
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -443,7 +443,7 @@ function Kavo.Hub(name)
 
 					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					Info.BackgroundTransparency = 1
-					Info.Size = UDim2.new(0, 231, 0, 33)
+					Info.Size = UDim2.new(0, 130, 0, 33)
 					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
 					Info.Visible = true
 					Info.TextColor3 = Color3.fromRGB(255,255,255)
@@ -510,7 +510,7 @@ function Kavo.Hub(name)
 
 					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					Info.BackgroundTransparency = 1
-					Info.Size = UDim2.new(0, 231, 0, 33)
+					Info.Size = UDim2.new(0, 130, 0, 33)
 					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
 					Info.Visible = true
 					Info.TextColor3 = Color3.fromRGB(255,255,255)
@@ -791,7 +791,7 @@ function Kavo.Hub(name)
 					end
 				end
 			end
-			function Butt:ChoiceB(name,class,color,functuin:FunctionalTest)
+			function Butt:Choice(name,class,color,functuin:FunctionalTest)
 				--{1 - PlayerList}
 				if class == 1 then
 					local ChoiseText = Instance.new("StringValue")
