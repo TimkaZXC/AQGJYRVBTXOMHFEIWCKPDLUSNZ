@@ -78,7 +78,7 @@ SLine:Change("[🎨]Color", 4, 1, Color3.new(1,1,1), function(n1,n2,n3)
 	end
 end)
 
-SLine:Change("[⚡]Emission", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Emission", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -88,7 +88,7 @@ SLine:Change("[⚡]Emission", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Influence", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Influence", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -98,7 +98,7 @@ SLine:Change("[⚡]Influence", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Segments", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Segments", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -108,7 +108,7 @@ SLine:Change("[⚡]Segments", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Length", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Length", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -118,7 +118,7 @@ SLine:Change("[⚡]Length", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Speed", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Speed", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -128,7 +128,7 @@ SLine:Change("[⚡]Speed", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Width0", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Width0", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -138,7 +138,7 @@ SLine:Change("[⚡]Width0", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]Width1", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]Width1", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
@@ -148,7 +148,7 @@ SLine:Change("[⚡]Width1", 1, 1 Color3.new(1,1,1), function(n)
 	end
 end)
 
-SLine:Change("[⚡]TextureID", 1, 1 Color3.new(1,1,1), function(n)
+SLine:Change("[⚡]TextureID", 1, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
