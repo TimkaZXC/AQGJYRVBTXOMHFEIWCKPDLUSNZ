@@ -9,6 +9,14 @@ SHack:Toggle("[💪]Inf Strenght", Color3.fromRGB(255,255,255), function()
 	end
 end)
 
+SHack:Change("[💪]Strenght Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	grab.DragPart.AlignPosition.MaxForce = n
+	end
+end)
+
 SHack:Toggle("[💪]Gravity Grab", Color3.fromRGB(255,255,255), function()
 	local Player = game.Players.LocalPlayer
 	local Char = Player.Character
