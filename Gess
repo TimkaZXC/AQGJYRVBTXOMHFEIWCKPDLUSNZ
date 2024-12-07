@@ -9,9 +9,10 @@ end)
 
 SCharacters:Change("[🥾]Jump", 2, 1, Color3.fromRGB(0,0,255), function(s1)
 local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Humanoid = Character:FindFisrtChild("Humanoid")
+local Character = Player.Character
+local Humanoid = Character.Humanoid
 Humanoid.JumpPower = s1
+print(s1)
 end)
 
 SCharacters:Change("[📈]HipHeight", 2, 1, Color3.fromRGB(0,0,255), function(s1)
