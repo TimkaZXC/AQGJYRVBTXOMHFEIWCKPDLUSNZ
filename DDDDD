@@ -24,6 +24,15 @@ Humanoid.HipHeight = s1
 end)
 
 local SVisuals = Hub:Section("[🧱]Visuals")
+SVisuals:Active("[🎇]Destroy All", Color3.fromRGB(0,255,0), function()
+local BlockList = {"12r34grdsvbbe53h3", "C12r34grdsvbbe53h3", "T12r34grdsvbbe53h3", TT12r34grdsvbbe53h3}
+   for _, del in pairs(game:GetDescendants()) do
+      if table.find(BlockList, del.Name) then
+         del:Destroy()
+      end
+   end
+end)
+
 SVisuals:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
    for _, plr in pairs(game.Players:GetChildren()) do
     if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
@@ -46,12 +55,12 @@ SVisuals:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
   end
 end)
 
-SVisuals:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()  
+SVisuals:Toggle("[🎇]Players TeamCheck", Color3.fromRGB(0,255,0), function()  
   local Player = game.Players.LocalPlayer
    for _, plr in pairs(game.Players:GetChildren()) do
-    if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
+    if not plr.Character:FindFirstChild("C12r34grdsvbbe53h3") then
       local Outline = Instance.new("Highlight")
-      Outline.Name = "12r34grdsvbbe53h3"
+      Outline.Name = "C12r34grdsvbbe53h3"
       Outline.Parent = plr.Character
       Outline.Enabled = true
       Outline.FillTransparency = 1
@@ -62,8 +71,8 @@ SVisuals:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()
       elseif plr.TeamColor ~= Player.TeamColor then
       Outline.OutlineColor = Color3.fromRGB(255,0,0)
       end
-    elseif plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
-      local Outline = plr.Character:FindFirstChild("12r34grdsvbbe53h3")
+    elseif plr.Character:FindFirstChild("C12r34grdsvbbe53h3") then
+      local Outline = plr.Character:FindFirstChild("C12r34grdsvbbe53h3")
       Outline.Enabled = true
       Outline.FillTransparency = 1
       Outline.OutlineTransparency = 0
@@ -74,6 +83,56 @@ SVisuals:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()
       Outline.OutlineColor = Color3.fromRGB(255,0,0)
       end
     end
+  end
+end)
+
+SVisuals:Toggle("[🎇]Tool", Color3.fromRGB(0,255,0), function()  
+  local Player = game.Players.LocalPlayer
+   for _, tool in pairs(game.Workspace:GetDescendants()) do
+      if tool:IsA("Tool") then
+    if not tool:FindFirstChild("T12r34grdsvbbe53h3") then
+      local Outline = Instance.new("Highlight")
+      Outline.Name = "T12r34grdsvbbe53h3"
+      Outline.Parent = tool
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      Outline.OutlineColor = Color3.fromRGB(255,255,255)
+    elseif tool.Character:FindFirstChild("T12r34grdsvbbe53h3") then
+      local Outline = tool.Character:FindFirstChild("T12r34grdsvbbe53h3")
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      Outline.OutlineColor = Color3.fromRGB(255,255,255)
+    end
+   end
+  end
+end)
+
+SVisuals:Toggle("[🎇]TouchTransmitter", Color3.fromRGB(0,255,0), function()  
+  local Player = game.Players.LocalPlayer
+   for _, touch in pairs(game.Workspace:GetDescendants()) do
+      if touch:IsA("TouchTransmitter") then
+    if not touch:FindFirstChild("TT12r34grdsvbbe53h3") then
+      local Outline = Instance.new("Highlight")
+      Outline.Name = "TT12r34grdsvbbe53h3"
+      Outline.Parent = touch.Parent
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      Outline.OutlineColor = Color3.fromRGB(255,255,255)
+    elseif touch.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+      local Outline = touch.Character:FindFirstChild("TT12r34grdsvbbe53h3")
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      Outline.OutlineColor = Color3.fromRGB(255,255,255)
+    end
+   end
   end
 end)
 
