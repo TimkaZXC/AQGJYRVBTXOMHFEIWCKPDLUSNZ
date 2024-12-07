@@ -13,7 +13,7 @@ SCharacters:Change("[🥾]Jump", 2, 1, Color3.fromRGB(255,0,0), function(s1)
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
-local Jump = Humanoid.JumpHeight or Humanoid.JumpPower
+local Jump = Humanoid.JumpHeight and Humanoid.JumpPower
 Jump = s1
 print(s1)
 end)
