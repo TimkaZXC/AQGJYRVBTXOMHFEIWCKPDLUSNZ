@@ -7,6 +7,7 @@ local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 local Humanoid = Character:FindFisrtChild("Humanoid")
 Humanoid.WalkSpeed = s1
+print(s1)
 end)
 
 SCharacters:Change("[🥾]Jump", 2, 1, Color3.fromRGB(0,0,255), function(s1)
