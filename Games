@@ -55,30 +55,6 @@ SVisuals:Toggle("[🎇]Player Outline", Color3.fromRGB(0,255,0), function()
   end
 end)
 
-SVisuals:Toggle("[🎇]All Outline", Color3.fromRGB(0,255,0), function()
-   for _, live in pairs(game.Workspace:GetDescendants()) do
-      if live:IsA("Humanoid") then
-       if not live.Parent:FindFirstChild("A12r34grdsvbbe53h3") then
-      local Outline = Instance.new("Highlight")
-      Outline.Name = "12r34grdsvbbe53h3"
-      Outline.Parent = plr.Character
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.OutlineColor = Color3.fromRGB(255,0,0)
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-       elseif live.Parent:FindFirstChild("A12r34grdsvbbe53h3") then
-      local Outline = live.Parent:FindFirstChild("A12r34grdsvbbe53h3")
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.OutlineColor = Color3.fromRGB(255,0,0)
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-       end
-     end
-   end
-end)
-
 SVisuals:Toggle("[🎇]Players TeamCheck", Color3.fromRGB(0,255,0), function()  
   local Player = game.Players.LocalPlayer
    for _, plr in pairs(game.Players:GetChildren()) do
@@ -108,6 +84,30 @@ SVisuals:Toggle("[🎇]Players TeamCheck", Color3.fromRGB(0,255,0), function()
       end
     end
   end
+end)
+
+SVisuals:Toggle("[🎇]All Outline", Color3.fromRGB(0,255,0), function()
+   for _, live in pairs(game.Workspace:GetDescendants()) do
+      if live:IsA("Humanoid") then
+       if not live.Parent:FindFirstChild("A12r34grdsvbbe53h3") then
+      local Outline = Instance.new("Highlight")
+      Outline.Name = "12r34grdsvbbe53h3"
+      Outline.Parent = live.Parent
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+       elseif live.Parent:FindFirstChild("A12r34grdsvbbe53h3") then
+      local Outline = live.Parent:FindFirstChild("A12r34grdsvbbe53h3")
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+       end
+     end
+   end
 end)
 
 SVisuals:Toggle("[🎇]Tool", Color3.fromRGB(0,255,0), function()  
