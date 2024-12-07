@@ -149,7 +149,7 @@ end
 end)
 
 local SPositions = Hub:Section("[📫]Positions")
-SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(0,0,255), function(n)
+SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(255,0,255), function(n)
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local HumanoidRoot = Character.HumanoidRootPart
