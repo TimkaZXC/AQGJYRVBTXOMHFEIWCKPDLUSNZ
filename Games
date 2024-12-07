@@ -77,8 +77,79 @@ SVisuals:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()
   end
 end)
 
+local STime = Hub:Section("[⌚]Custom Time")
+STime:Change("[🎨]ColorShift_Bottom", 3, 1, Color3.fromRGB(0,0,255), function(n1,n2,n3)
+local light = game:GetService("Lighting")
+local Color = Color3.fromRGB(n1,n2,n3)
+light.ColorShift_Bottom = Color
+end)
+
+STime:Change("[🎨]ColorShift_Top", 3, 1, Color3.fromRGB(0,0,255), function(n1,n2,n3)
+local light = game:GetService("Lighting")
+local Color = Color3.fromRGB(n1,n2,n3)
+light.ColorShift_Top = Color
+end)
+
+STime:Change("[🎨]FogColor", 3, 1, Color3.fromRGB(0,0,255), function(n1,n2,n3)
+local light = game:GetService("Lighting")
+local Color = Color3.fromRGB(n1,n2,n3)
+light.FogColor = Color
+end)
+
+STime:Change("[🎨]Outdoor Ambient", 3, 1, Color3.fromRGB(0,0,255), function(n1,n2,n3)
+local light = game:GetService("Lighting")
+local Color = Color3.fromRGB(n1,n2,n3)
+light.OutdoorAmbient = Color
+end)
+
+STime:Change("[⌛]Abmient", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.Ambient = n
+end)
+
+STime:Change("[⌛]Brightness", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.Brightness = n
+end)
+
+STime:Change("[⌛]ClockTime", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.ClockTime = n
+end)
+
+STime:Change("[⌛]ExposureCompensation", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.ExposureCompensation = n
+end)
+
+STime:Change("[⌛]Fog Start", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.FogStart = n
+end)
+
+STime:Change("[⌛]Fog End", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.FogEnd = n
+end)
+
+STime:Change("[⌛]Geographic Latitude", 1, 1, Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+light.GeographicLatitude = n
+end)
+
+
+STime:Active("[⏳]Global Shadows", Color3.fromRGB(0,0,255), function(n)
+local light = game:GetService("Lighting")
+local GS = light.GlobalShadows
+if GS == true then
+light.GlobalShadows = false
+else
+light.GlobalShadows = true
+end
+end)
+
 local SPositions = Hub:Section("[📫]Positions")
-SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(0,255,0), function(n)
+SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(0,0,255), function(n)
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local HumanoidRoot = Character.HumanoidRootPart
