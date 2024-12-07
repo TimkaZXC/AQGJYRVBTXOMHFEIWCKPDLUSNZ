@@ -24,7 +24,7 @@ Humanoid.HipHeight = s1
 end)
 
 local SVisuals = Hub:Section("[🧱]Visuals")
-SEsp:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
+SVisuals:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
    for _, plr in pairs(game.Players:GetChildren()) do
     if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
       local Outline = Instance.new("Highlight")
@@ -46,7 +46,7 @@ SEsp:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
   end
 end)
 
-SEsp:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()  
+SVisuals:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()  
   local Player = game.Players.LocalPlayer
    for _, plr in pairs(game.Players:GetChildren()) do
     if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
