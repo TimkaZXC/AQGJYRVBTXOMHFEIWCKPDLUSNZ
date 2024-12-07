@@ -3,8 +3,10 @@ local Hub = Lib.Hub("[🎄]Game")
 
 local SCharacters = Hub:Section("[🧑]Character")
 SCharacters:Change("[🥾]Speed", 2, 1, Color3.fromRGB(0,0,255), function(s1)
-game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = s1
-print(s1)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+Humanoid.WalkSpeed = s1
 end)
 
 SCharacters:Change("[🥾]Jump", 2, 1, Color3.fromRGB(0,0,255), function(s1)
@@ -12,13 +14,12 @@ local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
 Humanoid.JumpPower = s1
-print(s1)
 end)
 
 SCharacters:Change("[📈]HipHeight", 2, 1, Color3.fromRGB(0,0,255), function(s1)
 local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local Humanoid = Character:FindFisrtChild("Humanoid")
+local Character = Player.Character
+local Humanoid = Character.Humanoid
 Humanoid.HipHeight = s1
 end)
 
@@ -79,8 +80,8 @@ end)
 local SPositions = Hub:Section("[📫]Positions")
 SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(0,255,0), function(n)
 local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character or Player.CharacterAdded:Wait()
-local HumanoidRoot = Character:FindFisrtChild("HumanoidRootPart")
+local Character = Player.Character
+local HumanoidRoot = Character.HumanoidRootPart
   for _, plr in pairs(game.Players:GetChildren()) do
     if plr.Name == n then
       HumanoidRoot.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,3)
