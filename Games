@@ -1,0 +1,90 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Game")
+
+local SCharacters = Hub:Section("[🧑]Character")
+SCharacters:Change("[🥾]Speed", 2, 1, Color3.fromRGB(0,0,255), function(s1)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:FindFisrtChild("Humanoid")
+Humanoid.WalkSpeed = s1
+end)
+
+SCharacters:Change("[🥾]Jump", 2, 1, Color3.fromRGB(0,0,255), function(s1)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:FindFisrtChild("Humanoid")
+Humanoid.JumpPower = s1
+end)
+
+SCharacters:Change("[📈]HipHeight", 2, 1, Color3.fromRGB(0,0,255), function(s1)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Humanoid = Character:FindFisrtChild("Humanoid")
+Humanoid.HipHeight = s1
+end)
+
+local SVisuals = Hub:Section("[🧱]Visuals")
+SEsp:Toggle("[🎇]Outline", Color3.fromRGB(0,255,0), function()
+   for _, plr in pairs(game.Players:GetChildren()) do
+    if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
+      local Outline = Instance.new("Highlight")
+      Outline.Name = "12r34grdsvbbe53h3"
+      Outline.Parent = plr.Character
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    elseif plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
+      local Outline = plr.Character:FindFirstChild("12r34grdsvbbe53h3")
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    end
+  end
+end)
+
+SEsp:Toggle("[🎇]Check Outline", Color3.fromRGB(0,255,0), function()  
+  local Player = game.Players.LocalPlayer
+   for _, plr in pairs(game.Players:GetChildren()) do
+    if not plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
+      local Outline = Instance.new("Highlight")
+      Outline.Name = "12r34grdsvbbe53h3"
+      Outline.Parent = plr.Character
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      if plr.TeamColor == Player.TeamColor then
+      Outline.OutlineColor = Color3.fromRGB(0,255,0)
+      elseif plr.TeamColor ~= Player.TeamColor then
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      end
+    elseif plr.Character:FindFirstChild("12r34grdsvbbe53h3") then
+      local Outline = plr.Character:FindFirstChild("12r34grdsvbbe53h3")
+      Outline.Enabled = true
+      Outline.FillTransparency = 1
+      Outline.OutlineTransparency = 0
+      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+      if plr.TeamColor == Player.TeamColor then
+      Outline.OutlineColor = Color3.fromRGB(0,255,0)
+      elseif plr.TeamColor ~= Player.TeamColor then
+      Outline.OutlineColor = Color3.fromRGB(255,0,0)
+      end
+    end
+  end
+end)
+
+local SPositions = Hub:Section("[📫]Positions")
+SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(0,255,0), function(n)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local HumanoidRoot = Character:FindFisrtChild("HumanoidRootPart")
+  for _, plr in pairs(game.Players:GetChildren()) do
+    if plr.Name == n then
+      HumanoidRoot.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,3)
+    end
+  end
+end)
