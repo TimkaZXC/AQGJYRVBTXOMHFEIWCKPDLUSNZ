@@ -36,8 +36,8 @@ local args = {
         ["rayDirection"] = Vector3.new(-0.9827694296836853, -0.05639541149139404, -0.17602205276489258),
         ["rayNormal"] = Vector3.new(1, 0, 0)
     },
-    [2] = plr.Character.Head.Position,
-    [3] = plr.Character.Head.Position,
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
     [4] = "RPG",
     [5] = game:GetService("ReplicatedStorage").Projectiles.Bullet,
     [6] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
