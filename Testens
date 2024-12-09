@@ -53,6 +53,21 @@ game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args
 end
 
 local Custom = Hub:Section("[🎁]Custom")
+Custom:Change("[🎵]Play ALL", 1, 1, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
+  pcall(function()
+    for _, sound in pairs(game:GetDescendants()) do
+     if sound:IsA("Sound") then
+local args = {
+    [1] = sound,
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ReplicateSounds:FireServer(unpack(args))
+      end
+    end
+  end)
+end)
+
 for _, sound in pairs(game:GetDescendants()) do
   if sound:IsA("Sound") then
  Custom:Change("[🎵]"..sound.Name, 1, 1, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
