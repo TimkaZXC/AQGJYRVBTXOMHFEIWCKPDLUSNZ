@@ -1,0 +1,112 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🧑🏻‍🎄]Hyper Realistic CS:GO")
+local Kill = Hub:Section("[🚶🏻]Weapon Kill")
+
+  Kill:Change("custom kill", 2, 4, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
+    pcall(function()
+    for _, plr in pairs(game.Players:GetChildren()) do
+     if plr.Name ~= game.Players.LocalPlayer.Name then
+local args = {
+    [1] = {
+        ["rayInstance"] = plr.Character.Head,
+        ["rayPosition"] = plr.Character.Head.Position,
+        ["rayMaterial"] = Enum.Material.Neon,
+        ["rayNormal"] = Vector3.new(-2.4219914962486655e-07, 1, 0.000004284922852093587)
+    },
+    [2] = n,
+    [3] = 9e+100,
+    [4] = 5,
+    [5] = false
+}
+
+game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args))
+     end
+    end
+   end)
+  end)
+
+for _, weapon in pairs(game.ReplicatedStorage.TrueWeapons:GetDescendants()) do
+  if weapon:IsA("Tool") then
+  Kill:Toggle(weapon.Name, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function()
+    pcall(function()
+    for _, plr in pairs(game.Players:GetChildren()) do
+     if plr.Name ~= game.Players.LocalPlayer.Name then
+local args = {
+    [1] = {
+        ["rayInstance"] = plr.Character.Head,
+        ["rayPosition"] = plr.Character.Head.Position,
+        ["rayMaterial"] = Enum.Material.Neon,
+        ["rayNormal"] = Vector3.new(-2.4219914962486655e-07, 1, 0.000004284922852093587)
+    },
+    [2] = weapon.Name,
+    [3] = 9e+100,
+    [4] = 5,
+    [5] = false
+}
+
+game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args))
+     end
+    end
+   end)
+  end)
+ end
+end
+
+local Custom = Hub:Section("[🎁]Custom")
+for _, sound in pairs(game:GetDescendants()) do
+  if sound:IsA("Sound") then
+ Custom:Change(sound.Name, 1, 1, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
+    pcall(function()
+local args = {
+    [1] = sound,
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ReplicateSounds:FireServer(unpack(args))
+   end)
+  end)
+ end
+end
+
+local Visual = Hub:Section("[🌌]Visual")
+Visual:Change("[❌]Crosshair SizeY", 2, 1, Color3.new(255,0,0), function(n)
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ChangeCrosshairSizeY:FireServer(unpack(args))
+end)
+
+Visual:Change("[❌]Crosshair SizeX", 2, 1, Color3.new(255,0,0), function(n)
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ChangeCrosshairSizeX:FireServer(unpack(args))
+end)
+
+Visual:Change("[❌]Fov", 2, 1, Color3.new(255,0,0), function(n)
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ChangeFOV:FireServer(unpack(args))
+end)
+
+Visual:Change("[❌]Icon", 2, 1, Color3.new(255,0,0), function(n)
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").Events.ChangeCrosshair:FireServer(unpack(args))
+end)
+
+Visual:Change("[❌]Crosshair Color", 4, 1, Color3.new(255,0,0), function(n, n1, n2)
+local args = {
+    [1] = n,
+    [2] = n1,
+    [3] = n2
+}
+
+game:GetService("ReplicatedStorage").Events.CrosshairColour:FireServer(unpack(args))
+end)
