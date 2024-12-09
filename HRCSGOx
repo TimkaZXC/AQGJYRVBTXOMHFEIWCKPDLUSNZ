@@ -44,7 +44,7 @@ local args = {
     [7] = 100,
     [8] = {
         ["Acceleration"] = Vector3.new(0, 0, 0),
-        ["DespawnTime"] = 30,
+        ["DespawnTime"] = 50,
         ["Gravity"] = 0,
         ["Effects"] = {
             ["BulletHoleInfo"] = {
@@ -84,7 +84,7 @@ local args = {
     },
     [2] = "RPG",
     [3] = n1,
-    [4] = 0,
+    [4] = 1,
     [5] = true
 }
 
@@ -114,8 +114,8 @@ local args = {
         ["rayNormal"] = Vector3.new(-2.4219914962486655e-07, 1, 0.000004284922852093587)
     },
     [2] = n,
-    [3] = 9e+100,
-    [4] = 5,
+    [3] = plr.Character.Humanoid.Health,
+    [4] = 1,
     [5] = false
 }
 
@@ -139,8 +139,8 @@ local args = {
         ["rayNormal"] = Vector3.new(-2.4219914962486655e-07, 1, 0.000004284922852093587)
     },
     [2] = weapon.Name,
-    [3] = 9e+100,
-    [4] = 5,
+    [3] = plr.Character.Humanoid.Health,
+    [4] = 1,
     [5] = false
 }
 
