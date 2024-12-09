@@ -1,5 +1,105 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🧑🏻‍🎄]Hyper Realistic CS:GO")
+local Fun = Hub:Section("[😊]Fun")
+Fun:Toggle("[🌅]Respawn ALL", Color3.fromRGB(0,255,255), function()
+for _, plr in pairs(game.Players:GetChildren()) do
+local args = {
+    [1] = plr.Character,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
+end
+end)
+
+Fun:Toggle("[🌅]Respawn OTHER", Color3.fromRGB(0,255,255), function(n1, n2, n3)
+for _, plr in pairs(game.Players:GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+local args = {
+    [1] = plr.Character,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
+end
+end
+end)
+
+Fun:Change("[🌅]Other Bug", 4, 2, Color3.fromRGB(0,255,255), function(n1, n2, n3)
+for _, plr in pairs(game.Players:GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+local args = {
+    [1] = {
+        ["rayInstance"] = workspace.Map,
+        ["rayPosition"] = plr.Character.Head.Position,
+        ["rayMaterial"] = Enum.Material.Plastic,
+        ["rayDirection"] = Vector3.new(-0.9827694296836853, -0.05639541149139404, -0.17602205276489258),
+        ["rayNormal"] = Vector3.new(1, 0, 0)
+    },
+    [2] = plr.Character.Head.Position,
+    [3] = plr.Character.Head.Position,
+    [4] = "RPG",
+    [5] = game:GetService("ReplicatedStorage").Projectiles.Bullet,
+    [6] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
+    [7] = 100,
+    [8] = {
+        ["Acceleration"] = Vector3.new(0, 0, 0),
+        ["DespawnTime"] = 30,
+        ["Gravity"] = 0,
+        ["Effects"] = {
+            ["BulletHoleInfo"] = {
+                ["HoleSize"] = 5,
+                ["Texture"] = {
+                    [1] = 2078626
+                }
+            },
+            ["Explosion"] = true
+        },
+        ["Threshold"] = 1,
+        ["Object"] = game:GetService("ReplicatedStorage").Projectiles.Rocket,
+        ["Exclude"] = {
+            [1] = workspace.Camera.Arms,
+            [2] = game:GetService("Players").LocalPlayer.Character,
+            [3] = workspace.BulletFolder
+        },
+        ["MaxBounces"] = n3,
+        ["Decay"] = 1
+    },
+    [9] = {
+        ["start"] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
+        ["endPos"] = plr.Character.Head.Position,
+        ["shape"] = "Normal",
+        ["speed"] = n2
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.FireGun:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["rayInstance"] = workspace.Map,
+        ["rayPosition"] = plr.Character.Head.Position,
+        ["rayMaterial"] = Enum.Material.Neon,
+        ["rayNormal"] = Vector3.new(0, 0, 1)
+    },
+    [2] = "RPG",
+    [3] = n1,
+    [4] = 0,
+    [5] = true
+}
+
+game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args))
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").Events.ReloadWeapon:FireServer(unpack(args))
+end
+end
+end)
+
 local Kill = Hub:Section("[🚶🏻]Weapon Kill")
 
   Kill:Change("[💀]Custom", 2, 4, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
@@ -124,106 +224,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.CrosshairColour:FireServer(unpack(args))
-end)
-
-local Fun = Hub:Section("[😊]Fun")
-Fun:Toggle("[🌅]Respawn ALL", Color3.fromRGB(0,255,255), function()
-for _, plr in pairs(game.Players:GetChildren()) do
-local args = {
-    [1] = plr.Character,
-    [2] = true
-}
-
-game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
-end
-end)
-
-Fun:Toggle("[🌅]Respawn OTHER", Color3.fromRGB(0,255,255), function(n1, n2, n3)
-for _, plr in pairs(game.Players:GetChildren()) do
-if plr.Name ~= game.Players.LocalPlayer.Name then
-local args = {
-    [1] = plr.Character,
-    [2] = true
-}
-
-game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
-end
-end
-end)
-
-Fun:Change("[🌅]Other Bug", 4, 2, Color3.fromRGB(0,255,255), function(n1, n2, n3)
-for _, plr in pairs(game.Players:GetChildren()) do
-if plr.Name ~= game.Players.LocalPlayer.Name then
-local args = {
-    [1] = {
-        ["rayInstance"] = workspace.Map.Doomspire.Map.Parts.Holder,
-        ["rayPosition"] = plr.Character.Head.Position,
-        ["rayMaterial"] = Enum.Material.Plastic,
-        ["rayDirection"] = Vector3.new(-0.9827694296836853, -0.05639541149139404, -0.17602205276489258),
-        ["rayNormal"] = Vector3.new(1, 0, 0)
-    },
-    [2] = plr.Character.Head.Position,
-    [3] = plr.Character.Head.Position,
-    [4] = "RPG",
-    [5] = game:GetService("ReplicatedStorage").Projectiles.Bullet,
-    [6] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
-    [7] = 100,
-    [8] = {
-        ["Acceleration"] = Vector3.new(0, 0, 0),
-        ["DespawnTime"] = 30,
-        ["Gravity"] = 0,
-        ["Effects"] = {
-            ["BulletHoleInfo"] = {
-                ["HoleSize"] = 5,
-                ["Texture"] = {
-                    [1] = 2078626
-                }
-            },
-            ["Explosion"] = true
-        },
-        ["Threshold"] = 1,
-        ["Object"] = game:GetService("ReplicatedStorage").Projectiles.Rocket,
-        ["Exclude"] = {
-            [1] = workspace.Camera.Arms,
-            [2] = game:GetService("Players").LocalPlayer.Character,
-            [3] = workspace.BulletFolder
-        },
-        ["MaxBounces"] = n3,
-        ["Decay"] = 1
-    },
-    [9] = {
-        ["start"] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
-        ["endPos"] = plr.Character.Head.Position,
-        ["shape"] = "Normal",
-        ["speed"] = n2
-    }
-}
-
-game:GetService("ReplicatedStorage").Events.FireGun:FireServer(unpack(args))
-
-local args = {
-    [1] = {
-        ["rayInstance"] = workspace.Map.dm_crossfire.world.solid_14,
-        ["rayPosition"] = plr.Character.Head.Position,
-        ["rayMaterial"] = Enum.Material.Neon,
-        ["rayNormal"] = Vector3.new(0, 0, 1)
-    },
-    [2] = "RPG",
-    [3] = n1,
-    [4] = 0,
-    [5] = true
-}
-
-game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args))
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
-    [2] = false
-}
-
-game:GetService("ReplicatedStorage").Events.ReloadWeapon:FireServer(unpack(args))
-end
-end
 end)
 
 local Fun = Hub:Section("[😊]Get Primary")
