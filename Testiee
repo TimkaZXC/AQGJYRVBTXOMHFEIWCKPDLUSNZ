@@ -2,7 +2,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/
 local Hub = Lib.Hub("[🧑🏻‍🎄]Hyper Realistic CS:GO")
 local Kill = Hub:Section("[🚶🏻]Weapon Kill")
 
-  Kill:Change("custom kill", 2, 4, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
+  Kill:Change("[💀]Custom", 2, 4, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
     pcall(function()
     for _, plr in pairs(game.Players:GetChildren()) do
      if plr.Name ~= game.Players.LocalPlayer.Name then
@@ -27,7 +27,7 @@ game:GetService("ReplicatedStorage").Events.ProjectileHit:FireServer(unpack(args
 
 for _, weapon in pairs(game.ReplicatedStorage.TrueWeapons:GetDescendants()) do
   if weapon:IsA("Tool") then
-  Kill:Toggle(weapon.Name, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function()
+  Kill:Toggle("[💀]"..weapon.Name, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function()
     pcall(function()
     for _, plr in pairs(game.Players:GetChildren()) do
      if plr.Name ~= game.Players.LocalPlayer.Name then
@@ -55,7 +55,7 @@ end
 local Custom = Hub:Section("[🎁]Custom")
 for _, sound in pairs(game:GetDescendants()) do
   if sound:IsA("Sound") then
- Custom:Change(sound.Name, 1, 1, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
+ Custom:Change("[🎵]"..sound.Name, 1, 1, Color3.fromRGB(math.random(0, 255), math.random(0,255), math.random(0, 255)), function(n)
     pcall(function()
 local args = {
     [1] = sound,
