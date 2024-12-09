@@ -41,7 +41,7 @@ local args = {
     },
     [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
     [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
-    [4] = "RPG",
+    [4] = "FALL",
     [5] = game:GetService("ReplicatedStorage").Projectiles.Bullet,
     [6] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Setting,
     [7] = 100,
