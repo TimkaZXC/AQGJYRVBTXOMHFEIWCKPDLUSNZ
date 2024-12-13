@@ -1,25 +1,6 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Ascend")
-local Main = Hub:Section("[🧑🏻]Character")
-Main:Change("[♥️]Click Health",1, 4, Color3.fromRGB(255,0,0), function(n)
-local args = {
-    [1] = n
-}
-
-game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
-end)
-Main:Change("[♥️]Auto Health",2, 4, Color3.fromRGB(255,0,0), function(n)
-local Player = game.Players.LocalPlayer
-local Hum = Player.Character.Humanoid
-if Hum.Health < Hum.MaxHealth then
-local args = {
-    [1] = n
-}
-
-game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
-else
-end
-end)
+if game.PlaceId == 12235987441 then
 local Cash = Hub:Section("[💰]Get Money")
 Cash:Active("[📂]Toggle Challenge", Color3.fromRGB(255, 255, 0), function()
 local Player = game:GetService("Players").LocalPlayer
@@ -389,6 +370,28 @@ end
 end
 end
 end
+end
+end)
+end
+elseif game.PlaceId == 12236332354 then
+local Main = Hub:Section("[🧑🏻]Character")
+Main:Change("[♥️]Click Health",1, 4, Color3.fromRGB(255,0,0), function(n)
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
+end)
+Main:Change("[♥️]Auto Health",2, 4, Color3.fromRGB(255,0,0), function(n)
+local Player = game.Players.LocalPlayer
+local Hum = Player.Character.Humanoid
+if Hum.Health < Hum.MaxHealth then
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
+else
 end
 end)
 end
