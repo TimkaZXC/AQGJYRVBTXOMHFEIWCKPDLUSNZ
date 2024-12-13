@@ -1,1 +1,394 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Ascend")
+local Main = Hub:Section("[🧑🏻]Character")
+Main:Change("[♥️]Click Health",1, 4, Color3.fromRGB(255,0,0), function(n)
+local args = {
+    [1] = n
+}
 
+game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
+end)
+Main:Change("[♥️]Auto Health",2, 4, Color3.fromRGB(255,0,0), function(n)
+local Player = game.Players.LocalPlayer
+local Hum = Player.Character.Humanoid
+if Hum.Health < Hum.MaxHealth then
+local args = {
+    [1] = n
+}
+
+game:GetService("ReplicatedStorage").LocalDamage:FireServer(unpack(args))
+else
+end
+end)
+local Cash = Hub:Section("[💰]Get Money")
+Cash:Active("[📂]Toggle Challenge", Color3.fromRGB(255, 255, 0), function()
+local Player = game:GetService("Players").LocalPlayer
+local PlayerGui = Player.PlayerGui
+local Challenge = PlayerGui.ScreenGui.CenterFrame.ChallengesFrame
+if Challenge.Visible == false then
+Challenge.Visible = true
+else
+Challenge.Visible = false
+end
+end)
+
+Cash:Active("[❔]Get Challenge", Color3.fromRGB(255, 255, 0), function()
+local Player = game:GetService("Players").LocalPlayer
+local PlayerGui = Player.PlayerGui
+local Challenge = PlayerGui.ScreenGui.CenterFrame.ChallengesFrame
+for _, claim in pairs(Challenge:GetDescendants()) do
+if claim:IsA("TextButton") then
+if claim.Name == "ClaimButton" then
+if claim.Visible == false then
+claim.Visible = true
+else
+claim.Visible = false
+end
+end
+end
+end
+end)
+
+local Get = Hub:Section("[🧰]Get Item")
+Get:Active("[🧪]Speed", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Speed Potion"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🧪]Gravity", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Gravity Potion"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🔴]Regen", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Regen Orb"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🩹]Bandage", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Bandage"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[💊]Medkit", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Medkit"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🛡️]Tonic", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Shield Tonic"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🦸🏻]Invulnerability Core", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Invulnerability Core"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🔦]Flashlight", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Flashlight"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🔨]Shovel", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Shovel"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+Get:Active("[🐊]GET ALL", Color3.fromRGB(255,255,0), function()
+local args = {
+    [1] = "Speed Potion"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Gravity Potion"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Regen Orb"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Bandage"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Medkit"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Shield Tonic"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Invulnerability Core"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Shovel"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+local args = {
+    [1] = "Flashlight"
+}
+
+game:GetService("ReplicatedStorage").GiveItem:FireServer(unpack(args))
+end)
+
+local Av = Hub:Section("[👕]Set Skin")
+
+for _, skin in pairs(game:GetService("ReplicatedStorage"):FindFirstChild("Skins"):GetChildren()) do
+local Color = skin.NumberColor
+
+Av:Active("[👕]"..skin.Name, Color3.fromRGB(0,255,255), function()
+local Player = game:GetService("Players").LocalPlayer
+local Char = Player.Character
+local Hats = game:GetService("ReplicatedStorage").Accessories
+
+for _, info in pairs(Char:GetChildren()) do
+for _, cHat in pairs(Hats:GetChildren()) do
+if cHat.Name ~= info.Name then 
+else
+local args = {
+    [1] = skin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = nil --[[Color3]],
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarUpdate:FireServer(unpack(args))
+local args = {
+    [1] = skin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = "Blue",
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarSaveUpdate:FireServer(unpack(args))
+end
+end
+end
+end)
+end
+
+
+local Av = Hub:Section("[🎩]Set Hat")
+for _, access in pairs(game:GetService("ReplicatedStorage").Accessories:GetChildren()) do
+local Type = access.Type.Value
+
+Av:Active("[🎩]"..access.Name, Color3.fromRGB(0,255,255), function()
+local Player = game:GetService("Players").LocalPlayer
+local Char = Player.Character
+local Skins = game:GetService("ReplicatedStorage"):FindFirstChild("Skins")
+
+for _, info in pairs(Char:GetChildren()) do
+for _, cSkin in pairs(Skins:GetChildren()) do
+if cSkin.Shirt.ShirtTemplate ~= Char.Shirt.ShirtTemplate then 
+else
+local args = {
+    [1] = cSkin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = access.Name,
+    [10] = true,
+    [11] = "",
+    [12] = nil --[[Color3]],
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarUpdate:FireServer(unpack(args))
+local args = {
+    [1] = cSkin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = access.Name,
+    [10] = true,
+    [11] = "",
+    [12] = "Blue",
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarSaveUpdate:FireServer(unpack(args))
+end
+end
+end
+end)
+end
+
+local Av = Hub:Section("[☠️]Set DEffect")
+for _, death in pairs(game:GetService("ReplicatedStorage"):FindFirstChild("DeathEffects"):GetChildren()) do
+
+Av:Active("[☠️]"..death.Name, Color3.fromRGB(0,255,255), function()
+local Player = game:GetService("Players").LocalPlayer
+local Char = Player.Character
+
+local Skins = game:GetService("ReplicatedStorage"):FindFirstChild("Skins")
+local Hats = game:GetService("ReplicatedStorage"):FindFirstChild("Accessories")
+for _, info in pairs(Char:GetChildren()) do
+for _, cHat in pairs(Hats:GetChildren()) do
+for _, cSkin in pairs(Skins:GetChildren()) do
+if cSkin.Shirt.ShirtTemplate ~= Char.Shirt.ShirtTemplate then 
+else
+if cHat.Name ~= info.Name then 
+else
+local args = {
+    [1] = cSkin.Name,
+    [2] = death.Name,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = nil --[[Color3]],
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarUpdate:FireServer(unpack(args))
+local args = {
+    [1] = cSkin.Name,
+    [2] = death.Name,
+    [3] = Char.Head.NameGui.PlayerTitle.Text,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = "Blue",
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarSaveUpdate:FireServer(unpack(args))
+end
+end
+end
+end
+end
+end)
+end
+
+local Av = Hub:Section("[👤]Set Title")
+for _, title in pairs(game:GetService("ReplicatedStorage"):FindFirstChild("Titles"):GetChildren()) do
+
+Av:Active("[👤]"..title.Name, Color3.fromRGB(0,255,255), function()
+local Player = game:GetService("Players").LocalPlayer
+local Char = Player.Character
+
+local Skins = game:GetService("ReplicatedStorage"):FindFirstChild("Skins")
+local Hats = game:GetService("ReplicatedStorage"):FindFirstChild("Accessories")
+for _, info in pairs(Char:GetChildren()) do
+for _, cHat in pairs(Hats:GetChildren()) do
+for _, cSkin in pairs(Skins:GetChildren()) do
+if cSkin.Shirt.ShirtTemplate ~= Char.Shirt.ShirtTemplate then 
+else
+if cHat.Name ~= info.Name then 
+else
+local args = {
+    [1] = cSkin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = title.Name,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = nil --[[Color3]],
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarUpdate:FireServer(unpack(args))
+local args = {
+    [1] = cSkin.Name,
+    [2] = Char.DeathEffect.Value,
+    [3] = title.Name,
+    [4] = "",
+    [5] = "",
+    [6] = "",
+    [7] = "",
+    [8] = "",
+    [9] = cHat.Name,
+    [10] = true,
+    [11] = "",
+    [12] = "Blue",
+    [13] = "",
+    [14] = ""
+}
+
+game:GetService("ReplicatedStorage").AvatarSaveUpdate:FireServer(unpack(args))
+end
+end
+end
+end
+end
+end)
+end
