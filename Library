@@ -1,12 +1,12 @@
 local Kavo = {}
 
 local CoreGui = game:GetService("CoreGui")
-
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 
 local SortSections = -2
+local SortButtons = -2
 
 function Kavo.Hub(name)
 	if not CoreGui:FindFirstChild(name) then
@@ -16,7 +16,7 @@ function Kavo.Hub(name)
 		UIList.Padding = UDim.new(0,5)
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIList.VerticalAlignment = Enum.VerticalAlignment.Top
-		UICorner.CornerRadius = UDim.new(0,5)
+		--UICorner.CornerRadius = UDim.new(0,5)
 		local Background = Instance.new("Frame")
 		local TopPanel = Instance.new("Frame")
 		local LeftPanel = Instance.new("Frame")
@@ -26,11 +26,18 @@ function Kavo.Hub(name)
 		local Title = Instance.new("TextLabel")
 		local Close = Instance.new("ImageButton")
 
-		local C1 = UICorner:Clone()
-		local C2 = UICorner:Clone()
-		local C3 = UICorner:Clone()
-		local C4 = UICorner:Clone()
-		local C5 = UICorner:Clone()
+		--local C1 = UICorner:Clone()
+		--local C2 = UICorner:Clone()
+		--local C3 = UICorner:Clone()
+		--local C4 = UICorner:Clone()
+		--local C5 = UICorner:Clone()
+		
+		local function Corner(frame, radius)
+			local UICorner = Instance.new("UICorner")
+			UICorner.CornerRadius = UDim.new(0, radius)
+			UICorner.Parent = frame
+			return UICorner
+		end
 
 		local function OnDragged(frame, speed)
 			local gui = frame
@@ -100,7 +107,8 @@ function Kavo.Hub(name)
 		Background.Visible = false
 		Background.Name = "Background"
 		Background.Parent = Window
-		C1.Parent = Background
+		Corner(Background, 5)
+		--C1.Parent = Background
 
 		TopPanel.ZIndex = 999
 		TopPanel.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
@@ -111,7 +119,8 @@ function Kavo.Hub(name)
 		TopPanel.Visible = true
 		TopPanel.Name = "TopPanel"
 		TopPanel.Parent = Background
-		C2.Parent = TopPanel
+		Corner(TopPanel, 5)
+		--C2.Parent = TopPanel
 
 		LeftPanel.ZIndex = 1
 		LeftPanel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -122,7 +131,8 @@ function Kavo.Hub(name)
 		LeftPanel.Visible = true
 		LeftPanel.Name = "LeftPanel"
 		LeftPanel.Parent = Background
-		C3.Parent = LeftPanel
+		Corner(LeftPanel, 5)
+		--C3.Parent = LeftPanel
 
 		ScrollLeftPanel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		ScrollLeftPanel.BackgroundTransparency = 1
@@ -145,7 +155,8 @@ function Kavo.Hub(name)
 		HeadPanel.Visible = true
 		HeadPanel.Name = "HeadPanel"
 		HeadPanel.Parent = Background
-		C4.Parent = HeadPanel
+		Corner(HeadPanel, 5)
+		--C4.Parent = HeadPanel
 
 		Title.ZIndex = 999
 		Title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -181,7 +192,8 @@ function Kavo.Hub(name)
 		Open.Visible = true
 		Open.Name = "Open"
 		Open.Parent = Window
-		C5.Parent = Open
+		Corner(Open, 5)
+		--C5.Parent = Open
 
 		UIList.Parent = ScrollLeftPanel
 		UIList.Padding = UDim.new(0,5)
@@ -202,7 +214,7 @@ function Kavo.Hub(name)
 				Open.Visible = true
 			end
 		end)
-
+		
 		OnDragged(Open, 7) OnDragged(Background, 7)
 
 		print(name)
@@ -212,12 +224,15 @@ function Kavo.Hub(name)
 			local SectionB = Instance.new("TextButton")
 			local SectionF = Instance.new("Frame")
 			local SectionS = Instance.new("ScrollingFrame")
-			local TitleF = Instance.new("TextLabel")
-			local UIList1 = Instance.new("UIListLayout")
-			UIList1.Padding = UDim.new(0,5)
-			UIList1.HorizontalAlignment = Enum.HorizontalAlignment.Center
-			UIList1.VerticalAlignment = Enum.VerticalAlignment.Top
-			UIList1.SortOrder = Enum.SortOrder.LayoutOrder
+			local UIList = Instance.new("UIListLayout")
+			
+			Corner(SectionB, 5) Corner(SectionF, 5) Corner(SectionS, 5) 
+			
+			UIList.Padding = UDim.new(0,3)
+			UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+			UIList.HorizontalFlex = Enum.UIFlexAlignment.Fill
+			UIList.VerticalAlignment = Enum.VerticalAlignment.Top
+			UIList.SortOrder = Enum.SortOrder.LayoutOrder
 
 			SectionB.LayoutOrder = SortSections
 			SectionB.BackgroundTransparency = 0.75
@@ -230,6 +245,7 @@ function Kavo.Hub(name)
 			SectionB.TextScaled = true
 			SectionB.Name = name
 			SectionB.Parent = ScrollLeftPanel
+			
 
 			SectionF.ZIndex = 1
 			SectionF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -251,23 +267,7 @@ function Kavo.Hub(name)
 			SectionS.ScrollingDirection = Enum.ScrollingDirection.Y
 			SectionS.Name = "ScrollList"
 			SectionS.Parent = SectionF
-			UIList1.Parent = SectionS
-
-
-			TitleF.LayoutOrder = -99
-			TitleF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-			TitleF.BackgroundTransparency = 0.35
-			TitleF.Size = UDim2.new(0, 281, 0, 25)
-			TitleF.Active = false
-			TitleF.Visible = true
-			TitleF.TextColor3 = Color3.fromRGB(255,255,255)
-			TitleF.TextScaled = true
-			TitleF.RichText = true
-			TitleF.Font = Enum.Font.PatrickHand
-			TitleF.TextXAlignment = Enum.TextXAlignment.Center
-			TitleF.Name = "Title"
-			TitleF.Text = tostring(" "..name):upper()
-			TitleF.Parent = SectionS
+			UIList.Parent = SectionS
 
 			SectionB.MouseButton1Click:Connect(function()
 				for _, other in pairs(HeadPanel:GetChildren()) do
@@ -287,13 +287,65 @@ function Kavo.Hub(name)
 			end)
 			print(name)
 			local Butt = {}
+			function Butt:Title(name, color)
+				SortButtons += 1
+				local Background = Instance.new("Frame")
+				local Inco1 = Instance.new("Frame")
+				local Inco2 = Instance.new("Frame")
+				local Text = Instance.new("TextLabel")
+				local UIList = Instance.new("UIListLayout")
+				UIList.Padding = UDim.new(0,0)
+				UIList.SortOrder = Enum.SortOrder.LayoutOrder
+				UIList.FillDirection = Enum.FillDirection.Horizontal
+				UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+				UIList.HorizontalFlex = Enum.UIFlexAlignment.SpaceEvenly
+
+				Background.ZIndex = 1
+				Background.LayoutOrder = SortButtons
+				Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				Background.BackgroundTransparency = 0.9
+				Background.Size = UDim2.new(0, 0, 0, 25)
+				Background.Visible = true
+				Background.Name = "Title"
+				Background.Parent = SectionS
+				Corner(Background, 5)
+				UIList.Parent = Background
+				
+				Inco1.Size = UDim2.new(0, 4, 0, 25)
+				Inco1.LayoutOrder = 1
+				Inco1.Parent = Background
+				Inco1.BackgroundColor3 = color
+				Corner(Inco1, 5)
+				
+				Inco2.Size = UDim2.new(0, 4, 0, 25)
+				Inco2.LayoutOrder = -1
+				Inco2.Parent = Background
+				Inco2.BackgroundColor3 = color
+				Corner(Inco2, 5)
+				
+				Text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				Text.BackgroundTransparency = 1
+				Text.LayoutOrder = 0
+				Text.Size = UDim2.new(0, 270, 0, 25)
+				Text.Visible = true
+				Text.TextColor3 = Color3.fromRGB(255,255,255)
+				Text.TextScaled = true
+				Text.RichText = true
+				Text.Font = Enum.Font.PatrickHand
+				Text.TextXAlignment = Enum.TextXAlignment.Center
+				Text.Name = "Text"
+				Text.Text = tostring(" "..name):upper()
+				Text.Parent = Background
+			end
+			
 			function Butt:Active(name, color ,functuin:FunctionalTest)
+				SortButtons += 1
 				local ActiveB = Instance.new("TextButton")
 				local Inco = Instance.new("Frame")
 				local Image = Instance.new("ImageLabel")
 				local Info = Instance.new("TextLabel")
 
-				ActiveB.LayoutOrder = -2
+				ActiveB.LayoutOrder = SortButtons
 				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				ActiveB.BackgroundTransparency = 0.75
 				ActiveB.Size = UDim2.new(0, 280, 0, 35)
@@ -302,6 +354,7 @@ function Kavo.Hub(name)
 				ActiveB.Name = "Active"
 				ActiveB.Text = ""
 				ActiveB.Parent = SectionS
+				Corner(ActiveB, 5)
 
 				Image.Parent = ActiveB
 				Image.BackgroundTransparency = 1
@@ -309,10 +362,12 @@ function Kavo.Hub(name)
 				Image.Size = UDim2.new(0,30,0,30)
 				Image.Image = "rbxassetid://88969209134354"
 				Image.ImageColor3 = color
+				Corner(Image, 5)
 
 				Inco.Size = UDim2.new(0, 4, 0, 35)
 				Inco.Parent = ActiveB
 				Inco.BackgroundColor3 = color
+				Corner(Inco, 5)
 
 				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				Info.BackgroundTransparency = 1
@@ -326,6 +381,69 @@ function Kavo.Hub(name)
 				Info.TextXAlignment = Enum.TextXAlignment.Left
 				Info.Text = " "..name
 				Info.Parent = ActiveB
+				Corner(Info, 5)
+
+				ActiveB.MouseButton1Click:Connect(function()
+					pcall(function()
+						functuin()
+					end)
+				end)
+				print(name)
+			end
+			
+			function Butt:ActiveI(name, image, color ,functuin:FunctionalTest)
+				SortButtons += 1
+				local ActiveB = Instance.new("TextButton")
+				local Inco = Instance.new("Frame")
+				local Image = Instance.new("ImageLabel")
+				local Avatar = Instance.new("ImageLabel")
+				local Info = Instance.new("TextLabel")
+
+				ActiveB.LayoutOrder = SortButtons
+				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				ActiveB.BackgroundTransparency = 0.75
+				ActiveB.Size = UDim2.new(0, 280, 0, 35)
+				ActiveB.MaxVisibleGraphemes = 0
+				ActiveB.Visible = true
+				ActiveB.Name = "Active"
+				ActiveB.Text = ""
+				ActiveB.Parent = SectionS
+				Corner(ActiveB, 5)
+
+				Image.Parent = ActiveB
+				Image.BackgroundTransparency = 1
+				Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+				Image.Size = UDim2.new(0,30,0,30)
+				Image.Image = "rbxassetid://88969209134354"
+				Image.ImageColor3 = color
+				Corner(Image, 5)
+				
+				Avatar.Parent = ActiveB
+				Avatar.BackgroundTransparency = 1
+				Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
+				Avatar.Size = UDim2.new(0,30,0,30)
+				Avatar.Image = image or "rbxassetid://"..image 
+				Avatar.ImageColor3 = color
+				Corner(Avatar, 5)
+
+				Inco.Size = UDim2.new(0, 4, 0, 35)
+				Inco.Parent = ActiveB
+				Inco.BackgroundColor3 = color
+				Corner(Inco, 5)
+
+				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				Info.BackgroundTransparency = 1
+				Info.Size = UDim2.new(0, 196, 0, 33)
+				Info.Position = UDim2.new(0.163, 0, 0.029, 0)
+				Info.Visible = true
+				Info.TextColor3 = Color3.fromRGB(255,255,255)
+				Info.TextScaled = true
+				Info.RichText = true
+				Info.Font = Enum.Font.PatrickHand
+				Info.TextXAlignment = Enum.TextXAlignment.Left
+				Info.Text = " "..name
+				Info.Parent = ActiveB
+				Corner(Info, 5)
 
 				ActiveB.MouseButton1Click:Connect(function()
 					pcall(function()
@@ -336,7 +454,7 @@ function Kavo.Hub(name)
 			end
 
 			function Butt:Toggle(name, color ,functuin:FunctionalTest)
-
+				SortButtons += 1
 				local ActiveB = Instance.new("TextButton")
 				local ImageL = Instance.new("ImageLabel")
 				local Inco = Instance.new("Frame")
@@ -344,7 +462,7 @@ function Kavo.Hub(name)
 
 				local Toggle = false
 				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
-				ActiveB.LayoutOrder = 0
+				ActiveB.LayoutOrder = SortButtons
 				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				ActiveB.BackgroundTransparency = 0.75
 				ActiveB.Size = UDim2.new(0, 280, 0, 35)
@@ -353,6 +471,7 @@ function Kavo.Hub(name)
 				ActiveB.Name = "Toggle"
 				ActiveB.Text = " "
 				ActiveB.Parent = SectionS
+				Corner(ActiveB, 5)
 
 				ImageL.Parent = ActiveB
 				ImageL.BackgroundTransparency = 1
@@ -360,10 +479,12 @@ function Kavo.Hub(name)
 				ImageL.Size = UDim2.new(0,30,0,30)
 				ImageL.Image = ImTg[1]
 				ImageL.ImageColor3 = color
+				Corner(ImageL, 5)
 
 				Inco.Size = UDim2.new(0, 4, 0, 35)
 				Inco.Parent = ActiveB
 				Inco.BackgroundColor3 = color
+				Corner(Inco, 5)
 
 				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				Info.BackgroundTransparency = 1
@@ -377,6 +498,7 @@ function Kavo.Hub(name)
 				Info.TextXAlignment = Enum.TextXAlignment.Left
 				Info.Text = " "..name
 				Info.Parent = ActiveB
+				Corner(Info, 5)
 
 				ActiveB.MouseButton1Click:Connect(function()
 					pcall(function()
@@ -396,6 +518,7 @@ function Kavo.Hub(name)
 				print(name)
 			end
 			function Butt:Change(name, typesB, typesT, color, functuin:FunctionalTest)
+				SortButtons += 1
 				local ActiveB = Instance.new("TextButton")
 				local Image = Instance.new("ImageLabel")
 				local Inco = Instance.new("Frame")
@@ -403,10 +526,11 @@ function Kavo.Hub(name)
 				local Number1 = Instance.new("TextBox")
 				local Number2 = Instance.new("TextBox")
 				local Number3 = Instance.new("TextBox")
+				Corner(ActiveB, 5) Corner(Image, 5) Corner(Inco, 5) Corner(Info, 5) Corner(Number1, 5) Corner(Number2, 5) Corner(Number3, 5)
 				local Toggle = false
 				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
 				if typesB == 1 then
-					ActiveB.LayoutOrder = -1
+					ActiveB.LayoutOrder = SortButtons
 					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					ActiveB.BackgroundTransparency = 0.75
 					ActiveB.Size = UDim2.new(0, 280, 0, 35)
@@ -472,7 +596,7 @@ function Kavo.Hub(name)
 							Number1.Text = Number1.Text:gsub('%W+', '')
 						end)
 					end
-					
+
 				elseif typesB == 2 then
 					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					ActiveB.BackgroundTransparency = 0.75
@@ -520,7 +644,7 @@ function Kavo.Hub(name)
 					Info.TextXAlignment = Enum.TextXAlignment.Left
 					Info.Text = " "..name
 					Info.Parent = ActiveB
-					
+
 					ActiveB.MouseButton1Click:Connect(function()
 						pcall(function()
 							if Toggle == false then
@@ -536,7 +660,7 @@ function Kavo.Hub(name)
 							end
 						end)
 					end)
-					
+
 					if typesT == 1 then
 						Number1:GetPropertyChangedSignal("Text"):Connect(function()
 							Number1.Text = Number1.Text:gsub('%D+', '')
@@ -551,7 +675,7 @@ function Kavo.Hub(name)
 						end)
 					elseif typesT == 4 then
 					end
-					
+
 				elseif typesB == 3 then
 					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					ActiveB.BackgroundTransparency = 0.75
@@ -756,7 +880,7 @@ function Kavo.Hub(name)
 							end
 						end)
 					end)
-					
+
 					if typesT == 1 then
 						Number1:GetPropertyChangedSignal("Text"):Connect(function()
 							Number1.Text = Number1.Text:gsub('%D+', '')
@@ -792,6 +916,7 @@ function Kavo.Hub(name)
 				end
 			end
 			function Butt:Choice(name,class,color,functuin:FunctionalTest)
+				SortButtons += 1
 				--{1 - PlayerList}
 				if class == 1 then
 					local ChoiseText = Instance.new("StringValue")
@@ -806,6 +931,7 @@ function Kavo.Hub(name)
 					local Background = Instance.new("Frame")
 					local List = Instance.new("ScrollingFrame")
 					local UILIST = Instance.new("UIListLayout")
+					Corner(ActiveB, 5) Corner(Image, 5) Corner(Inco, 5) Corner(Info, 5) Corner(Background, 5)
 
 					UILIST.Padding = UDim.new(0,5)
 					UILIST.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -815,7 +941,7 @@ function Kavo.Hub(name)
 					UILIST.SortOrder = Enum.SortOrder.LayoutOrder
 					UILIST.Parent = List
 
-					ActiveB.LayoutOrder = -1
+					ActiveB.LayoutOrder = SortButtons
 					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 					ActiveB.BackgroundTransparency = 0.75
 					ActiveB.Size = UDim2.new(0, 280, 0, 35)
