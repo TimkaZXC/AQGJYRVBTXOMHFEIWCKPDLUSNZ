@@ -423,7 +423,6 @@ function Kavo.Hub(name)
 				Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
 				Avatar.Size = UDim2.new(0,30,0,30)
 				Avatar.Image = image or "rbxassetid://"..image 
-				Avatar.ImageColor3 = color
 				Corner(Avatar, 5)
 
 				Inco.Size = UDim2.new(0, 4, 0, 35)
