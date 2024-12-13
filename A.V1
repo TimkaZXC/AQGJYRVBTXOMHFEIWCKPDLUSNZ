@@ -1,6 +1,6 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
-local Hub = Lib.Hub("[🎄]Ascend")
 if game.PlaceId == 12235987441 then
+local Hub = Lib.Hub("[🎄]Ascend (Lobby)")
 local Cash = Hub:Section("[💰]Get Money")
 Cash:Active("[📂]Toggle Challenge", Color3.fromRGB(255, 255, 0), function()
 local Player = game:GetService("Players").LocalPlayer
@@ -374,6 +374,7 @@ end
 end)
 end
 elseif game.PlaceId == 12236332354 then
+local Hub = Lib.Hub("[🎄]Ascend (Game)")
 local Main = Hub:Section("[🧑🏻]Character")
 Main:Change("[♥️]Click Health",1, 4, Color3.fromRGB(255,0,0), function(n)
 local args = {
