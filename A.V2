@@ -147,7 +147,7 @@ local Av = Hub:Section("[👕]Set Skin")
 for _, skin in pairs(game:GetService("ReplicatedStorage"):FindFirstChild("Skins"):GetChildren()) do
 local Color = skin.NumberColor
 
-Av:Active("[👕]"..skin.Name, Color3.fromRGB(0,255,255), function()
+Av:ActiveI("[👕]"..skin.Name, skin.LongDecal.Texture,Color3.fromRGB(0,255,255), function()
 local Player = game:GetService("Players").LocalPlayer
 local Char = Player.Character
 local Hats = game:GetService("ReplicatedStorage").Accessories
@@ -203,7 +203,7 @@ local Av = Hub:Section("[🎩]Set Hat")
 for _, access in pairs(game:GetService("ReplicatedStorage").Accessories:GetChildren()) do
 local Type = access.Type.Value
 
-Av:Active("[🎩]"..access.Name, Color3.fromRGB(0,255,255), function()
+Av:ActiveI("[🎩]"..access.Name, access.Decal.Texture,Color3.fromRGB(0,255,255), function()
 local Player = game:GetService("Players").LocalPlayer
 local Char = Player.Character
 local Skins = game:GetService("ReplicatedStorage"):FindFirstChild("Skins")
@@ -257,7 +257,7 @@ end
 local Av = Hub:Section("[☠️]Set DEffect")
 for _, death in pairs(game:GetService("ReplicatedStorage"):FindFirstChild("DeathEffects"):GetChildren()) do
 
-Av:Active("[☠️]"..death.Name, Color3.fromRGB(0,255,255), function()
+Av:ActiveI("[☠️]"..death.Name, death.Texture,Color3.fromRGB(0,255,255), function()
 local Player = game:GetService("Players").LocalPlayer
 local Char = Player.Character
 
