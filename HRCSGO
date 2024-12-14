@@ -113,7 +113,14 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
 end
 end)
+local args = {
+    [1] = true,
+    [2] = "Admin",
+    [3] = Color3.fromRGB(255,0,0),
+    [4] = ""
+}
 
+game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
 Fun:Title("[⚙]Testing Function", Color3.fromRGB(255,255,255))
 Fun:Change("[⚙]Other Bug", 4, 2, Color3.fromRGB(255,255,255), function(n1, n2, n3)
 pcall(function()
