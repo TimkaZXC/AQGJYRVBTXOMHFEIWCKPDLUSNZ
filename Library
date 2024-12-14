@@ -31,7 +31,7 @@ function Kavo.Hub(name)
 		--local C3 = UICorner:Clone()
 		--local C4 = UICorner:Clone()
 		--local C5 = UICorner:Clone()
-		
+
 		local function Corner(frame, radius)
 			local UICorner = Instance.new("UICorner")
 			UICorner.CornerRadius = UDim.new(0, radius)
@@ -199,22 +199,77 @@ function Kavo.Hub(name)
 		UIList.Padding = UDim.new(0,5)
 		UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIList.SortOrder = Enum.SortOrder.LayoutOrder
-
-
+		
+		local tgs = false
+		UserInputService.InputBegan:Connect(function(input)
+			local Key = input.KeyCode
+			local PGui = game:GetService("Players").LocalPlayer.PlayerGui
+			if Key == Enum.KeyCode.RightControl then
+				if tgs == false then
+					tgs = true
+					if not PGui:FindFirstChild("LOC8u382yfo2497ft873d") then
+						local ScreenGui = Instance.new("ScreenGui", PGui)
+						ScreenGui.Name = "LOC8u382yfo2497ft873d"
+						local Button = Instance.new("TextButton")
+						Button.Name = "HIUVEUGIUWUF@#&F"
+						Button.Text = ""
+						Button.Transparency = 1
+						Button.Modal = true
+						Button.Parent = ScreenGui
+						Background.Visible = true
+						Open.Visible = false
+						UserInputService.MouseIconEnabled = true
+					end
+				elseif tgs == true then
+					tgs = false
+					if PGui:FindFirstChild("LOC8u382yfo2497ft873d") then
+						local ScreenGui = PGui.LOC8u382yfo2497ft873d
+						ScreenGui:Destroy()
+						Background.Visible = false
+						Open.Visible = true
+						UserInputService.MouseIconEnabled = false
+					end
+				end
+			elseif Key == Enum.KeyCode.P then
+				UserInputService.MouseIcon = "rbxassetid://103437130783343"
+				if UserInputService.MouseIconEnabled == false then
+					UserInputService.MouseIconEnabled = true
+				else
+					UserInputService.MouseIconEnabled = false
+				end
+			end
+		end)
+		
 		Open.MouseButton1Click:Connect(function()
+			local PGui = game:GetService("Players").LocalPlayer.PlayerGui
 			if Background.Visible == false then
+				if not PGui:FindFirstChild("LOC8u382yfo2497ft873d") then
+					local ScreenGui = Instance.new("ScreenGui", PGui)
+					ScreenGui.Name = "LOC8u382yfo2497ft873d"
+					local Button = Instance.new("TextButton")
+					Button.Name = "HIUVEUGIUWUF@#&F"
+					Button.Text = ""
+					Button.Transparency = 1
+					Button.Modal = true
+					Button.Parent = ScreenGui
+				end
 				Background.Visible = true
 				Open.Visible = false
 			end
 		end)
 
 		Close.MouseButton1Click:Connect(function()
+			local PGui = game:GetService("Players").LocalPlayer.PlayerGui
 			if Background.Visible == true then
-				Background.Visible = false
+				if PGui:FindFirstChild("LOC8u382yfo2497ft873d") then
+					local ScreenGui = PGui:FindFirstChild("LOC8u382yfo2497ft873d")
+					ScreenGui:Destroy()
+				end
+				Background.Visible = false	
 				Open.Visible = true
 			end
 		end)
-		
+
 		OnDragged(Open, 7) OnDragged(Background, 7)
 
 		print(name)
@@ -225,9 +280,9 @@ function Kavo.Hub(name)
 			local SectionF = Instance.new("Frame")
 			local SectionS = Instance.new("ScrollingFrame")
 			local UIList = Instance.new("UIListLayout")
-			
+
 			Corner(SectionB, 5) Corner(SectionF, 5) Corner(SectionS, 5) 
-			
+
 			UIList.Padding = UDim.new(0,3)
 			UIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 			UIList.HorizontalFlex = Enum.UIFlexAlignment.Fill
@@ -245,7 +300,7 @@ function Kavo.Hub(name)
 			SectionB.TextScaled = true
 			SectionB.Name = name
 			SectionB.Parent = ScrollLeftPanel
-			
+
 
 			SectionF.ZIndex = 1
 			SectionF.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -310,19 +365,19 @@ function Kavo.Hub(name)
 				Background.Parent = SectionS
 				Corner(Background, 5)
 				UIList.Parent = Background
-				
+
 				Inco1.Size = UDim2.new(0, 4, 0, 25)
 				Inco1.LayoutOrder = 1
 				Inco1.Parent = Background
 				Inco1.BackgroundColor3 = color
 				Corner(Inco1, 5)
-				
+
 				Inco2.Size = UDim2.new(0, 4, 0, 25)
 				Inco2.LayoutOrder = -1
 				Inco2.Parent = Background
 				Inco2.BackgroundColor3 = color
 				Corner(Inco2, 5)
-				
+
 				Text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 				Text.BackgroundTransparency = 1
 				Text.LayoutOrder = 0
@@ -337,7 +392,7 @@ function Kavo.Hub(name)
 				Text.Text = tostring(" "..name):upper()
 				Text.Parent = Background
 			end
-			
+
 			function Butt:Active(name, color ,functuin:FunctionalTest)
 				SortButtons += 1
 				local ActiveB = Instance.new("TextButton")
@@ -390,65 +445,304 @@ function Kavo.Hub(name)
 				end)
 				print(name)
 			end
-			
-			function Butt:ActiveI(name, image, color ,functuin:FunctionalTest)
+
+			function Butt:Image(name, typeB, image, color ,functuin:FunctionalTest)
 				SortButtons += 1
 				local ActiveB = Instance.new("TextButton")
 				local Inco = Instance.new("Frame")
 				local Image = Instance.new("ImageLabel")
 				local Avatar = Instance.new("ImageLabel")
 				local Info = Instance.new("TextLabel")
+				local Number1 = Instance.new("TextBox")
+				local Number2 = Instance.new("TextBox")
+				local Number3 = Instance.new("TextBox")
+				local Toggle = false
+				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
+				if typeB == 1 then
+					ActiveB.LayoutOrder = SortButtons
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Active"
+					ActiveB.Text = ""
+					ActiveB.Parent = SectionS
+					Corner(ActiveB, 5)
 
-				ActiveB.LayoutOrder = SortButtons
-				ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				ActiveB.BackgroundTransparency = 0.75
-				ActiveB.Size = UDim2.new(0, 280, 0, 35)
-				ActiveB.MaxVisibleGraphemes = 0
-				ActiveB.Visible = true
-				ActiveB.Name = "Active"
-				ActiveB.Text = ""
-				ActiveB.Parent = SectionS
-				Corner(ActiveB, 5)
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = "rbxassetid://88969209134354"
+					Image.ImageColor3 = color
+					Corner(Image, 5)
 
-				Image.Parent = ActiveB
-				Image.BackgroundTransparency = 1
-				Image.Position = UDim2.new(0.885, 0, 0.071, 0)
-				Image.Size = UDim2.new(0,30,0,30)
-				Image.Image = "rbxassetid://88969209134354"
-				Image.ImageColor3 = color
-				Corner(Image, 5)
-				
-				Avatar.Parent = ActiveB
-				Avatar.BackgroundTransparency = 1
-				Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
-				Avatar.Size = UDim2.new(0,30,0,30)
-				Avatar.Image = image or "rbxassetid://"..image 
-				Corner(Avatar, 5)
+					Avatar.Parent = ActiveB
+					Avatar.BackgroundTransparency = 1
+					Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
+					Avatar.Size = UDim2.new(0,30,0,30)
+					Avatar.Image = image or "rbxassetid://"..image 
+					Corner(Avatar, 5)
 
-				Inco.Size = UDim2.new(0, 4, 0, 35)
-				Inco.Parent = ActiveB
-				Inco.BackgroundColor3 = color
-				Corner(Inco, 5)
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+					Corner(Inco, 5)
 
-				Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-				Info.BackgroundTransparency = 1
-				Info.Size = UDim2.new(0, 196, 0, 33)
-				Info.Position = UDim2.new(0.163, 0, 0.029, 0)
-				Info.Visible = true
-				Info.TextColor3 = Color3.fromRGB(255,255,255)
-				Info.TextScaled = true
-				Info.RichText = true
-				Info.Font = Enum.Font.PatrickHand
-				Info.TextXAlignment = Enum.TextXAlignment.Left
-				Info.Text = " "..name
-				Info.Parent = ActiveB
-				Corner(Info, 5)
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 196, 0, 33)
+					Info.Position = UDim2.new(0.163, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+					Corner(Info, 5)
 
-				ActiveB.MouseButton1Click:Connect(function()
-					pcall(function()
-						functuin()
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							functuin()
+						end)
 					end)
-				end)
+				elseif typeB == 2 then
+					ActiveB.LayoutOrder = SortButtons
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Active"
+					ActiveB.Text = ""
+					ActiveB.Parent = SectionS
+					Corner(ActiveB, 5)
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = ImTg[1]
+					Image.ImageColor3 = color
+					Corner(Image, 5)
+
+					Avatar.Parent = ActiveB
+					Avatar.BackgroundTransparency = 1
+					Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
+					Avatar.Size = UDim2.new(0,30,0,30)
+					Avatar.Image = image or "rbxassetid://"..image 
+					Corner(Avatar, 5)
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+					Corner(Inco, 5)
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 196, 0, 33)
+					Info.Position = UDim2.new(0.163, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+					Corner(Info, 5)
+
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							if Toggle == false then
+								Toggle = true
+								Image.Image = ImTg[2]
+								while Toggle == true do
+									functuin()
+									wait()
+								end
+							elseif Toggle == true then
+								Toggle = false
+								Image.Image = ImTg[1]
+							end
+						end)
+					end)
+				elseif typeB == 3 then
+					ActiveB.LayoutOrder = SortButtons
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Active"
+					ActiveB.Text = ""
+					ActiveB.Parent = SectionS
+					Corner(ActiveB, 5)
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = "rbxassetid://88969209134354"
+					Image.ImageColor3 = color
+					Corner(Image, 5)
+
+					Avatar.Parent = ActiveB
+					Avatar.BackgroundTransparency = 1
+					Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
+					Avatar.Size = UDim2.new(0,30,0,30)
+					Avatar.Image = image or "rbxassetid://"..image 
+					Corner(Avatar, 5)
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+					Corner(Inco, 5)
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 130, 0, 33)
+					Info.Position = UDim2.new(0.144, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+					Corner(Info, 5)
+
+					Number2.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number2.BackgroundTransparency = 0.85
+					Number2.TextColor3 = Color3.fromRGB(255,255,255)
+					Number2.TextScaled = true
+					Number2.MultiLine = true
+					Number2.PlaceholderText = "Number..."
+					Number2.Text = ""
+					Number2.RichText = true
+					Number2.Font = Enum.Font.PatrickHand
+					Number2.TextXAlignment = Enum.TextXAlignment.Left
+					Number2.Position = UDim2.new(0.619, 0, 0.071, 0)
+					Number2.Size = UDim2.new(0, 30, 0, 30)
+					Number2.Parent = ActiveB
+					Corner(Number2, 5)
+
+					Number3.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number3.BackgroundTransparency = 0.85
+					Number3.TextColor3 = Color3.fromRGB(255,255,255)
+					Number3.TextScaled = true
+					Number3.MultiLine = true
+					Number3.PlaceholderText = "Number..."
+					Number3.Text = ""
+					Number3.RichText = true
+					Number3.Font = Enum.Font.PatrickHand
+					Number3.TextXAlignment = Enum.TextXAlignment.Left
+					Number3.Position = UDim2.new(0.742, 0, 0.071, 0)
+					Number3.Size = UDim2.new(0, 30, 0, 30)
+					Number3.Parent = ActiveB
+					Corner(Number3, 5)
+
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							functuin(Number2.Text, Number3.Text)
+						end)
+					end)
+				elseif typeB == 4 then
+					ActiveB.LayoutOrder = SortButtons
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Active"
+					ActiveB.Text = ""
+					ActiveB.Parent = SectionS
+					Corner(ActiveB, 5)
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = ImTg[1]
+					Image.ImageColor3 = color
+					Corner(Image, 5)
+
+					Avatar.Parent = ActiveB
+					Avatar.BackgroundTransparency = 1
+					Avatar.Position = UDim2.new(0.031, 0, 0.071, 0)
+					Avatar.Size = UDim2.new(0,30,0,30)
+					Avatar.Image = image or "rbxassetid://"..image 
+					Corner(Avatar, 5)
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+					Corner(Inco, 5)
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 130, 0, 33)
+					Info.Position = UDim2.new(0.144, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+					Corner(Info, 5)
+
+					Number2.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number2.BackgroundTransparency = 0.85
+					Number2.TextColor3 = Color3.fromRGB(255,255,255)
+					Number2.TextScaled = true
+					Number2.MultiLine = true
+					Number2.PlaceholderText = "Number..."
+					Number2.Text = ""
+					Number2.RichText = true
+					Number2.Font = Enum.Font.PatrickHand
+					Number2.TextXAlignment = Enum.TextXAlignment.Left
+					Number2.Position = UDim2.new(0.619, 0, 0.071, 0)
+					Number2.Size = UDim2.new(0, 30, 0, 30)
+					Number2.Parent = ActiveB
+					Corner(Number2, 5)
+
+					Number3.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Number3.BackgroundTransparency = 0.85
+					Number3.TextColor3 = Color3.fromRGB(255,255,255)
+					Number3.TextScaled = true
+					Number3.MultiLine = true
+					Number3.PlaceholderText = "Number..."
+					Number3.Text = ""
+					Number3.RichText = true
+					Number3.Font = Enum.Font.PatrickHand
+					Number3.TextXAlignment = Enum.TextXAlignment.Left
+					Number3.Position = UDim2.new(0.742, 0, 0.071, 0)
+					Number3.Size = UDim2.new(0, 30, 0, 30)
+					Number3.Parent = ActiveB
+					Corner(Number3, 5)
+
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							if Toggle == false then
+								Toggle = true
+								Image.Image = ImTg[2]
+								while Toggle == true do
+									functuin(Number2.Text, Number3.Text)
+									wait()
+								end
+							elseif Toggle == true then
+								Toggle = false
+								Image.Image = ImTg[1]
+							end
+						end)
+					end)
+				end
 				print(name)
 			end
 
