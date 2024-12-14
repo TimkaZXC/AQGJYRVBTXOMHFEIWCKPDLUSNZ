@@ -1,6 +1,7 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🧑🏻‍🎄]Hyper Realistic CS:GO")
 local Fun = Hub:Section("[😊]Fun")
+Fun:Title("[🌅]Respawns", Color3.fromRGB(0,255,255))
 Fun:Toggle("[🌅]Respawn ALL", Color3.fromRGB(0,255,255), function()
 for _, plr in pairs(game.Players:GetChildren()) do
 local args = {
@@ -25,7 +26,96 @@ end
 end
 end)
 
-Fun:Change("[🌅]Other Bug", 4, 2, Color3.fromRGB(0,255,255), function(n1, n2, n3)
+Fun:Toggle("[🌅]Respawn ME", Color3.fromRGB(0,255,255), function(n1, n2, n3)
+local args = {
+    [1] = game.Players.LocalPlayer.Character,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
+end)
+Fun:Title("[🧑]Character", Color3.fromRGB(255,255,0))
+Fun:Change("[❤]Get Health Custom", 1, 1, Color3.fromRGB(255,255,0), function(n)
+local args = {
+    [1] = {
+        ["rayInstance"] = game.Players.LocalPlayer.Character.Head,
+        ["rayPosition"] = Vector3.new(-477.0868225097656, 301.5071716308594, -227.98281860351562),
+        ["rayMaterial"] = Enum.Material.Plastic,
+        ["rayNormal"] = Vector3.new(0, 0, 1)
+    },
+    [2] = Vector3.new(-478.16961669921875, 301.2991027832031, -225.15907287597656),
+    [3] = Vector3.new(0.25003695487976074, 0.048046618700027466, -0.6520529389381409),
+    [4] = 8,
+    [5] = {
+        ["MainDamage"] = -n,
+        ["BackstabDamage"] = 0,
+        ["AltDamage"] = 0
+    },
+    [6] = 2,
+    [7] = false,
+    [8] = ""
+}
+
+game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
+end)
+
+Fun:Active("[❤]INF Health", 2, 1, Color3.fromRGB(255,255,0), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local args = {
+    [1] = {
+        ["rayInstance"] = game.Players.LocalPlayer.Character.Head,
+        ["rayPosition"] = Vector3.new(-477.0868225097656, 301.5071716308594, -227.98281860351562),
+        ["rayMaterial"] = Enum.Material.Plastic,
+        ["rayNormal"] = Vector3.new(0, 0, 1)
+    },
+    [2] = Vector3.new(-478.16961669921875, 301.2991027832031, -225.15907287597656),
+    [3] = Vector3.new(0.25003695487976074, 0.048046618700027466, -0.6520529389381409),
+    [4] = 8,
+    [5] = {
+        ["MainDamage"] = -9e150,
+        ["BackstabDamage"] = 0,
+        ["AltDamage"] = 0
+    },
+    [6] = 2,
+    [7] = false,
+    [8] = ""
+}
+
+game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
+end)
+
+Fun:Change("[❤]Auto Health", 2, 1, Color3.fromRGB(255,255,0), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+if char.Humanoid.Health < char.Humanoid.MaxHealth then
+local H = (char.Humanoid.MaxHealth - char.Humanoid.Health)
+local args = {
+    [1] = {
+        ["rayInstance"] = game.Players.LocalPlayer.Character.Head,
+        ["rayPosition"] = Vector3.new(-477.0868225097656, 301.5071716308594, -227.98281860351562),
+        ["rayMaterial"] = Enum.Material.Plastic,
+        ["rayNormal"] = Vector3.new(0, 0, 1)
+    },
+    [2] = Vector3.new(-478.16961669921875, 301.2991027832031, -225.15907287597656),
+    [3] = Vector3.new(0.25003695487976074, 0.048046618700027466, -0.6520529389381409),
+    [4] = 8,
+    [5] = {
+        ["MainDamage"] = -H,
+        ["BackstabDamage"] = 0,
+        ["AltDamage"] = 0
+    },
+    [6] = 2,
+    [7] = false,
+    [8] = ""
+}
+
+game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
+end
+end)
+
+Fun:Title("[⚙]Testing Function", Color3.fromRGB(255,255,255))
+Fun:Change("[⚙]Other Bug", 4, 2, Color3.fromRGB(255,255,255), function(n1, n2, n3)
 pcall(function()
 for _, plr in pairs(game.Players:GetChildren()) do
 if plr.Name ~= game.Players.LocalPlayer.Name then
@@ -253,34 +343,3 @@ local args = {
 game:GetService("ReplicatedStorage").Events.WeaponChoose:FireServer(unpack(args))
 end)
 end
-
-local args = {
-    [1] = true,
-    [2] = "Admin",
-    [3] = Color3.fromRGB(255,0,0),
-    [4] = ""
-}
-
-game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
-
-local args = {
-    [1] = {
-        ["rayInstance"] = game.Players.LocalPlayer.Character.Head,
-        ["rayPosition"] = Vector3.new(-477.0868225097656, 301.5071716308594, -227.98281860351562),
-        ["rayMaterial"] = Enum.Material.Plastic,
-        ["rayNormal"] = Vector3.new(0, 0, 1)
-    },
-    [2] = Vector3.new(-478.16961669921875, 301.2991027832031, -225.15907287597656),
-    [3] = Vector3.new(0.25003695487976074, 0.048046618700027466, -0.6520529389381409),
-    [4] = 8,
-    [5] = {
-        ["MainDamage"] = -1000000000,
-        ["BackstabDamage"] = -100000,
-        ["AltDamage"] = -110000
-    },
-    [6] = 2,
-    [7] = false,
-    [8] = "."
-}
-
-game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
