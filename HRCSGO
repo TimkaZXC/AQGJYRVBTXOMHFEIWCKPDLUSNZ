@@ -34,7 +34,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.SpawnRandom:FireServer(unpack(args))
 end)
-Fun:Title("[🧑]Character", Color3.fromRGB(255,255,0))
+Fun:Title("[❤]Health", Color3.fromRGB(255,255,0))
 Fun:Change("[❤]Get Health Custom", 1, 1, Color3.fromRGB(255,255,0), function(n)
 local args = {
     [1] = {
@@ -113,12 +113,28 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
 end
 end)
+
+Fun:Title("[✉]Tag", Color3.fromRGB(255,255,0))
+Fun:Change("[✉]Name", 1, 4, Color3.fromRGB(255,255,0), function(n)
+local plr = game.Players.LocalPlayer
+local tags = plr:FindFirstChild("EquippedTag")
 local args = {
     [1] = true,
-    [2] = "Admin",
-    [3] = Color3.fromRGB(255,0,0),
+    [2] = ""..n,
+    [3] = tags.TagColor.Value,
     [4] = ""
 }
+end)
+Fun:Change("[✉]Color", 3, 4, Color3.fromRGB(255,255,0), function(n1, n2, n3)
+local plr = game.Players.LocalPlayer
+local tags = plr:FindFirstChild("EquippedTag")
+local args = {
+    [1] = true,
+    [2] = ""..tags.Value,
+    [3] = Color3.fromRGB(n1, n2, n3),
+    [4] = ""
+}
+end)
 
 game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
 Fun:Title("[⚙]Testing Function", Color3.fromRGB(255,255,255))
