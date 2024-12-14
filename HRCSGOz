@@ -125,7 +125,7 @@ local args = {
     [4] = ""
 }
 end)
-Fun:Change("[✉]Color", 3, 4, Color3.fromRGB(255,255,0), function(n1, n2, n3)
+Fun:Change("[✉]Color", 3, 1, Color3.fromRGB(255,255,0), function(n1, n2, n3)
 local plr = game.Players.LocalPlayer
 local tags = plr:FindFirstChild("EquippedTag")
 local args = {
@@ -134,9 +134,9 @@ local args = {
     [3] = Color3.fromRGB(n1, n2, n3),
     [4] = ""
 }
+game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
 end)
 
-game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
 Fun:Title("[⚙]Testing Function", Color3.fromRGB(255,255,255))
 Fun:Change("[⚙]Other Bug", 4, 2, Color3.fromRGB(255,255,255), function(n1, n2, n3)
 pcall(function()
