@@ -59,7 +59,7 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
 end)
 
-Fun:Active("[❤]INF Health", 2, 1, Color3.fromRGB(255,255,0), function()
+Fun:Active("[❤]INF Health", Color3.fromRGB(255,255,0), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 local args = {
