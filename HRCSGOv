@@ -151,7 +151,7 @@ local args = {
     [4] = ""
 }
 game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
-return text
+text = ""
 end)
 
 Fun:Title("[⚙]Testing Function", Color3.fromRGB(255,255,255))
