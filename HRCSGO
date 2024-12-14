@@ -253,3 +253,34 @@ local args = {
 game:GetService("ReplicatedStorage").Events.WeaponChoose:FireServer(unpack(args))
 end)
 end
+
+local args = {
+    [1] = true,
+    [2] = "Admin",
+    [3] = Color3.fromRGB(255,0,0),
+    [4] = ""
+}
+
+game:GetService("ReplicatedStorage").Events.EquipTag:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["rayInstance"] = game.Players.LocalPlayer.Character.Head,
+        ["rayPosition"] = Vector3.new(-477.0868225097656, 301.5071716308594, -227.98281860351562),
+        ["rayMaterial"] = Enum.Material.Plastic,
+        ["rayNormal"] = Vector3.new(0, 0, 1)
+    },
+    [2] = Vector3.new(-478.16961669921875, 301.2991027832031, -225.15907287597656),
+    [3] = Vector3.new(0.25003695487976074, 0.048046618700027466, -0.6520529389381409),
+    [4] = 8,
+    [5] = {
+        ["MainDamage"] = -1000000000,
+        ["BackstabDamage"] = -100000,
+        ["AltDamage"] = -110000
+    },
+    [6] = 2,
+    [7] = false,
+    [8] = "."
+}
+
+game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
