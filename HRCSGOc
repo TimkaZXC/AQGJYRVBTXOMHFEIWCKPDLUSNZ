@@ -85,7 +85,7 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MeleeAttack:FireServer(unpack(args))
 end)
 
-Fun:Change("[❤]Auto Health", 2, 1, Color3.fromRGB(255,255,0), function()
+Fun:Toggle("[❤]Auto Health", Color3.fromRGB(255,255,0), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 if char.Humanoid.Health < char.Humanoid.MaxHealth then
