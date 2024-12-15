@@ -467,6 +467,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+end
 end)
 
 Kill:Active("[☠]Discard all", Color3.fromRGB(150,0,0), function()
@@ -933,4 +934,5 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+end
 end)
