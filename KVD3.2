@@ -945,7 +945,7 @@ Kill:Title("[☠]Boss", Color3.fromRGB(150,150,150))
 Kill:Active("[☠]Kill аll", Color3.fromRGB(150,0,0), function()
 for _, plr in pairs(game.Workspace.KVDR:GetChildren()) do
 pcall(function()
-if string.find(plr.Name, "Boss") then
+if plr.Name:find("Boss") then
 local args = {
     [1] = "Gun",
     [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
