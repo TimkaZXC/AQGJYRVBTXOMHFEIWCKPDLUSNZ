@@ -5,6 +5,7 @@ local Kill = Hub:Section("[☠]Kill")
 Kill:Title("[☠]Quadrobars", Color3.fromRGB(150,150,150))
 Kill:Active("[☠]Kill аll ", Color3.fromRGB(150,0,0), function()
 for _, plr in pairs(game.Workspace.KVDR:GetChildren()) do
+pcall(function()
 local args = {
     [1] = "Gun",
     [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
@@ -467,11 +468,13 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+end)
 end
 end)
 
 Kill:Active("[☠]Discard all", Color3.fromRGB(150,0,0), function()
 for _, plr in pairs(game.Workspace.KVDR:GetChildren()) do
+pcall(function()
 local args = {
     [1] = "Gun",
     [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
@@ -934,5 +937,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.InflictTarget:InvokeServer(unpack(args))
+end)
 end
 end)
