@@ -26,52 +26,40 @@ Humanoid.HipHeight = s1
 end)
 
 local SSetting = Hub:Section("[⚙]Setting")
-SSetting:Toggle("[⚙]Proximity Prompt", Color3.fromRGB(0,255,0), function()  
-  local Player = game.Players.LocalPlayer
-   for _, prompt in pairs(game.Workspace:GetDescendants()) do
-      if prompt:IsA("ProximityPrompt") then
-    if not prompt:FindFirstChild("PP12r34grdsvbbe53h3") then
-      local Outline = Instance.new("Highlight")
-      Outline.Name = "PP12r34grdsvbbe53h3"
-      Outline.Parent = prompt.Parent
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    elseif prompt.Parent:FindFirstChild("PP12r34grdsvbbe53h3") then
-      local Outline = prompt.Parent:FindFirstChild("PP12r34grdsvbbe53h3")
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    end
+SSetting:Title("[⚙]Proximity Prompt", Color3.fromRGB(0,255,0))
+SSetting:Active("[⚙]Enabled", Color3.fromRGB(0,255,0), function() 
+ for _, prompt in pairs(game.Workspace:GetDescendants()) do
+  if prompt:IsA("ProximityPrompt") then
+    if prompt.Enabled == false then
+        prompt.Enabled = true
+    elseif prompt.Enabled == true then
+        prompt.Enabled = false
+     end
    end
   end
 end)
 
-SSetting:Toggle("[⚙]Click Detector", Color3.fromRGB(0,255,0), function()  
-  local Player = game.Players.LocalPlayer
-   for _, click in pairs(game.Workspace:GetDescendants()) do
-      if click:IsA("ProximityPrompt") then
-    if not click:FindFirstChild("CD12r34grdsvbbe53h3") then
-      local Outline = Instance.new("Highlight")
-      Outline.Name = "CD12r34grdsvbbe53h3"
-      Outline.Parent = click.Parent
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    elseif click.Parent:FindFirstChild("CD12r34grdsvbbe53h3") then
-      local Outline = click.Parent:FindFirstChild("CD12r34grdsvbbe53h3")
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    end
+SSetting:Change("[⚙]Hold Duration", 2, 1, Color3.fromRGB(0,255,0), function(n) 
+ for _, prompt in pairs(game.Workspace:GetDescendants()) do
+  if prompt:IsA("ProximityPrompt") then
+      prompt.HoldDuration = n
+   end
+  end
+end)
+
+SSetting:Change("[⚙]Activation Distance", 2, 1, Color3.fromRGB(0,255,0), function(n) 
+ for _, prompt in pairs(game.Workspace:GetDescendants()) do
+  if prompt:IsA("ProximityPrompt") then
+      prompt.MaxActivationDistance = n
+   end
+  end
+end)
+
+SSetting:Title("[⚙]Click Detector", Color3.fromRGB(0,255,0))
+SSetting:Change("[⚙]Activation Distance", 2, 1, Color3.fromRGB(0,255,0), function(n) 
+ for _, click in pairs(game.Workspace:GetDescendants()) do
+  if click:IsA("ClickDetector") then
+      click.MaxActivationDistance = n
    end
   end
 end)
@@ -242,7 +230,7 @@ end)
 SVisuals:Toggle("[🎇]Click Detector", Color3.fromRGB(0,255,0), function()  
   local Player = game.Players.LocalPlayer
    for _, click in pairs(game.Workspace:GetDescendants()) do
-      if click:IsA("ProximityPrompt") then
+      if click:IsA("ClickDetector") then
     if not click:FindFirstChild("CD12r34grdsvbbe53h3") then
       local Outline = Instance.new("Highlight")
       Outline.Name = "CD12r34grdsvbbe53h3"
