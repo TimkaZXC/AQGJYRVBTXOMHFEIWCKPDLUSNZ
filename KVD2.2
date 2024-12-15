@@ -943,9 +943,10 @@ end)
 
 Kill:Title("[☠]Players", Color3.fromRGB(150,150,150))
 Kill:Active("[☠]Kill others", Color3.fromRGB(150,0,0), function()
+local WhiteList = {"VipTimXavier", "Timka_q1t", "Passport2009"}
 for _, plr in pairs(game:GetService("Players"):GetChildren()) do
 pcall(function()
-if plr.Name ~= game:GetService("Players").LocalPlayer.Name then
+if not table:find(WhiteList, plr.Name) then
 local args = {
     [1] = "Gun",
     [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
@@ -1414,9 +1415,10 @@ end
 end)
 
 Kill:Active("[☠]Discard others", Color3.fromRGB(150,0,0), function()
+local WhiteList = {"VipTimXavier", "Timka_q1t", "Passport2009"}
 for _, plr in pairs(game:GetService("Players"):GetChildren()) do
 pcall(function()
-if plr.Name ~= game:GetService("Players").LocalPlayer.Name then
+if not table:find(WhiteList, plr.Name) then
 local args = {
     [1] = "Gun",
     [2] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
