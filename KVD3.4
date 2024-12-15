@@ -473,7 +473,7 @@ end
 end)
 
 Kill:Active("[☠]Discard all", Color3.fromRGB(150,0,0), function()
-for _, plr in pairs(game.Workspace:GetChildren()) do
+for _, plr in pairs(game.Workspace.KVDR:GetChildren()) do
 pcall(function()
 local args = {
     [1] = "Gun",
@@ -943,7 +943,7 @@ end)
 
 Kill:Title("[☠]Boss", Color3.fromRGB(150,150,150))
 Kill:Active("[☠]Kill аll", Color3.fromRGB(150,0,0), function()
-for _, plr in pairs(game.Workspace.KVDR:GetChildren()) do
+for _, plr in pairs(game.Workspace:GetChildren()) do
 pcall(function()
 if plr.Name:find("Boss") then
 local args = {
