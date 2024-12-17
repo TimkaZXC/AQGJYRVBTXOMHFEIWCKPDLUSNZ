@@ -1339,7 +1339,7 @@ function Kavo.Hub(name)
 							Names.Font = Enum.Font.PatrickHand
 							Names.TextXAlignment = Enum.TextXAlignment.Left
 
-							Displays.Text = plr.DisplayName
+							Displays.Text = " "..plr.DisplayName
 							Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
 							Displays.Size = UDim2.new(0, 55, 0, 12)
 							Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1357,7 +1357,7 @@ function Kavo.Hub(name)
 							Button.Parent = List
 
 							Button.MouseButton1Click:Connect(function()
-								ChoiseText.Value = Displays.Text
+								ChoiseText.Value = plr.Name
 							end)
 							Button.MouseEnter:Connect(function()
 								Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
@@ -1476,7 +1476,7 @@ function Kavo.Hub(name)
 							Avatars.BackgroundTransparency = 1
 							Avatars.Image = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
 
-							Names.Text = " @"..plr.Name
+							Names.Text = "@"..plr.Name
 							Names.Position = UDim2.new(0.313, 0, 0.5, 0)
 							Names.Size = UDim2.new(0, 55, 0, 12)
 							Names.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1488,7 +1488,7 @@ function Kavo.Hub(name)
 							Names.Font = Enum.Font.PatrickHand
 							Names.TextXAlignment = Enum.TextXAlignment.Left
 
-							Displays.Text = plr.DisplayName
+							Displays.Text = " "..plr.DisplayName
 							Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
 							Displays.Size = UDim2.new(0, 55, 0, 12)
 							Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1506,7 +1506,7 @@ function Kavo.Hub(name)
 							Button.Parent = List
 
 							Button.MouseButton1Click:Connect(function()
-								ChoiseText.Value = Displays.Text
+								ChoiseText.Value = plr.Name
 							end)
 							Button.MouseEnter:Connect(function()
 								Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
