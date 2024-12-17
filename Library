@@ -1339,7 +1339,7 @@ function Kavo.Hub(name)
 							Names.Font = Enum.Font.PatrickHand
 							Names.TextXAlignment = Enum.TextXAlignment.Left
 
-							Displays.Text = " "..plr.DisplayName
+							Displays.Text = plr.DisplayName
 							Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
 							Displays.Size = UDim2.new(0, 55, 0, 12)
 							Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -1488,7 +1488,7 @@ function Kavo.Hub(name)
 							Names.Font = Enum.Font.PatrickHand
 							Names.TextXAlignment = Enum.TextXAlignment.Left
 
-							Displays.Text = " "..plr.DisplayName
+							Displays.Text = plr.DisplayName
 							Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
 							Displays.Size = UDim2.new(0, 55, 0, 12)
 							Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
