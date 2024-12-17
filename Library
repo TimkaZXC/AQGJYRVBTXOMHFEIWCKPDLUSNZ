@@ -1,6 +1,6 @@
 local Kavo = {}
 
-local CoreGui = game:GetService("CoreGui")
+local CoreGui = game:GetService("Players").LocalPlayer.PlayerGui -- game:GetService("CoreGui")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
@@ -267,6 +267,7 @@ function Kavo.Hub(name)
 				end
 				Background.Visible = false	
 				Open.Visible = true
+				tgs = false
 			end
 		end)
 
@@ -1211,24 +1212,26 @@ function Kavo.Hub(name)
 					end
 				end
 			end
+			local count = 0
 			function Butt:Choice(name,class,color,functuin:FunctionalTest)
+				local ChoiseText = Instance.new("StringValue")
+				ChoiseText.Parent = SectionS
+				ChoiseText.Name = "Choise"..count
+				ChoiseText.Value = ""
+				local ActiveB = Instance.new("TextButton")
+				local Image = Instance.new("ImageLabel")
+				local Inco = Instance.new("Frame")
+				local Info = Instance.new("TextLabel")
+				local Background = Instance.new("Frame")
+				local List = Instance.new("ScrollingFrame")
+				local UILIST = Instance.new("UIListLayout")
+				Corner(ActiveB, 5) Corner(Image, 5) Corner(Inco, 5) Corner(Info, 5) Corner(Background, 5)
+				local Toggle = false
+				local ImTg = {"rbxassetid://71881912549164", "rbxassetid://114005620437434", "rbxassetid://89521723015419"}
 				SortButtons += 1
+				count += 1
 				--{1 - PlayerList}
 				if class == 1 then
-					local ChoiseText = Instance.new("StringValue")
-					ChoiseText.Parent = SectionS
-					ChoiseText.Name = "Choise"
-					ChoiseText.Value = ""
-
-					local ActiveB = Instance.new("TextButton")
-					local Image = Instance.new("ImageLabel")
-					local Inco = Instance.new("Frame")
-					local Info = Instance.new("TextLabel")
-					local Background = Instance.new("Frame")
-					local List = Instance.new("ScrollingFrame")
-					local UILIST = Instance.new("UIListLayout")
-					Corner(ActiveB, 5) Corner(Image, 5) Corner(Inco, 5) Corner(Info, 5) Corner(Background, 5)
-
 					UILIST.Padding = UDim.new(0,5)
 					UILIST.HorizontalAlignment = Enum.HorizontalAlignment.Center
 					UILIST.HorizontalFlex = Enum.UIFlexAlignment.Fill
@@ -1354,7 +1357,7 @@ function Kavo.Hub(name)
 							Button.Parent = List
 
 							Button.MouseButton1Click:Connect(function()
-								ChoiseText.Value = Button.Name
+								ChoiseText.Value = Displays.Text
 							end)
 							Button.MouseEnter:Connect(function()
 								Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
@@ -1373,7 +1376,168 @@ function Kavo.Hub(name)
 					game.Players.PlayerAdded:Connect(CheckPlayer)
 					game.Players.PlayerRemoving:Connect(CheckPlayer)
 					ActiveB.MouseButton1Click:Connect(function()
-						functuin(ChoiseText.Value)
+						pcall(function()
+							functuin(ChoiseText.Value)
+						end)
+					end)
+				elseif class == 2 then
+					UILIST.Padding = UDim.new(0,5)
+					UILIST.HorizontalAlignment = Enum.HorizontalAlignment.Center
+					UILIST.HorizontalFlex = Enum.UIFlexAlignment.Fill
+					UILIST.VerticalFlex = Enum.UIFlexAlignment.SpaceBetween
+					UILIST.VerticalAlignment = Enum.VerticalAlignment.Top
+					UILIST.SortOrder = Enum.SortOrder.LayoutOrder
+					UILIST.Parent = List
+
+					ActiveB.LayoutOrder = SortButtons
+					ActiveB.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					ActiveB.BackgroundTransparency = 0.75
+					ActiveB.Size = UDim2.new(0, 280, 0, 35)
+					ActiveB.MaxVisibleGraphemes = 0
+					ActiveB.Visible = true
+					ActiveB.Name = "Change"
+					ActiveB.Text = " "
+					ActiveB.Parent = SectionS
+
+					Image.Parent = ActiveB
+					Image.BackgroundTransparency = 1
+					Image.Position = UDim2.new(0.885, 0, 0.071, 0)
+					Image.Size = UDim2.new(0,30,0,30)
+					Image.Image = ImTg[1]
+					Image.ImageColor3 = color
+
+					Inco.Size = UDim2.new(0, 4, 0, 35)
+					Inco.Parent = ActiveB
+					Inco.BackgroundColor3 = color
+
+					Background.BackgroundColor3 = Color3.fromRGB(0,0,0)
+					Background.BackgroundTransparency = 0.9
+					Background.Position = UDim2.new(0.568, 0, 0.056, 0)
+					Background.Size = UDim2.new(0, 80, 0, 30)
+					Background.Parent = ActiveB
+
+					List.Parent = Background
+					List.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					List.BackgroundTransparency = 0.9
+					List.ScrollBarThickness = 0
+					List.CanvasSize = UDim2.new(0,0,0,0)
+					List.Position = UDim2.new(0,0,0,0)
+					List.Size = UDim2.new(0, 80, 0, 30)
+					List.Visible = true
+					List.AutomaticCanvasSize = Enum.AutomaticSize.Y
+					List.ScrollingDirection = Enum.ScrollingDirection.Y
+
+					Info.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+					Info.BackgroundTransparency = 1
+					Info.Size = UDim2.new(0, 231, 0, 33)
+					Info.Position = UDim2.new(0.02, 0, 0.029, 0)
+					Info.Visible = true
+					Info.TextColor3 = Color3.fromRGB(255,255,255)
+					Info.TextScaled = true
+					Info.RichText = true
+					Info.Font = Enum.Font.PatrickHand
+					Info.TextXAlignment = Enum.TextXAlignment.Left
+					Info.Text = " "..name
+					Info.Parent = ActiveB
+
+					local function CheckPlayer(plrs:Players)
+						for _, buttons in pairs(List:GetChildren()) do
+							if buttons:IsA("TextButton") then
+								buttons:Destroy()
+							end
+						end
+						for _, plr in pairs(game.Players:GetPlayers()) do
+							local Button = Instance.new("TextButton")
+
+							local Avatars = Instance.new("ImageLabel")
+							local Names = Instance.new("TextLabel")
+							local Displays =Instance.new("TextLabel")
+
+							local c1 = Instance.new("UICorner")
+							local c2 = Instance.new("UICorner")
+							local c3 = Instance.new("UICorner")
+							local c4 = Instance.new("UICorner")
+
+							Button.Name = plr.Name
+							Button.Text = ""
+							Button.Size = UDim2.new(0, 80, 0, 30)
+							Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+							Button.BackgroundTransparency = 0.9
+							Button.Visible = true
+							Button.TextColor3 = Color3.fromRGB(255,255,255)
+							Button.TextScaled = true
+							Button.RichText = true
+							Button.Font = Enum.Font.PatrickHand
+							Button.TextXAlignment = Enum.TextXAlignment.Left
+
+							Avatars.Size = UDim2.new(0, 25, 0, 25)
+							Avatars.Position = UDim2.new(0, 0, 0.084, 0)
+							Avatars.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+							Avatars.BackgroundTransparency = 1
+							Avatars.Image = game.Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+
+							Names.Text = " @"..plr.Name
+							Names.Position = UDim2.new(0.313, 0, 0.5, 0)
+							Names.Size = UDim2.new(0, 55, 0, 12)
+							Names.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+							Names.BackgroundTransparency = 1
+							Names.Visible = true
+							Names.TextColor3 = Color3.fromRGB(144,144,144)
+							Names.TextScaled = true
+							Names.RichText = true
+							Names.Font = Enum.Font.PatrickHand
+							Names.TextXAlignment = Enum.TextXAlignment.Left
+
+							Displays.Text = " "..plr.DisplayName
+							Displays.Position = UDim2.new(0.313, 0, 0.067, 0)
+							Displays.Size = UDim2.new(0, 55, 0, 12)
+							Displays.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+							Displays.BackgroundTransparency = 1
+							Displays.Visible = true
+							Displays.TextColor3 = Color3.fromRGB(255,255,255)
+							Displays.TextScaled = true
+							Displays.RichText = true
+							Displays.Font = Enum.Font.PatrickHand
+							Displays.TextXAlignment = Enum.TextXAlignment.Left
+
+							Displays.Parent = Button
+							Names.Parent = Button
+							Avatars.Parent = Button
+							Button.Parent = List
+
+							Button.MouseButton1Click:Connect(function()
+								ChoiseText.Value = Displays.Text
+							end)
+							Button.MouseEnter:Connect(function()
+								Displays.TextColor3 = Color3.fromRGB(85, 255, 0)
+								Names.TextColor3 = Color3.fromRGB(50, 149, 0)
+								Avatars.ImageColor3 = Color3.fromRGB(85, 255, 0)
+							end)
+							Button.MouseLeave:Connect(function()
+								Displays.TextColor3 = Color3.fromRGB(255,255,255)
+								Names.TextColor3 = Color3.fromRGB(144,144,144)
+								Avatars.ImageColor3 = Color3.fromRGB(255, 255, 255)
+							end)
+						end
+					end
+
+					CheckPlayer()
+					game.Players.PlayerAdded:Connect(CheckPlayer)
+					game.Players.PlayerRemoving:Connect(CheckPlayer)
+					ActiveB.MouseButton1Click:Connect(function()
+						pcall(function()
+							if Toggle == false then
+								Toggle = true
+								Image.Image = ImTg[2]
+								while Toggle == true do
+									functuin(ChoiseText.Value)
+									wait()
+								end
+							elseif Toggle == true then
+								Toggle = false
+								Image.Image = ImTg[1]
+							end
+						end)
 					end)
 				end
 			end
