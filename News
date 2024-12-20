@@ -12,10 +12,10 @@ game:GetService("ReplicatedStorage").Remotes.Items.Click:FireServer(unpack(args)
 wait(0.15)
 end)
 
-Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(255,255,0))
+Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(0,255,255))
 local Map = game.Workspace.Map4:GetChildren()
 for i = 1, #Map do
-Main:Change("[🎖]Rewards: World"..i, 1, 1, Color3.fromRGB(255,255,0), function(n)
+Main:Change("[🎖]Rewards: World"..i, 1, 1, Color3.fromRGB(0,255,255), function(n)
 for _ = 1, n do
 local args = {
     [1] = false
