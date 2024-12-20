@@ -82,13 +82,13 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Trails.BuyTrail:FireServer(unpack(args))
-end)
 		local args = {
     [1] = "Get "..trail.Name.."Trail",
     [2] = "BOUGHT"
 		}
 
 		game:GetService("ReplicatedStorage").Remotes.Announce.Announce:FireServer(unpack(args))
+end)
 end
 
 local Egg = Hub:Section("[🕷]Egg")
