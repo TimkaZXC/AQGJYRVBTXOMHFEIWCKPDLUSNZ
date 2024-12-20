@@ -1,0 +1,12 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Mine To Hell Simulator")
+
+local Main = Hub:Section("[🎁]Main")
+Main:Title("[⌚]Auto", Color3.fromRGB(255,0,255))
+Main:Toggle("[⛏]Main", Color3.fromRGN(0,255,255), function()
+local args = {
+    [1] = 99999
+}
+
+game:GetService("ReplicatedStorage").Remotes.Items.Click:FireServer(unpack(args))
+end)
