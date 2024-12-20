@@ -13,7 +13,7 @@ wait(0.15)
 end)
 
 Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(255,255,0))
-for i, map in pairs(workspace:GetChildren()) do
+for i, map in pairs(workspace.Map4:GetChildren()) do
 Main:Change("[🎖]Rewards: World"..i, 1, 1, Color3.fromRGB(255,255,0), function(n)
 for _ = 1, n do
 local args = {
@@ -39,7 +39,7 @@ end
 
 
 Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(255,0,0))
-for i, map in pairs(workspace:GetChildren()) do
+for i, map in pairs(workspace.Map4:GetChildren()) do
 Main:Change("[🎖]Rewards: World"..i, 2, 1, Color3.fromRGB(255,255,0), function(n)
 for _ = 1, n do
 local args = {
