@@ -101,7 +101,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Remotes.Trails.BuyTrail:FireServer(unpack(args))
 local args = {
-	[1] = "Get "..trail.Name.."Trail",
+	[1] = "Get All Trails",
 	[2] = "BOUGHT"
 
 }
