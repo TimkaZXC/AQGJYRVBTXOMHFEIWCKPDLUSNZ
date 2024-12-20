@@ -13,7 +13,8 @@ wait(0.15)
 end)
 
 Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(255,255,0))
-Main:Change("[🎖]Rewards", 1, 1, Color3.fromRGB(255,255,0), function(n)
+for _, map in pairs(workspace:GetChildren()) do
+Main:Change("[🎖]Rewards: World".._, 1, 1, Color3.fromRGB(255,255,0), function(n)
 for _ = 1, n do
 local args = {
     [1] = false
@@ -28,14 +29,17 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.Build.EndBuild:FireServer(unpack(args))
 
 local args = {
-    [1] = "World4"
+    [1] = "World".._
 }
 
 game:GetService("ReplicatedStorage").Remotes.Build.StartBuild:FireServer(unpack(args))
-end
 end)
+end
+end
 
-Main:Change("[🎖]Rewards", 2, 1, Color3.fromRGB(255,255,0), function(n)
+Main:Title("[⌚]Auto Reward (Warning Toggle Lagging)", Color3.fromRGB(255,0,0))
+for _, map in pairs(workspace:GetChildren()) do
+Main:Change("[🎖]Rewards: World".._, 2, 1, Color3.fromRGB(255,255,0), function(n)
 for _ = 1, n do
 local args = {
     [1] = false
@@ -50,12 +54,13 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.Build.EndBuild:FireServer(unpack(args))
 
 local args = {
-    [1] = "World4"
+    [1] = "World".._
 }
 
 game:GetService("ReplicatedStorage").Remotes.Build.StartBuild:FireServer(unpack(args))
-end
 end)
+end
+end
 
 local Egg = Hub:Section("[🕷]Egg")
 Egg:Title("[🥚]Open Egg", Color3.fromRGB(255,255,255))
