@@ -34,8 +34,8 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Build.StartBuild:FireServer(unpack(args))
-end)
 end
+end)
 end
 
 
@@ -61,8 +61,8 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Remotes.Build.StartBuild:FireServer(unpack(args))
-end)
 end
+end)
 end
 
 local Egg = Hub:Section("[🕷]Egg")
