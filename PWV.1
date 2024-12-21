@@ -206,6 +206,23 @@ end
 return
 end)
 
+Main:Toggle("[🧟]Mini Snowman LVL: 30", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Mini-Snowman" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,4)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+
 Main:Toggle("[🧰]Mimic", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
