@@ -1,0 +1,107 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Test")
+local Main = Hub:Section("[✨]Main")
+Main:Title("[✴️]Auto", Color3.fromRGB(200, 100, 200))
+Main:Change("[✴️]Slash (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local swordF = char:FindFirstChild("SwordFolder")
+for _, event in pairs(swordF:GetDescendants()) do
+if event:IsA("RemoteEvent") then
+local args = {
+    [1] = "Start",
+    [2] = 1
+}
+
+event:FireServer(unpack(args))
+task.wait(n)
+local args = {
+    [1] = "Stop",
+    [2] = 1
+}
+
+event:FireServer(unpack(args))
+end
+end
+end)
+
+Main:Change("[✴️]SkillA (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
+local args = {
+    [1] = "SkillA",
+    [2] = "Active"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.Skill:FireServer(unpack(args))
+wait(n)
+end)
+
+Main:Change("[✴️]SkillB (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
+local args = {
+    [1] = "SkillB",
+    [2] = "Active"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.Skill:FireServer(unpack(args))
+wait(n)
+end)
+
+Main:Toggle("[✴️]Hit", Color3.fromRGB(0,255, 255), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local swordF = char:FindFirstChild("SwordFolder")
+for _, event in pairs(swordF:GetDescendants()) do
+if event:IsA("RemoteEvent") then
+local args = {
+    [1] = "Start",
+    [2] = 0
+}
+
+event:FireServer(unpack(args))
+end
+end
+end)
+
+Main:Active("[✴️]UnHit", Color3.fromRGB(0,255, 255), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local swordF = char:FindFirstChild("SwordFolder")
+for _, event in pairs(swordF:GetDescendants()) do
+if event:IsA("RemoteEvent") then
+local args = {
+    [1] = "Stop",
+    [2] = 0
+}
+
+event:FireServer(unpack(args))
+end
+end
+end)
+
+local enemy = {"Green-Slime","Red-Slime","Hornet","Amanita","Loiter","Apprentice_Loise","","","","",}
+
+Main:Title("[🇷🇺]Teleport", Color3.fromRGB(200, 100, 200))
+local s = ""
+print("START: ", s)
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+	if not string.find(s, enemy.Name) then
+		s = s .. enemy.Name .. " "
+
+Main:Toggle("[🧟]"..enemy.Name, Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Green-Slime" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,3)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+	end
+end
+print("END: ", s)
