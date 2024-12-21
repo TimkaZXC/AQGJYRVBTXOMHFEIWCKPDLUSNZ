@@ -91,7 +91,7 @@ local plr = game.Players.LocalPlayer
 local char = plr.Character
 for _, enemy in pairs(workspace.Entity:GetChildren()) do
 pcall(function()
-if enemy.Name == "Green-Slime" then
+if enemy.Name == enemy.Name then
 while enemy.Humanoid.Health > 0 do
 char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,3)
 wait()
