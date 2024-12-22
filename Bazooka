@@ -1,0 +1,166 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Bazooka")
+local Breaks = Hub:Section("[🐊]Breaks")
+Breaks:Title("[🇷🇺]Break", Color3.fromRGB(150, 255,0))
+Breaks:Toggle("[🏢]Start", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Start.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+return
+end)
+
+Breaks:Toggle("[🏢]City", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Town.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+return
+end)
+
+Breaks:Toggle("[🏢]Snow", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Snow.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+return
+end)
+
+local Drop = Hub:Section("[🐊]Drops")
+Drop:Title("[🇷🇺]Grab", Color3.fromRGB(150, 255,0))
+Drop:Toggle("[⚪]Start", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Start.Drops:GetChildren()) do
+if not drop then
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]City", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Town.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Snow", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Snow.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+local Boss = Hub:Section("[🐊]Bosses")
+Boss:Title("[🇷🇺]Destroy", Color3.fromRGB(150, 255,0))
+Boss:Toggle("[👹]Start", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Start.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]City", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Town.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Snow", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Snow.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+-- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+    [1] = "Desert",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
