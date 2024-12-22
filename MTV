@@ -4,7 +4,7 @@ local Hub = Lib.Hub("[🎄]Mineshaft Tycoon")
 local Breaks = Hub:Section("[🐊]Break")
 Breaks:Title("[🇷🇺]Ores", Color3.fromRGB(150, 255,0))
 Breaks:Change("[🥊]Break Distance", 2, 1, Color3.fromRGB(150, 255,0), function(n)
-local plr = game:GetService("Player").LocalPlayer
+local plr = game:GetService("Players").LocalPlayer
 local char = plr.Character
 local root = char.HumanoidRootPart
   for _, tycoon in pairs(workspace.Tycoons:GetChildren()) do
