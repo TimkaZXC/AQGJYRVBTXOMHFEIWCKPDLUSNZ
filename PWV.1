@@ -22,10 +22,17 @@ local args = {
 
 event:FireServer(unpack(args))
 end
+return
 end
 end)
 
 Main:Change("[✴️]SkillA (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
+local args = {
+    [1] = "SkillA",
+    [2] = "Get"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.Skill:FireServer(unpack(args))
 local args = {
     [1] = "SkillA",
     [2] = "Active"
@@ -36,6 +43,12 @@ wait(n)
 end)
 
 Main:Change("[✴️]SkillB (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
+local args = {
+    [1] = "SkillB",
+    [2] = "Get"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvent.Skill:FireServer(unpack(args))
 local args = {
     [1] = "SkillB",
     [2] = "Active"
@@ -59,6 +72,7 @@ local args = {
 event:FireServer(unpack(args))
 end
 end
+return
 end)
 
 Main:Active("[✴️]UnHit", Color3.fromRGB(0,255, 255), function(n)
@@ -75,9 +89,11 @@ local args = {
 event:FireServer(unpack(args))
 end
 end
+return
 end)
 
-Main:Title("[🇷🇺]Teleport", Color3.fromRGB(200, 100, 200))
+local Main = Hub:Section("[✨]Teleport")
+Main:Title("[✨]Mobs", Color3.fromRGB(200, 100, 200))
 Main:Toggle("[🧟]Green Slime LVL: 1", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
@@ -190,6 +206,87 @@ end
 return
 end)
 
+Main:Toggle("[🧟]Loiter The Chief LVL: 20", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Loiter-The-Chief" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,4)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+Main:Toggle("[🧟]Cave Scorpion LVL: 23", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Cave-Scorpion" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,6)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+Main:Toggle("[🧟]Crystallized Scorpion LVL: 28", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Crystallized-Scorpion" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,6)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+Main:Toggle("[🧟]Mini Snowman LVL: 30", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Mini-Snowman" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,6)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+Main:Toggle("[🧟]Gaint Snowman LVL: 35", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+for _, enemy in pairs(workspace.Entity:GetChildren()) do
+pcall(function()
+if enemy.Name == "Gaint-Snowman" then
+while enemy.Humanoid.Health > 0 do
+char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,6)
+wait()
+end
+end
+end)
+end
+return
+end)
+
+Main:Title("[✨]Event Mob", Color3.fromRGB(255, 155, 255))
 Main:Toggle("[🧟]Apprentice Loiter LVL: 25", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
@@ -206,12 +303,12 @@ end
 return
 end)
 
-Main:Toggle("[🧟]Mini Snowman LVL: 30", Color3.fromRGB(0,255, 255), function()
+Main:Toggle("[🧟]Loiter The Giftbringer LVL: 35", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 for _, enemy in pairs(workspace.Entity:GetChildren()) do
 pcall(function()
-if enemy.Name == "Mini-Snowman" then
+if enemy.Name == "Loiter-The-Giftbringer" then
 while enemy.Humanoid.Health > 0 do
 char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,4)
 wait()
@@ -222,7 +319,7 @@ end
 return
 end)
 
-
+Main:Title("[✨]Chests", Color3.fromRGB(255, 155, 255))
 Main:Toggle("[🧰]Mimic", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
