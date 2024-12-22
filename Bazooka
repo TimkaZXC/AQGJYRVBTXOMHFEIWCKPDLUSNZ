@@ -1,4 +1,5 @@
-print("Executor")
+print("[🎄]Bazooka")
+--[Start, Town, Snow, Desert, Aqua, Lava, Candy, Toy, Clans, Underworld, Heaven]
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Bazooka")
 local Breaks = Hub:Section("[🐊]Breaks")
@@ -18,7 +19,6 @@ local args = {
 game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
 wait(0.5)
-return
 end)
 
 Breaks:Toggle("[🏢]City", Color3.fromRGB(150, 255,0), function()
@@ -36,7 +36,6 @@ local args = {
 game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
 wait(0.5)
-return
 end)
 
 Breaks:Toggle("[🏢]Snow", Color3.fromRGB(150, 255,0), function()
@@ -54,41 +53,142 @@ local args = {
 game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
 wait(0.5)
-return
 end)
 
-local Drop = Hub:Section("[🐊]Drops")
-Drop:Title("[🇷🇺]Grab", Color3.fromRGB(150, 255,0))
-Drop:Toggle("[⚪]Start", Color3.fromRGB(150, 255,0), function()
-for _, drop in pairs(workspace.AreaSpawners.Start.Drops:GetChildren()) do
-if not drop then
-drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+Breaks:Toggle("[🏢]Desert", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Desert.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
-end
-wait()
-return
+wait(0.5)
 end)
 
-Drop:Toggle("[⚪]City", Color3.fromRGB(150, 255,0), function()
-for _, drop in pairs(workspace.AreaSpawners.Town.Drops:GetChildren()) do 
-if not drop then
-else
-drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+Breaks:Toggle("[🏢]Aqua", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Aqua.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
-end
-wait()
-return
+wait(0.5)
 end)
 
-Drop:Toggle("[⚪]Snow", Color3.fromRGB(150, 255,0), function()
-for _, drop in pairs(workspace.AreaSpawners.Snow.Drops:GetChildren()) do 
-if not drop then
-else
-drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+Breaks:Toggle("[🏢]Lava", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Lava.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
+wait(0.5)
+end)
+
+Breaks:Toggle("[🏢]Candy", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Candy.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
 end
-wait()
-return
+wait(0.5)
+end)
+
+Breaks:Toggle("[🏢]Toy", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Toy.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+end)
+
+Breaks:Toggle("[🏢]Clans", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Clans.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+end)
+
+Breaks:Toggle("[🏢]Underworld", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Underworld.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
+end)
+
+Breaks:Toggle("[🏢]Heaven", Color3.fromRGB(150, 255,0), function()
+for _, breaks in pairs(workspace.AreaSpawners.Heaven.Breakables:GetChildren()) do
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = breaks.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+wait(0.5)
 end)
 
 local Boss = Hub:Section("[🐊]Bosses")
@@ -156,11 +256,390 @@ wait()
 return
 end)
 
--- Script generated by SimpleSpy - credits to exx#9394
-
+Boss:Toggle("[👹]Desert", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Desert.Boss:GetChildren()) do
+if not boss then
+else
 local args = {
-    [1] = "Desert",
-    [2] = 1
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Aqua", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Aqua.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Lava", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Lava.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Candy", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Candy.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Toy", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Toy.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Clans", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Clans.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Underworls", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Underworls.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+Boss:Toggle("[👹]Heaven", Color3.fromRGB(150, 255,0), function()
+for _, boss in pairs(workspace.AreaSpawners.Heaven.Boss:GetChildren()) do
+if not boss then
+else
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.BazookaBase,
+    [2] = {
+        ["Direction"] = Vector3.new(0,0,0),
+        ["TargetPosition"] = boss.Head.Position,
+        ["TravelDistance"] = 0,
+        ["OriginPosition"] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position
+    }
+}
+
+game:GetService("ReplicatedStorage").BazookaClient.Shoot:InvokeServer(unpack(args))
+end
+end
+wait()
+return
+end)
+
+local Drop = Hub:Section("[🐊]Drops")
+Drop:Title("[🇷🇺]Grab", Color3.fromRGB(150, 255,0))
+Drop:Toggle("[⚪]Start", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Start.Drops:GetChildren()) do
+if not drop then
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]City", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Town.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Snow", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Snow.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Desert", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Desert.Drops:GetChildren()) do
+if not drop then
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Aqua", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Aqua.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Lava", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Lava.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Candy", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Candy.Drops:GetChildren()) do
+if not drop then
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Toy", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Toy.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Clans", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Clans.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Underworld", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Underworld.Drops:GetChildren()) do
+if not drop then
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+Drop:Toggle("[⚪]Heaven", Color3.fromRGB(150, 255,0), function()
+for _, drop in pairs(workspace.AreaSpawners.Heaven.Drops:GetChildren()) do 
+if not drop then
+else
+drop.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+end
+end
+wait()
+return
+end)
+
+local Safe = Hub:Section("[🐊]Safes")
+Safe:Title("[🇷🇺]Open", Color3.fromRGB(150, 255,0))
+Safe:Change("[📂]Start", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Start",
+    [2] = n
 }
 
 game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]City", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Town",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Snow", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Snow",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Desert", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Desert",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Aqua", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Aqua",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Lava", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Lava",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Candy", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Candy",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Toy", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Toy",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Clans", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Clans",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Underworld", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Underworld",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
+
+Safe:Change("[📂]Heaven", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = "Heaven",
+    [2] = n
+}
+
+game:GetService("ReplicatedStorage").Remotes.BuySafe:FireServer(unpack(args))
+end)
