@@ -1,6 +1,35 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Test")
 local Main = Hub:Section("[✨]Main")
+Main:Title("[✴️]Manual", Color3.fromRGB(200, 100, 200))
+Main:Toggle("[✴️]Slash", Color3.fromRGB(0,255, 255), function()
+local plr = game.Players.LocalPlayer
+local plrG = plr.PlayerGui
+local Active = plrG.InterfaceGui.Input
+Active.Attack.MouseButton1Click:Connect(function()
+local char = plr.Character
+local swordF = char:FindFirstChild("SwordFolder")
+for _, event in pairs(swordF:GetDescendants()) do
+if event:IsA("RemoteEvent") then
+local args = {
+    [1] = "Start",
+    [2] = 1
+}
+
+event:FireServer(unpack(args))
+task.wait(n)
+local args = {
+    [1] = "Stop",
+    [2] = 1
+}
+
+event:FireServer(unpack(args))
+end
+end
+end)
+end)
+
+
 Main:Title("[✴️]Auto", Color3.fromRGB(200, 100, 200))
 Main:Change("[✴️]Slash (CD)", 2, 4, Color3.fromRGB(0,255, 255), function(n)
 local plr = game.Players.LocalPlayer
