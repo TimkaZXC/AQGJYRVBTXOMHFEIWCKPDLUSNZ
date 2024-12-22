@@ -1,0 +1,26 @@
+print("[🎄]Mineshaft Tycoon")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Mineshaft Tycoon")
+local Breaks = Hub:Section("[🐊]Break")
+Breaks:Title("[🇷🇺]Ores", Color3.fromRGB(150, 255,0))
+Breaks:Change("[🥊]Break Distance", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local plr = game:GetService("Player").LocalPlayer
+local char = plr.Character
+local root = char.HumanoidRootPart
+  for _, tycoon in pairs(workspace.Tycoons:GetChildren()) do
+    if tycoon.Owner.Value  ~= plr.Name then
+    else
+    for _, ore in pairs(tycoon.Ores:GetChildren()) do
+    local distance = (ore.Part.Position - root.Position).Magnitude
+    if distance < n then
+    local args = {
+        [1] = ore.Part
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.Mine:FireServer(unpack(args))
+    end
+    end
+    end
+  end
+end)
+
