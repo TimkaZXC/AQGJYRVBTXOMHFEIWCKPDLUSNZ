@@ -2,7 +2,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/
 local Hub = Lib.Hub("[🎄]Test")
 local Main = Hub:Section("[✨]Main")
 Main:Title("[✴️]Manual", Color3.fromRGB(200, 100, 200))
-Main:Toggle("[✴️]Slash", Color3.fromRGB(0,255, 255), function()
+Main:Change("[✴️]Slash", 1, 4, Color3.fromRGB(0,255, 255), function(n)
 local plr = game.Players.LocalPlayer
 local plrG = plr.PlayerGui
 local Active = plrG.InterfaceGui.Input
