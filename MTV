@@ -11,10 +11,10 @@ local root = char.HumanoidRootPart
     if tycoon.Owner.Value  ~= plr.Name then
     else
     for _, ore in pairs(tycoon.Ores:GetChildren()) do
-    local distance = (ore.Part.Position - root.Position).Magnitude
+    local distance = (ore:FindFirstChildOfClass("Part").Position - root.Position).Magnitude
     if distance < n then
     local args = {
-        [1] = ore.Part
+        [1] = ore:FindFirstChildOfClass("Part")
     }
 
     game:GetService("ReplicatedStorage").Remotes.Mine:FireServer(unpack(args))
