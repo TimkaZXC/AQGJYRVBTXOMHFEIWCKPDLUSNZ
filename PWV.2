@@ -299,12 +299,12 @@ end
 return
 end)
 
-Main:Toggle("[🧟]Gaint Snowman LVL: 35", Color3.fromRGB(0,255, 255), function()
+Main:Toggle("[🧟]Giant Snowman LVL: 35", Color3.fromRGB(0,255, 255), function()
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 for _, enemy in pairs(workspace.Entity:GetChildren()) do
 pcall(function()
-if enemy.Name == "Gaint-Snowman" then
+if enemy.Name == "Giant-Snowman" then
 while enemy.Humanoid.Health > 0 do
 char.HumanoidRootPart.CFrame = enemy.HumanoidRootPart.CFrame * CFrame.new(0,-0.5,6)
 wait()
