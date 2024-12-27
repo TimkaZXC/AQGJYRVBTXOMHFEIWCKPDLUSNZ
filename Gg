@@ -1,0 +1,45 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Mining Go")
+local Kills = Hub:Section("[🐊]Breaks")
+Kills:Title("[🇷🇺]Breaks", Color3.fromRGB(150, 255,0))
+Kills:Change("[💀]Break + (Distance)", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local s = tonumber(n)
+local plr = game.Players.LocalPlayer
+pcall(function()
+for _, Plr in pairs(game.Workspace.World.Mobs:GetChildren()) do
+local Distance = (plr.Character.HumanoidRootPart.Position - Plr.HumanoidRootPart.Position).Magnitude 
+if Distance > s then
+elseif Distance <= s then 
+local args = {
+    [1] = Plr
+}
+
+game:GetService("ReplicatedStorage").Universe.Network.Remotes.DamageFire:FireServer(unpack(args))
+end
+end
+return
+end)
+end)
+
+Kills:Change("[💀]Break (Distance + Tp)", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local s = tonumber(n)
+local plr = game.Players.LocalPlayer
+pcall(function()
+for _, mine in pairs(game.Workspace.Ores:GetChildren()) do
+local plr = game.Players.LocalPlayer
+local root = plr.Character.HumanoidRootPart
+while mine.Model: FindFirstChildOfClass("MeshPart") do
+root.CFrame = mine.Base.CFrame * CFrame.new(0,2,0)
+local args = {
+    [1] = "Mining_MineOre",
+    [2] = ""..mine.Name
+}
+
+game:GetService("ReplicatedStorage")._Binder_Event:FireServer(unpack(args))
+wait()
+end
+end
+return
+end)
+end)
