@@ -18,24 +18,7 @@ SHack:Change("[💪]Strenght Amout", 2, 1,Color3.fromRGB(255,255,255), function(
 end)
 
 SHack:Toggle("[💪]Gravity Grab", Color3.fromRGB(255,255,255), function()
-	local Player = game.Players.LocalPlayer
-	local Char = Player.Character
-	for _, part in pairs(game.Workspace:GetDescendants()) do
-	if part:IsA("Part") then
-	if not part:FindFirstChild("[💪]Gravity Grab") then
-	local Force = Instance.new("VectorForce")
-	local Attach = Instance.new("Attachment")
-	Attach.Name = "[💪]Gravity Grab"
-	Attach.Parent = part
-	Force.Parent = Attach
-	Force.Attachment0 = Attach
-	Force.Force = Vector3.new(0, 50000, 0)
-	Force.Visible = false
-	Force.Enabled = true
-	Force.Active = true
-	end
-	end
-	end
+--Soon
 end)
 
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
