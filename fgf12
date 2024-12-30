@@ -37,6 +37,31 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	end
 end)
 
+SHack:Toggle("[💪]UP Grab", Color3.fromRGB(255,255,255), function()
+if not game.Workspace:FindFirstChild("GrabParts") then
+	for _, hd in pairs(game.Workspace:GetDescendants()) do
+	if hd.Name == "fqgefigiweygviwbwe1gqudhwqd" then
+	hd:Destroy()
+	end
+	end	
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	local grabPart = grab.GrabPart.WeldConstraint.Part1.Parent
+	if grabPart then
+	if not grabPart:FindFirstChildOfClass("BodyForce") then
+	local hl = Instance.new("BodyForce")
+	for _, child in pairs(grabPart:GetChildren()) do
+	if child:IsA("Part") or child:IsA("MeshPart") then
+	hl.Name = "fqgefigiweygviwbwe1gqudhwqd"
+   	hl.Parent = child
+	hl.Force = Vector3.new(0,0,-9000000)
+	end
+	end
+	end
+	end
+	end
+end)
+
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
