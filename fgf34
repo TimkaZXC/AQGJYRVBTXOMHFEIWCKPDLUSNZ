@@ -296,7 +296,7 @@ SLine:Change("[⚡]TextureID", 2, 1, Color3.new(1,1,1), function(n)
 end)
 
 SLine:Title("[🎨]Time", Color3.fromRGB(225,225,225))
-STime:Change("[🎨]ColorShift_Bottom", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+SLine:Change("[🎨]ColorShift_Bottom", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
 local light = game:GetService("Lighting")
 local Color = Color3.fromRGB(n1,n2,n3)
 light.ColorShift_Bottom = Color
