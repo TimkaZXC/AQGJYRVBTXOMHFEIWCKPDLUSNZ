@@ -172,11 +172,6 @@ hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
 hl.Parent = rootp
 hl.Force = Vector3.new(0,-1250000,0)
 end
-for _, ch in pairs(charp:GetDescendants()) do
-if ch:IsA("Part") then
-ch.CanCollide = false
-end
-end
 local args = {
     [1] = rootp,
     [2] = rootp.CFrame
@@ -188,6 +183,11 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+for _, ch in pairs(charp:GetDescendants()) do
+if ch:IsA("Part") then
+ch.CanCollide = false
+end
+end
 end
 end
 end
