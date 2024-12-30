@@ -62,7 +62,7 @@ end)
 
 SHack:Toggle("[🧪]Test Function", Color3.fromRGB(255,255,255), function()
 	if not game.Workspace:FindFirstChild("GrabParts") then
-	for _, hd in pairs(game:GetDescendants()) do
+	for _, hd in pairs(game.Workspace:GetDescendants()) do
 	if hd.Name == "fqgefigiweygviwbwegqudhwqd" then
 	hd:Destroy()
 	end
