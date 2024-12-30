@@ -178,16 +178,16 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-for _, ch in pairs(charp:GetDescendants()) do
-if ch:IsA("Part") then
-ch.CanCollide = false
-end
-end
 local args = {
     [1] = rootp,
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+for _, ch in pairs(charp:GetDescendants()) do
+if ch:IsA("Part") then
+ch.CanCollide = false
+end
+end
 end
 end
 end
