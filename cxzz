@@ -30,7 +30,17 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 			local SS = Grab.WeldConstraint.Part1.Parent
 			local Event = game.ReplicatedStorage.CharacterEvents.Struggle
 			if SS.Name == Player.Name then
+				PlayerRoot.Anchored = true
+				local des = PlayerRoot.CFrame
+				local des1 = PlayerRoot.Position
 				Event:FireServer()
+				local distance = (PlayerRoot.Position - des1).Magnitude
+				if distance > 10 then
+				while distance > 10 do
+				PlayerRoot.CFrame = des
+				end
+				PlayerRoot.Anchored = false
+				end
 			end
 		end
 	end
