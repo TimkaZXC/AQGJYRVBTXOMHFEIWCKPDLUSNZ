@@ -13,7 +13,27 @@ SHack:Toggle("[💪]Super Grab", Color3.fromRGB(255,255,255), function()
 end)
 
 SHack:Toggle("[💪]Gravity Grab", Color3.fromRGB(255,255,255), function()
---Soon
+if not game.Workspace:FindFirstChild("GrabParts") then
+	for _, hd in pairs(game.Workspace:GetDescendants()) do
+	if hd.Name == "fqgefigiweygviwbwe1gqudhwqd" then
+	hd:Destroy()
+	end
+	end	
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	local grabPart = grab.GrabPart.WeldConstraint.Part1.Parent
+	if grabPart then
+	if not grabPart:FindFirstChildOfClass("BodyForce") then
+	local hl = Instance.new("BodyForce")
+	for _, child in pairs(grabPart:GetChildren()) do
+	child.Massless = true
+	hl.Name = "fqgefigiweygviwbwe1gqudhwqd"
+   	hl.Parent = grabPart
+	hl.Force = Vector3.new(0,1250,0)
+	end
+	end
+	end
+	end
 end)
 
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
