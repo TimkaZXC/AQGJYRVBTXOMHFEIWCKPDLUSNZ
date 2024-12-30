@@ -25,25 +25,13 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
-		if grabs.Parent.Name ~= "Workspace" then
 		local Player = game.Players.LocalPlayer
 		local PlayerRoot = Player.Character.HumanoidRootPart
 		local Grab = grabs:FindFirstChild("DragPart")
+		local name = Grab.WeldConstraint.Part1.Parent.Name
 		local Event = game.ReplicatedStorage.CharacterEvents.Struggle
-		local Distance = (PlayerRoot.Position - Grab.Position).Magnitude
-		print("True")
-		print(Distance)
-		if Distance < 10 then
-		local PlrPos = PlayerRoot.CFrame
-		print("UnGrab ON ✔")
-		PlayerRoot.Anchored = true
-		PlayerRoot.CFrame = PlrPos
+		if name == Player.Name then
 		Event:FireServer()
-		wait(0.2)
-		PlayerRoot.Anchored = false
-		wait(0.5)
-		PlayerRoot.CFrame = PlrPos
-		end
 		end
 		end
 	end
