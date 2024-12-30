@@ -157,6 +157,10 @@ SHack:Change("[⚙]Sensitive Amout", 2, 1,Color3.fromRGB(255,255,255), function(
 	end
 end)
 
+SHack:Change("[🌌]Gravity", 2, 1, Color3.fromRGB(255,255,255), function(n)
+game.Workspace.Gravity = n
+end)
+
 SHack:Title("[❌]Antis", Color3.fromRGB(225,225,225))
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
@@ -199,13 +203,8 @@ SHack:Toggle("[🧪]Test Function", Color3.fromRGB(255,255,255), function()
 	end
 end)
 
-local SChange = Hub:Section("[🧠]Change")
-SChange:Change("[🌌]Gravity", 1, 1, Color3.new(1,1,1), function(n)
-game.Workspace.Gravity = n
-end)
-
-local SLine = Hub:Section("[🔗]Custom Line")
-
+local SLine = Hub:Section("[🔗]Custom")
+SLine:Title("[🎨]Line", Color3.fromRGB(225,225,225))
 SLine:Change("[🎨]Color", 4, 1, Color3.new(1,1,1), function(n1,n2,n3)
 	local Color = ColorSequence.new(Color3.fromRGB(n1,n2,n3))
 	if not game.Workspace:FindFirstChild("GrabParts") then
@@ -216,7 +215,6 @@ SLine:Change("[🎨]Color", 4, 1, Color3.new(1,1,1), function(n1,n2,n3)
 	end
 	end
 end)
-
 SLine:Change("[⚡]Emission", 2, 1, Color3.new(1,1,1), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
@@ -297,59 +295,70 @@ SLine:Change("[⚡]TextureID", 2, 1, Color3.new(1,1,1), function(n)
 	end
 end)
 
-local STime = Hub:Section("[🔗]Custom Time")
-local light = game:GetService("Lighting")
-
+SLine:Title("[🎨]Time", Color3.fromRGB(225,225,225))
 STime:Change("[🎨]ColorShift_Bottom", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local light = game:GetService("Lighting")
 local Color = Color3.fromRGB(n1,n2,n3)
 light.ColorShift_Bottom = Color
 end)
 
-STime:Change("[🎨]ColorShift_Top", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+SLine:Change("[🎨]ColorShift_Top", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local light = game:GetService("Lighting")
 local Color = Color3.fromRGB(n1,n2,n3)
 light.ColorShift_Top = Color
 end)
 
-STime:Change("[🎨]FogColor", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+SLine:Change("[🎨]FogColor", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local light = game:GetService("Lighting")
 local Color = Color3.fromRGB(n1,n2,n3)
 light.FogColor = Color
 end)
 
-STime:Change("[🎨]Outdoor Ambient", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+SLine:Change("[🎨]Outdoor Ambient", 3, 1, Color3.new(1,1,1), function(n1,n2,n3)
+local light = game:GetService("Lighting")
 local Color = Color3.fromRGB(n1,n2,n3)
 light.OutdoorAmbient = Color
 end)
 
-STime:Change("[⌛]Abmient", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]Abmient", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.Ambient = n
 end)
 
-STime:Change("[⌛]Brightness", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]Brightness", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.Brightness = n
 end)
 
-STime:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]ClockTime", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.ClockTime = n
 end)
 
-STime:Change("[⌛]ExposureCompensation", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]ExposureCompensation", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.ExposureCompensation = n
 end)
 
-STime:Change("[⌛]Fog Start", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]Fog Start", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.FogStart = n
 end)
 
-STime:Change("[⌛]Fog End", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]Fog End", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.FogEnd = n
 end)
 
-STime:Change("[⌛]Geographic Latitude", 1, 1, Color3.new(1,1,1), function(n)
+SLine:Change("[⌛]Geographic Latitude", 1, 1, Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 light.GeographicLatitude = n
 end)
 
+
+SLine:Active("[⏳]Global Shadows", Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 local GS = light.GlobalShadows
-STime:Active("[⏳]Global Shadows", Color3.new(1,1,1), function(n)
 if GS then
 light.GlobalShadows = false
 else
@@ -357,8 +366,10 @@ light.GlobalShadows = true
 end
 end)
 
+
+SLine:Active("[⏳]Outlines", Color3.new(1,1,1), function(n)
+local light = game:GetService("Lighting")
 local Ol = light.Outlines
-STime:Active("[⏳]Outlines", Color3.new(1,1,1), function(n)
 if Ol then
 light.Outlines = false
 else
