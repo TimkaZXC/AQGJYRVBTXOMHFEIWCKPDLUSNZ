@@ -170,10 +170,7 @@ if not rootp:FindFirstChildOfClass("BodyForce") then
 for _, ch in pairs(charp:GetDescendants()) do
 if ch:IsA("Part") then
 ch.CanCollide = false
-local hl = Instance.new("BodyForce")
-hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
-hl.Parent = rootp
-hl.Force = Vector3.new(0,-1250000,0)
+end
 end
 local args = {
     [1] = rootp,
@@ -186,7 +183,10 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-end
+local hl = Instance.new("BodyForce")
+hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
+hl.Parent = rootp
+hl.Force = Vector3.new(0,-1250000,0)
 end
 end
 end
