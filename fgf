@@ -1,19 +1,14 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Fling Things and People")--
 local SHack = Hub:Section("[🕷]Main")
-SHack:Toggle("[💪]Inf Strenght", Color3.fromRGB(255,255,255), function()
+SHack:Title("[💪]Auto", Color3.fromRGB(255,255,255))
+SHack:Toggle("[💪]Super Grab", Color3.fromRGB(255,255,255), function()
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
 	grab.DragPart.AlignPosition.MaxForce = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
-	end
-end)
-
-SHack:Change("[💪]Strenght Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
-	if not game.Workspace:FindFirstChild("GrabParts") then
-	elseif game.Workspace:FindFirstChild("GrabParts") then
-	local grab = game.Workspace:FindFirstChild("GrabParts")
-	grab.DragPart.AlignPosition.MaxForce = n
+	grab.DragPart.AlignOrientation.MaxTorque = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+	grab.DragPart.AlignOrientation.Responsiveness = 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
 	end
 end)
 
@@ -37,6 +32,45 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 				PlayerRoot.Anchored = false
 			end
 		end
+	end
+end)
+
+SHack:Title("[💪]Custom", Color3.fromRGB(255,255,255))
+SHack:Change("[💪]Strenght Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	grab.DragPart.AlignPosition.MaxForce = n
+	end
+end)
+
+SHack:Change("[💪]Rotating Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	grab.DragPart.AlignOrientation.MaxTorque = n
+	end
+end)
+
+SHack:Change("[💪]Sensitive Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	grab.DragPart.AlignOrientation.Responsiveness = n
+	end
+end)
+
+SHack:Toggle("[🧪]Test Function", Color3.fromRGB(255,255,255), function()
+	if not game.Workspace:FindFirstChild("GrabParts") then
+	elseif game.Workspace:FindFirstChild("GrabParts") then
+	local grab = game.Workspace:FindFirstChild("GrabParts")
+	local grabPart = grab.WeldConstraint.Part1.Parent
+	if grabPart then
+	local hl = Instance.new("Highlight")
+ 	hl.FillTransparency = 1
+  	hl.OutlineColor = Color3.new(1,1,1)
+   	hl.Parent = grabPart
+	end
 	end
 end)
 
