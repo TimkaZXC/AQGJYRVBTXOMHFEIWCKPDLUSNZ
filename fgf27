@@ -121,11 +121,6 @@ local rootp = charp.HumanoidRootPart
 local distance = (root.Position - rootp.Position).Magnitude
 if plr.Name ~= player.Name then
 if distance > 21 then
-for _, hd in pairs(game.Workspace:GetDescendants()) do
-	if hd.Name == "fqgefigiweygviwbwe3gqudhwqd" then
-	hd:Destroy()
-	end
-end
 elseif distance <= 20 then
 if not rootp:FindFirstChildOfClass("BodyForce") then
 local hl = Instance.new("BodyForce")
@@ -160,11 +155,7 @@ local rootp = charp.HumanoidRootPart
 local distance = (root.Position - rootp.Position).Magnitude
 if plr.Name ~= player.Name then
 if distance > 21 then
-for _, hd in pairs(game.Workspace:GetDescendants()) do
-	if hd.Name == "fqgefigiweygviwbwe3gqudhwqd" then
-	hd:Destroy()
-	end
-end
+
 elseif distance <= 20 then
 if not rootp:FindFirstChildOfClass("BodyForce") then
 local hl = Instance.new("BodyForce")
