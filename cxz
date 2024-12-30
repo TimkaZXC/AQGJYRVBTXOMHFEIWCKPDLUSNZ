@@ -22,20 +22,18 @@ SHack:Toggle("[💪]Gravity Grab", Color3.fromRGB(255,255,255), function()
 end)
 
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
-	pcall(function()
 	for _, grabs in pairs(game.Workspace:GetDescendants()) do
 		if grabs.Name == "GrabParts" then
-		local Player = game.Players.LocalPlayer
-		local PlayerRoot = Player.Character.HumanoidRootPart
-		local Grab = grabs:FindFirstChild("GragPart")
-		local SS = Grab:FindFirstChild("WeldConstraint").Part1.Parent
-		local Event = game.ReplicatedStorage.CharacterEvents.Struggle
-		if SS.Name == Player.Name then
-		Event:FireServer()
-		end
+			local Player = game.Players.LocalPlayer
+			local PlayerRoot = Player.Character.HumanoidRootPart
+			local Grab = grabs:FindFirstChild("GrabPart")
+			local SS = Grab.WeldConstraint.Part1.Parent
+			local Event = game.ReplicatedStorage.CharacterEvents.Struggle
+			if SS.Name == Player.Name then
+				Event:FireServer()
+			end
 		end
 	end
-	end)
 end)
 
 local SChange = Hub:Section("[🧠]Change")
