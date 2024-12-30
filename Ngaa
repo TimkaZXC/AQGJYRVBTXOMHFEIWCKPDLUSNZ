@@ -1,4 +1,4 @@
-10print("Executor")
+print("Executor")
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Age Of Conquest")
 local Kills = Hub:Section("[🐊]Main")
