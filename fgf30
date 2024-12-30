@@ -154,7 +154,6 @@ local args = {
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
 end
-end
 end)
 end
 end
