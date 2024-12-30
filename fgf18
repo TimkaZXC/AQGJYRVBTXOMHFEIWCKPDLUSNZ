@@ -1,7 +1,7 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]Fling Things and People")--
 local SHack = Hub:Section("[🕷]Main")
-SHack:Title("[💪]Auto", Color3.fromRGB(255,255,255))
+SHack:Title("[💪]Grabs", Color3.fromRGB(255,255,255))
 SHack:Toggle("[💪]Super Grab", Color3.fromRGB(255,255,255), function()
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
@@ -37,7 +37,7 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	end
 end)
 
-SHack:Toggle("[💪]Kill Grab", Color3.fromRGB(255,255,255), function()
+SHack:Toggle("[💪]Down Grab", Color3.fromRGB(255,255,255), function()
 if not game.Workspace:FindFirstChild("GrabParts") then
 	for _, hd in pairs(game.Workspace:GetDescendants()) do
 	if hd.Name == "fqgefigiweygviwbwe2gqudhwqd" then
@@ -62,6 +62,26 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	end
 end)
 
+SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
+	for _, grabs in pairs(game.Workspace:GetDescendants()) do
+		if grabs.Name == "GrabParts" then
+			local Player = game.Players.LocalPlayer
+			local PlayerRoot = Player.Character.HumanoidRootPart
+			local Grab = grabs:FindFirstChild("GrabPart")
+			local SS = Grab.WeldConstraint.Part1.Parent
+			local Event = game.ReplicatedStorage.CharacterEvents.Struggle
+			if SS.Name == Player.Name then
+				local Start = PlayerRoot.CFrame
+				PlayerRoot.Anchored = true
+				Event:FireServer()
+				PlayerRoot.CFrame = Start
+				PlayerRoot.Anchored = false
+			end
+		end
+	end
+end)
+
+SHack:Title("[💪]Aures Grabs", Color3.fromRGB(255,255,255))
 SHack:Toggle("[💪]Aura Grab", Color3.fromRGB(255,255,255), function()
 local player = game.Players.LocalPlayer
 local char = player.Character
@@ -88,6 +108,7 @@ game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpac
 end
 end
 end
+return
 end)
 
 SHack:Toggle("[💪]Aura UP", Color3.fromRGB(255,255,255), function()
@@ -126,28 +147,49 @@ game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpac
 end
 end
 end
+return
 end)
 
-SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
-	for _, grabs in pairs(game.Workspace:GetDescendants()) do
-		if grabs.Name == "GrabParts" then
-			local Player = game.Players.LocalPlayer
-			local PlayerRoot = Player.Character.HumanoidRootPart
-			local Grab = grabs:FindFirstChild("GrabPart")
-			local SS = Grab.WeldConstraint.Part1.Parent
-			local Event = game.ReplicatedStorage.CharacterEvents.Struggle
-			if SS.Name == Player.Name then
-				local Start = PlayerRoot.CFrame
-				PlayerRoot.Anchored = true
-				Event:FireServer()
-				PlayerRoot.CFrame = Start
-				PlayerRoot.Anchored = false
-			end
-		end
+SHack:Toggle("[💪]Aura Down", Color3.fromRGB(255,255,255), function()
+local player = game.Players.LocalPlayer
+local char = player.Character
+local root = char.HumanoidRootPart
+for _, plr in pairs(game.Players:GetChildren()) do
+local charp = plr.Character
+local rootp = charp.HumanoidRootPart
+local distance = (root.Position - rootp.Position).Magnitude
+if plr.Name ~= player.Name then
+if distance > 21 then
+for _, hd in pairs(game.Workspace:GetDescendants()) do
+	if hd.Name == "fqgefigiweygviwbwe3gqudhwqd" then
+	hd:Destroy()
 	end
+end
+elseif distance <= 20 then
+if not rootp:FindFirstChildOfClass("BodyForce") then
+local hl = Instance.new("BodyForce")
+hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
+hl.Parent = rootp
+hl.Force = Vector3.new(0,-1250000,0)
+end
+local args = {
+    [1] = rootp,
+    [2] = rootp.CFrame
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
+local args = {
+    [1] = rootp,
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+end
+end
+end
+return
 end)
 
-SHack:Title("[💪]Custom", Color3.fromRGB(255,255,255))
+SHack:Title("[💪]Custom Grabs", Color3.fromRGB(255,255,255))
 SHack:Change("[💪]Strenght Amout", 2, 1,Color3.fromRGB(255,255,255), function(n)
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
