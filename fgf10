@@ -12,10 +12,11 @@ SHack:Toggle("[💪]Super Grab", Color3.fromRGB(255,255,255), function()
 	end
 end)
 
-SHack:Toggle("[💪]Gravity Grab", Color3.fromRGB(255,255,255), function()
+SHack:Toggle("[💪]UP Grab", Color3.fromRGB(255,255,255), function()
 if not game.Workspace:FindFirstChild("GrabParts") then
 	for _, hd in pairs(game.Workspace:GetDescendants()) do
 	if hd.Name == "fqgefigiweygviwbwe1gqudhwqd" then
+	hd:Destroy()
 	end
 	end	
 	elseif game.Workspace:FindFirstChild("GrabParts") then
@@ -26,10 +27,9 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	local hl = Instance.new("BodyForce")
 	for _, child in pairs(grabPart:GetChildren()) do
 	if child:IsA("Part") or child:IsA("MeshPart") then
-	child.Massless = false
 	hl.Name = "fqgefigiweygviwbwe1gqudhwqd"
-   	hl.Parent = grabPart
-	hl.Force = Vector3.new(0,1250,0)
+   	hl.Parent = child
+	hl.Force = Vector3.new(0,1250000000000000,0)
 	end
 	end
 	end
