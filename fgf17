@@ -54,7 +54,7 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	if child:IsA("Part") or child:IsA("MeshPart") then
 	hl.Name = "fqgefigiweygviwbwe2gqudhwqd"
    	hl.Parent = child
-	hl.Force = Vector3.new(0,-9000000,-9000000)
+	hl.Force = Vector3.new(0,-9000000,0)
 	end
 	end
 	end
@@ -80,6 +80,44 @@ local args = {
 
 game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
 wait()
+local args = {
+    [1] = rootp,
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+end
+end
+end
+end)
+
+SHack:Toggle("[💪]Aura UP", Color3.fromRGB(255,255,255), function()
+local player = game.Players.LocalPlayer
+local char = player.Character
+local root = char.HumanoidRootPart
+for _, plr in pairs(game.Players:GetChildren()) do
+local charp = plr.Character
+local rootp = charp.HumanoidRootPart
+local distance = (root.Position - rootp.Position).Magnitude
+if plr.Name ~= player.Name then
+if distance > 21 then
+for _, hd in pairs(game.Workspace:GetDescendants()) do
+	if hd.Name == "fqgefigiweygviwbwe3gqudhwqd" then
+	hd:Destroy()
+	end
+end
+elseif distance <= 20 then
+if not rootp:FindFirstChildOfClass("BodyForce") then
+local hl = Instance.new("BodyForce")
+hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
+hl.Parent = rootp
+hl.Force = Vector3.new(0,1250000,0)
+end
+local args = {
+    [1] = rootp,
+    [2] = rootp.CFrame
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
 local args = {
     [1] = rootp,
 }
