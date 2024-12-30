@@ -64,7 +64,7 @@ SHack:Toggle("[🧪]Test Function", Color3.fromRGB(255,255,255), function()
 	if not game.Workspace:FindFirstChild("GrabParts") then
 	elseif game.Workspace:FindFirstChild("GrabParts") then
 	local grab = game.Workspace:FindFirstChild("GrabParts")
-	local grabPart = grab.GrabParts.WeldConstraint.Part1.Parent
+	local grabPart = grab.GrabPart.WeldConstraint.Part1.Parent
 	if grabPart then
 	local hl = Instance.new("Highlight")
  	hl.FillTransparency = 1
