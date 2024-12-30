@@ -28,9 +28,9 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 		local Player = game.Players.LocalPlayer
 		local PlayerRoot = Player.Character.HumanoidRootPart
 		local Grab = grabs:FindFirstChild("GragPart")
-		local SS = Grab.WeldConstraint.Part1
+		local SS = Grab:FindFirstChild("WeldConstraint").Part1.Parent
 		local Event = game.ReplicatedStorage.CharacterEvents.Struggle
-		if SS.Parent.Name == Player.Name then
+		if SS.Name == Player.Name then
 		Event:FireServer()
 		end
 		end
