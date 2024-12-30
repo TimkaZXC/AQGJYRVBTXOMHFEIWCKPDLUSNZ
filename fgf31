@@ -82,11 +82,12 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 end)
 
 SHack:Title("[💪]Aures Grabs", Color3.fromRGB(255,255,255))
+
 SHack:Toggle("[💪]Aura Grab", Color3.fromRGB(255,255,255), function()
+for _, plr in pairs(game.Players:GetChildren()) do
 local player = game.Players.LocalPlayer
 local char = player.Character
 local root = char.HumanoidRootPart
-for _, plr in pairs(game.Players:GetChildren()) do
 local charp = plr.Character
 local rootp = charp.HumanoidRootPart
 local distance = (root.Position - rootp.Position).Magnitude
@@ -106,111 +107,6 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-end)
-end
-end
-end
-return
-end)
-
-SHack:Toggle("[💪]Aura UP", Color3.fromRGB(255,255,255), function()
-local player = game.Players.LocalPlayer
-local char = player.Character
-local root = char.HumanoidRootPart
-for _, plr in pairs(game.Players:GetChildren()) do
-local charp = plr.Character
-local rootp = charp.HumanoidRootPart
-local distance = (root.Position - rootp.Position).Magnitude
-if plr.Name ~= player.Name then
-if distance > 21 then
-elseif distance <= 20 then
-pcall(function()
-if not rootp:FindFirstChildOfClass("BodyForce") then
-local hl = Instance.new("BodyForce")
-hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
-hl.Parent = rootp
-hl.Force = Vector3.new(0,1250000,0)
-local args = {
-    [1] = rootp,
-    [2] = rootp.CFrame
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-local args = {
-    [1] = rootp,
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-elseif rootp:FindFirstChildOfClass("BodyForce") then
-local args = {
-    [1] = rootp,
-    [2] = rootp.CFrame
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-local args = {
-    [1] = rootp,
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-end
-end)
-end
-end
-return
-end)
-
-SHack:Toggle("[💪]Aura Down", Color3.fromRGB(255,255,255), function()
-local player = game.Players.LocalPlayer
-local char = player.Character
-local root = char.HumanoidRootPart
-for _, plr in pairs(game.Players:GetChildren()) do
-local charp = plr.Character
-local rootp = charp.HumanoidRootPart
-local distance = (root.Position - rootp.Position).Magnitude
-if plr.Name ~= player.Name then
-if distance > 21 then
-elseif distance <= 20 then
-pcall(function()
-if not rootp:FindFirstChildOfClass("BodyForce") then
-local hl = Instance.new("BodyForce")
-hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
-hl.Parent = rootp
-hl.Force = Vector3.new(0,-1250000,0)
-local args = {
-    [1] = rootp,
-    [2] = rootp.CFrame
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-local args = {
-    [1] = rootp,
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-for _, ch in pairs(charp:GetDescendants()) do
-if ch:IsA("Part") then
-ch.CanCollide = false
-end
-end
-elseif rootp:FindFirstChildOfClass("BodyForce") then
-local args = {
-    [1] = rootp,
-    [2] = rootp.CFrame
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-local args = {
-    [1] = rootp,
-}
-
-game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-for _, ch in pairs(charp:GetDescendants()) do
-if ch:IsA("Part") then
-ch.CanCollide = false
-end
-end
-end
 end)
 end
 end
