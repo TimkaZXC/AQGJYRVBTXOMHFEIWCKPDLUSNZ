@@ -130,7 +130,6 @@ local hl = Instance.new("BodyForce")
 hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
 hl.Parent = rootp
 hl.Force = Vector3.new(0,1250000,0)
-end
 local args = {
     [1] = rootp,
     [2] = rootp.CFrame
@@ -142,8 +141,21 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
-end)
+elseif rootp:FindFirstChildOfClass("BodyForce") then
+local args = {
+    [1] = rootp,
+    [2] = rootp.CFrame
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
+local args = {
+    [1] = rootp,
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
 end
+end
+end)
 end
 end
 return
@@ -166,7 +178,6 @@ local hl = Instance.new("BodyForce")
 hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
 hl.Parent = rootp
 hl.Force = Vector3.new(0,-1250000,0)
-end
 local args = {
     [1] = rootp,
     [2] = rootp.CFrame
@@ -181,6 +192,24 @@ game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpac
 for _, ch in pairs(charp:GetDescendants()) do
 if ch:IsA("Part") then
 ch.CanCollide = false
+end
+end
+elseif rootp:FindFirstChildOfClass("BodyForce") then
+local args = {
+    [1] = rootp,
+    [2] = rootp.CFrame
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
+local args = {
+    [1] = rootp,
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+for _, ch in pairs(charp:GetDescendants()) do
+if ch:IsA("Part") then
+ch.CanCollide = false
+end
 end
 end
 end)
