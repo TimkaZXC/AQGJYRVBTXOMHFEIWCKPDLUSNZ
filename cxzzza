@@ -34,11 +34,8 @@ SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
 				local des = PlayerRoot.CFrame
 				local des1 = PlayerRoot.Position
 				Event:FireServer()
-				local distance = (PlayerRoot.Position - des1).Magnitude
-				if distance > 10 then
 				PlayerRoot.CFrame = des
 				PlayerRoot.Anchored = false
-				end
 			end
 		end
 	end
