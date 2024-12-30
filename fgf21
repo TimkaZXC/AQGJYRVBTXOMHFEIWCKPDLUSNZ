@@ -166,12 +166,6 @@ for _, hd in pairs(game.Workspace:GetDescendants()) do
 	end
 end
 elseif distance <= 20 then
-if not rootp:FindFirstChildOfClass("BodyForce") then
-for _, ch in pairs(charp:GetDescendants()) do
-if ch:IsA("Part") then
-ch.CanCollide = false
-end
-end
 local args = {
     [1] = rootp,
     [2] = rootp.CFrame
@@ -183,6 +177,12 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
+for _, ch in pairs(charp:GetDescendants()) do
+if ch:IsA("Part") then
+ch.CanCollide = false
+end
+end
+if not rootp:FindFirstChildOfClass("BodyForce") then
 local hl = Instance.new("BodyForce")
 hl.Name = "fqgefigiweygviwbwe3gqudhwqd"
 hl.Parent = rootp
