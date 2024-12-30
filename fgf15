@@ -63,9 +63,6 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 end)
 
 SHack:Toggle("[💪]Aura Grab", Color3.fromRGB(255,255,255), function()
-if not game.Workspace:FindFirstChild("GrabParts") then
-
-elseif game.Workspace:FindFirstChild("GrabParts") then
 local player = game.Players.LocalPlayer
 local char = player.Character
 local root = char.HumanoidRootPart
@@ -82,7 +79,12 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").GrabEvents.SetNetworkOwner:FireServer(unpack(args))
-end
+wait()
+local args = {
+    [1] = rootp,
+}
+
+game:GetService("ReplicatedStorage").GrabEvents.DestroyGrabLine:FireServer(unpack(args))
 end
 end
 end
