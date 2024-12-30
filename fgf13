@@ -37,10 +37,10 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	end
 end)
 
-SHack:Toggle("[💪]UP Grab", Color3.fromRGB(255,255,255), function()
+SHack:Toggle("[💪]Kill Grab", Color3.fromRGB(255,255,255), function()
 if not game.Workspace:FindFirstChild("GrabParts") then
 	for _, hd in pairs(game.Workspace:GetDescendants()) do
-	if hd.Name == "fqgefigiweygviwbwe1gqudhwqd" then
+	if hd.Name == "fqgefigiweygviwbwe2gqudhwqd" then
 	hd:Destroy()
 	end
 	end	
@@ -52,14 +52,22 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	local hl = Instance.new("BodyForce")
 	for _, child in pairs(grabPart:GetChildren()) do
 	if child:IsA("Part") or child:IsA("MeshPart") then
-	hl.Name = "fqgefigiweygviwbwe1gqudhwqd"
+	hl.Name = "fqgefigiweygviwbwe2gqudhwqd"
    	hl.Parent = child
-	hl.Force = Vector3.new(0,0,-9000000)
+	hl.Force = Vector3.new(0,-9000000,-9000000)
 	end
 	end
 	end
 	end
 	end
+end)
+
+SHack:Toggle("[💪]Aura Grab", Color3.fromRGB(255,255,255), function()
+if not game.Workspace:FindFirstChild("GrabParts") then
+
+elseif game.Workspace:FindFirstChild("GrabParts") then
+
+end
 end)
 
 SHack:Toggle("[❌]Anti Grab", Color3.fromRGB(255,255,255), function()
