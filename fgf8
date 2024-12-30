@@ -25,10 +25,12 @@ if not game.Workspace:FindFirstChild("GrabParts") then
 	if not grabPart:FindFirstChildOfClass("BodyForce") then
 	local hl = Instance.new("BodyForce")
 	for _, child in pairs(grabPart:GetChildren()) do
+	if child:IsA("Part") or child:IsA("MeshPart") then
 	child.Massless = true
 	hl.Name = "fqgefigiweygviwbwe1gqudhwqd"
    	hl.Parent = grabPart
 	hl.Force = Vector3.new(0,1250,0)
+	end
 	end
 	end
 	end
