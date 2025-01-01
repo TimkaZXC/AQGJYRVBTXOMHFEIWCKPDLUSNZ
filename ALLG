@@ -348,7 +348,7 @@ local HumanoidRoot = Character.HumanoidRootPart
   end
 end)
 
-Tp:Choice("[🌌]Teleport (~ox)", 2, Color3.fromRGB(150, 255,0), function(n)
+SPositions:Choice("[🌌]Teleport (~ox)", 2, Color3.fromRGB(150, 255,0), function(n)
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 local hum = char.HumanoidRootPart
@@ -386,7 +386,7 @@ Outline.OutlineTransparency = 0
 Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 Outline.OutlineColor = Color3.fromRGB(255,255,255)
 elseif p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
-local Outline = plr.Character:FindFirstChild("TT12r34grdsvbbe53h3")
+local Outline = p.Character:FindFirstChild("TT12r34grdsvbbe53h3")
 Outline.Enabled = true
 Outline.FillTransparency = 1
 Outline.OutlineTransparency = 0
