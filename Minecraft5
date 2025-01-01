@@ -25,6 +25,7 @@ end)
 end
 local s = tonumber(n)
 OnDamage(s)
+return
 end)
 
 local Tp = Hub:Section("[🐊]Tp(s)")
