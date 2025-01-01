@@ -5,6 +5,7 @@ local Hub = Lib.Hub("[🎄]Minecraft")
 local Kills = Hub:Section("[🐊]Kills")
 Kills:Title("[🇷🇺]Kill", Color3.fromRGB(150, 255,0))
 Kills:Change("[💀]Distance", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local function OnDamage()
 local s = tonumber(n)
 local plr = game.Players.LocalPlayer
 pcall(function()
@@ -23,6 +24,8 @@ end
 end
 return
 end)
+end
+OnDamage()
 end)
 
 local Tp = Hub:Section("[🐊]Tp(s)")
