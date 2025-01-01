@@ -376,7 +376,7 @@ local hum = char.HumanoidRootPart
 pcall(function()
 for _, p in pairs(game.Players:GetChildren()) do
 if p.Name == n then
-if not plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+if not p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
 local Outline = Instance.new("Highlight")
 Outline.Name = "TT12r34grdsvbbe53h3"
 Outline.Parent = touch.Parent
@@ -385,7 +385,7 @@ Outline.FillTransparency = 1
 Outline.OutlineTransparency = 0
 Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 Outline.OutlineColor = Color3.fromRGB(255,255,255)
-elseif plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+elseif p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
 local Outline = plr.Character:FindFirstChild("TT12r34grdsvbbe53h3")
 Outline.Enabled = true
 Outline.FillTransparency = 1
@@ -405,7 +405,7 @@ local hum = char.HumanoidRootPart
 pcall(function()
 for _, p in pairs(game.Players:GetChildren()) do
 if p.Name == n then
-if not plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+if not p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
 local Outline = Instance.new("Highlight")
 Outline.Name = "TT12r34grdsvbbe53h3"
 Outline.Parent = touch.Parent
@@ -414,8 +414,8 @@ Outline.FillTransparency = 1
 Outline.OutlineTransparency = 0
 Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 Outline.OutlineColor = Color3.fromRGB(255,255,255)
-elseif plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
-local Outline = plr.Character:FindFirstChild("TT12r34grdsvbbe53h3")
+elseif p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+local Outline = p.Character:FindFirstChild("TT12r34grdsvbbe53h3")
 Outline.Enabled = true
 Outline.FillTransparency = 1
 Outline.OutlineTransparency = 0
