@@ -337,31 +337,92 @@ local HumanoidRoot = Character.HumanoidRootPart
   end
 end)
 
-SPositions:Choice("[🌌]Highlight Player", 1, Color3.fromRGB(255,0,255), function(n)
+SPositions:Choice("[🌌]Teleport", 2, Color3.fromRGB(255,0,255), function(n)
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local HumanoidRoot = Character.HumanoidRootPart
-pcall(function()
   for _, plr in pairs(game.Players:GetChildren()) do
     if plr.Name == n then
-      if not plr.Character:FindFirstChild("HP12r34grdsvbbe53h3") then
-      local Outline = Instance.new("Highlight")
-      Outline.Name = "TT12r34grdsvbbe53h3"
-      Outline.Parent = touch.Parent
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    elseif plr.Character:FindFirstChild("HP12r34grdsvbbe53h3") then
-      local Outline = plr.Character:FindFirstChild("HP12r34grdsvbbe53h3")
-      Outline.Enabled = true
-      Outline.FillTransparency = 1
-      Outline.OutlineTransparency = 0
-      Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-      Outline.OutlineColor = Color3.fromRGB(255,255,255)
-    end
+      HumanoidRoot.CFrame = plr.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,3)
     end
   end
- end)
+end)
+
+Tp:Choice("[🌌]Teleport (~ox)", 2, Color3.fromRGB(150, 255,0), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hum = char.HumanoidRootPart
+pcall(function()
+for _, p in pairs(game.Players:GetChildren()) do
+if p.Name == n then
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,4)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,3)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,2)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,1)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,0.5)
+end
+end
+end)
+end)
+
+SPositions:Choice("[🌌]Highlight Player", 1, Color3.fromRGB(255,0,255), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hum = char.HumanoidRootPart
+pcall(function()
+for _, p in pairs(game.Players:GetChildren()) do
+if p.Name == n then
+if not plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+local Outline = Instance.new("Highlight")
+Outline.Name = "TT12r34grdsvbbe53h3"
+Outline.Parent = touch.Parent
+Outline.Enabled = true
+Outline.FillTransparency = 1
+Outline.OutlineTransparency = 0
+Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+Outline.OutlineColor = Color3.fromRGB(255,255,255)
+elseif plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+local Outline = plr.Character:FindFirstChild("TT12r34grdsvbbe53h3")
+Outline.Enabled = true
+Outline.FillTransparency = 1
+Outline.OutlineTransparency = 0
+Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+Outline.OutlineColor = Color3.fromRGB(255,255,255)
+end
+end
+end
+end)
+end)
+
+SPositions:Choice("[🌌]Highlight Player", 2, Color3.fromRGB(255,0,255), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hum = char.HumanoidRootPart
+pcall(function()
+for _, p in pairs(game.Players:GetChildren()) do
+if p.Name == n then
+if not plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+local Outline = Instance.new("Highlight")
+Outline.Name = "TT12r34grdsvbbe53h3"
+Outline.Parent = touch.Parent
+Outline.Enabled = true
+Outline.FillTransparency = 1
+Outline.OutlineTransparency = 0
+Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+Outline.OutlineColor = Color3.fromRGB(255,255,255)
+elseif plr.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
+local Outline = plr.Character:FindFirstChild("TT12r34grdsvbbe53h3")
+Outline.Enabled = true
+Outline.FillTransparency = 1
+Outline.OutlineTransparency = 0
+Outline.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+Outline.OutlineColor = Color3.fromRGB(255,255,255)
+end
+end
+end
+end)
 end)
