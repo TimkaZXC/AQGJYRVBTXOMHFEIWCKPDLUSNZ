@@ -85,6 +85,22 @@ end
 end
 end)
 
+Kills:Active("[🇷🇺]Free Point Pack", Color3.fromRGB(150, 255,0), function(n)
+local s = 2
+for _ = 1, 300 do
+s += 2
+local args = {
+    [1] = {
+        ["action"] = "pointReward",
+        ["index"] = s
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.7.0"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("storeService"):WaitForChild("RE"):WaitForChild("action"):FireServer(unpack(args))
+end
+return s
+end)
+
 Kills:Title("[🇷🇺]Evolved", Color3.fromRGB(150, 255,0))
 Kills:Toggle("[🇷🇺]All", Color3.fromRGB(150, 255,0), function(n)
 for _, delete in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Units.Holder.Units:GetChildren()) do
