@@ -5,15 +5,13 @@ local Hub = Lib.Hub("[🎄]Minecraft")
 local Kills = Hub:Section("[🐊]Kills")
 Kills:Title("[🇷🇺]Kill", Color3.fromRGB(150, 255,0))
 Kills:Change("[💀]Distance", 2, 1, Color3.fromRGB(150, 255,0), function(n)
-local function OnDamage()
-local s = tonumber(n)
+local function OnDamage(d)
 local plr = game.Players.LocalPlayer
 pcall(function()
 for _, Plr in pairs(game.Players:GetChildren()) do
 if Plr.Name ~= plr.Name then
 local Distance = (plr.Character.HumanoidRootPart.Position - Plr.Character.HumanoidRootPart.Position).Magnitude 
-if Distance > s then
-elseif Distance <= s then 
+if Distance <= d then 
 local args = {
     [1] = Plr.Character
 }
@@ -25,7 +23,8 @@ end
 return
 end)
 end
-OnDamage()
+local s = tonumber(n)
+OnDamage(s)
 end)
 
 local Tp = Hub:Section("[🐊]Tp(s)")
