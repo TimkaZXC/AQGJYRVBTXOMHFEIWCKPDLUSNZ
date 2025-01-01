@@ -1,0 +1,127 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Minecraft Defense")
+local Kills = Hub:Section("[🐊]Main")
+Kills:Title("[🇷🇺]Get", Color3.fromRGB(150, 255,0))
+Kills:Toggle("[🇷🇺]Random Items", Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 5
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 6
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 7
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 8
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 9
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 10
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 11
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+local args = {
+    [1] = 12
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.playRewardsService.RE.claim:FireServer(unpack(args))
+end)
+
+Kills:Toggle("[🇷🇺]Delete Skeleton (G)", Color3.fromRGB(150, 255,0), function(n)
+for _, delete in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Units.Holder.Units:GetChildren()) do
+if delete:IsA("ImageButton") then
+if delete.Icon.Image == "rbxassetid://118045028680532" then
+if not delete.Icon:FindFirstChild("Evolved") then
+local args = {
+    [1] = {
+        ["action"] = "sell",
+        ["guid"] = delete.Name
+    }
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.inventoryService.RE.action:FireServer(unpack(args))
+end
+end
+end
+end
+end)
+
+Kills:Title("[🇷🇺]Evolved", Color3.fromRGB(150, 255,0))
+Kills:Toggle("[🇷🇺]All", Color3.fromRGB(150, 255,0), function(n)
+for _, delete in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Main.Units.Holder.Units:GetChildren()) do
+if delete:IsA("ImageButton") then
+if not delete.Icon:FindFirstChild("Evolved") then
+local args = {
+    [1] = {
+        ["action"] = "craft",
+        ["unit"] = delete.Name
+    }
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.unitCraftService.RE.action:FireServer(unpack(args))
+end
+end
+end
+end)
+
+Kills:Title("[🇷🇺]Egg", Color3.fromRGB(150, 255,0))
+Kills:Change("[🇷🇺]Open (A)", 1, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = {
+        ["action"] = "summon",
+        ["amount"] = tonumber(n)
+    }
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.summonService.RE.action:FireServer(unpack(args))
+end)
+
+Kills:Change("[🇷🇺]Open (T)", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local args = {
+    [1] = {
+        ["action"] = "summon",
+        ["amount"] = tonumber(n)
+    }
+}
+
+game:GetService("ReplicatedStorage").packages._Index:FindFirstChild("sleitnick_knit@1.7.0").knit.Services.summonService.RE.action:FireServer(unpack(args))
+end)
