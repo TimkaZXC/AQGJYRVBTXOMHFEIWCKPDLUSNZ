@@ -1,0 +1,49 @@
+
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Minecraft")
+local Kills = Hub:Section("[🐊]Kills")
+Kills:Title("[🇷🇺]Kill", Color3.fromRGB(150, 255,0))
+Kills:Change("[💀]Distance", 2, 1, Color3.fromRGB(150, 255,0), function(n)
+local s = tonumber(n)
+local plr = game.Players.LocalPlayer
+pcall(function()
+for _, Plr in pairs(game.Players:GetChildren()) do
+if Plr.Name ~= plr.Name then
+local Distance = (plr.Character.HumanoidRootPart.Position - Plr.Character.HumanoidRootPart.Position).Magnitude 
+if Distance > s then
+elseif Distance <= s then 
+local args = {
+    [1] = Plr.Character
+}
+
+game:GetService("ReplicatedStorage").GameRemotes.Attack:InvokeServer(unpack(args))
+end
+end
+end
+return
+end)
+end)
+
+local Tp = Hub:Section("[🐊]Tp(s)")
+Tp:Title("[🇷🇺]Teleport", Color3.fromRGB(150, 255,0))
+Tp:Choice("[☝🏻]UP", 2, Color3.fromRGB(150, 255,0), function(n)
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local hum = char.HumanoidRootPart
+pcall(function()
+for _, p in pairs(game.Players:GetChildren()) do
+if p.Name == n then
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,4)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,3)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,2)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,1)
+wait(0.005)
+hum.CFrame = p.Character.HumanoidRootPart.CFrame * CFrame.new(0,0.5,0)
+end
+end
+end)
+end)
