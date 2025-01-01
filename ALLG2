@@ -382,7 +382,7 @@ local function OnHighlight(n)
 local plr = game.Players.LocalPlayer
 local char = plr.Character
 local hum = char.HumanoidRootPart
-pcall(function()
+
 for _, p in pairs(game.Players:GetChildren()) do
 if p.Name == n then
 if not p.Character:FindFirstChild("TT12r34grdsvbbe53h3") then
