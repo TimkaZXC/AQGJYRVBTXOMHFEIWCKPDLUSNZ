@@ -58,7 +58,7 @@ game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(ar
 return 
 end)
 
-Kills:Toggle("[🇷🇺]1M", Color3.fromRGB(255,255,255), function(n)
+Get:Toggle("[🇷🇺]1M", Color3.fromRGB(255,255,255), function(n)
 local args = {
     [1] = 5
 }
@@ -67,7 +67,7 @@ game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(ar
 return 
 end)
 
-Kills:Toggle("[🇷🇺]100K", Color3.fromRGB(255,255,255), function(n)
+Get:Toggle("[🇷🇺]100K", Color3.fromRGB(255,255,255), function(n)
 local args = {
     [1] = 6
 }
@@ -76,7 +76,7 @@ game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(ar
 return 
 end)
 
-Kills:Toggle("[🇷🇺]50K", Color3.fromRGB(255,255,255), function(n)
+Get:Toggle("[🇷🇺]50K", Color3.fromRGB(255,255,255), function(n)
 local args = {
     [1] = 3
 }
@@ -85,7 +85,7 @@ game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(ar
 return 
 end)
 
-Kills:Toggle("[🇷🇺]25K", Color3.fromRGB(255,255,255), function(n)
+Get:Toggle("[🇷🇺]25K", Color3.fromRGB(255,255,255), function(n)
 local args = {
     [1] = 7
 }
@@ -94,7 +94,7 @@ game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(ar
 return
 end)
 
-Kills:Toggle("[🇷🇺]10K", Color3.fromRGB(255,255,255), function(n)
+Get:Toggle("[🇷🇺]10K", Color3.fromRGB(255,255,255), function(n)
 local args = {
     [1] = 2
 }
