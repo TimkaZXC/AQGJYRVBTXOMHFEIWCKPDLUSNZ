@@ -1,0 +1,412 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Test")
+local Get = Hub:Section("[🐊]Get")
+Get:Title("[🇷🇺]Get EXP", Color3.fromRGB(150, 255,0))
+Get:Toggle("[🇷🇺]100X", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = "GamePass"
+}
+
+game:GetService("ReplicatedStorage").Events.ClaimExpEvent:FireServer(unpack(args))
+return 
+end)
+
+Get:Toggle("[🇷🇺]75X", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = "Tomorrow"
+}
+
+game:GetService("ReplicatedStorage").Events.ClaimExpEvent:FireServer(unpack(args))
+return 
+end)
+
+Get:Toggle("[🇷🇺]50X", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = "30Min"
+}
+
+game:GetService("ReplicatedStorage").Events.ClaimExpEvent:FireServer(unpack(args))
+return 
+end)
+
+Get:Toggle("[🇷🇺]5X", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = "Kill"
+}
+
+game:GetService("ReplicatedStorage").Events.ClaimExpEvent:FireServer(unpack(args))
+return 
+end)
+
+Get:Toggle("[🇷🇺]1X", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = "1Min"
+}
+
+game:GetService("ReplicatedStorage").Events.ClaimExpEvent:FireServer(unpack(args))
+return
+end)
+
+Get:Title("[🇷🇺]Get Power", Color3.fromRGB(150, 255,0))
+Get:Toggle("[🇷🇺]Singularity", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 4
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+Kills:Toggle("[🇷🇺]1M", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 5
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+Kills:Toggle("[🇷🇺]100K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 6
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+Kills:Toggle("[🇷🇺]50K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 3
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+Kills:Toggle("[🇷🇺]25K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 7
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return
+end)
+
+Kills:Toggle("[🇷🇺]10K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 2
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+Get:Toggle("[🇷🇺]5K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 8
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return
+end)
+
+Get:Toggle("[🇷🇺]2K", Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.SpinRewardEvent:FireServer(unpack(args))
+return 
+end)
+
+local Set = Hub:Section("[🐊]Set")
+Set:Title("[🇷🇺]Set Stats", Color3.fromRGB(150, 255,0))
+Set:Change("[🇷🇺]Shoot Rate",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = s,
+        ["CritChance"] = critCD.Value,
+        ["DMG"] = gmdD.Value,
+        ["Accuracy"] = accuracyD.Value,
+        ["HP"] = hpD.Value,
+        ["CritDMG"] = critDD.Value
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
+
+Set:Change("[🇷🇺]Crit Chance",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = rateD.Value,
+        ["CritChance"] = s,
+        ["DMG"] = gmdD.Value,
+        ["Accuracy"] = accuracyD.Value,
+        ["HP"] = hpD.Value,
+        ["CritDMG"] = critDD.Value
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
+
+Set:Change("[🇷🇺]DMG",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = rateD.Value,
+        ["CritChance"] = critCD.Value,
+        ["DMG"] = s,
+        ["Accuracy"] = accuracyD.Value,
+        ["HP"] = hpD.Value,
+        ["CritDMG"] = critDD.Value
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
+
+Set:Change("[🇷🇺]Accuracy",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = rateD.Value,
+        ["CritChance"] = critCD.Value,
+        ["DMG"] = gmdD.Value,
+        ["Accuracy"] = s,
+        ["HP"] = hpD.Value,
+        ["CritDMG"] = critDD.Value
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
+
+Set:Change("[🇷🇺]HP",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = rateD.Value,
+        ["CritChance"] = critCD.Value,
+        ["DMG"] = gmdD.Value,
+        ["Accuracy"] = accuracyD.Value,
+        ["HP"] = s,
+        ["CritDMG"] = critDD.Value
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
+
+Set:Change("[🇷🇺]CritDMG",1, 4, Color3.fromRGB(255,255,255), function(n)
+local function OnStat()
+--[Assets]
+local s = tonumber(n)
+
+--[1]
+local rateD = game:GetService("Players").LocalPlayer.playerSaveData.shootRateDistribution
+local critCD = game:GetService("Players").LocalPlayer.playerSaveData.critChanceDistribution
+local gmdD = game:GetService("Players").LocalPlayer.playerSaveData.DMGDistribution
+local accuracyD = game:GetService("Players").LocalPlayer.playerSaveData.accuracyDistribution
+local hpD = game:GetService("Players").LocalPlayer.playerSaveData.HPDistribution
+local critDD = game:GetService("Players").LocalPlayer.playerSaveData.critDMGDistribution
+
+--[2]
+local rateV =game:GetService("Players").LocalPlayer.playerSaveData.shootRateFillValue
+local critCV = game:GetService("Players").LocalPlayer.playerSaveData.critChanceFillValue
+local gmdV = game:GetService("Players").LocalPlayer.playerSaveData.DMGFillValue
+local accuracyV = game:GetService("Players").LocalPlayer.playerSaveData.accuracyFillValue
+local hpV = game:GetService("Players").LocalPlayer.playerSaveData.HPFillValue
+local critDV = game:GetService("Players").LocalPlayer.playerSaveData.critDMGFillValue
+
+--[Function]
+local args = {
+    [1] = {
+        ["ShootRate"] = rateD.Value,
+        ["CritChance"] = critCD.Value,
+        ["DMG"] = gmdD.Value,
+        ["Accuracy"] = accuracyD.Value,
+        ["HP"] = hpD.Value,
+        ["CritDMG"] = s
+    },
+    [2] = {
+        ["ShootRate"] = rateV.Value,
+        ["CritChance"] = critCV.Value,
+        ["DMG"] = gmdV.Value,
+        ["Accuracy"] = accuracyV.Value,
+        ["HP"] = hpV.Value,
+        ["CritDMG"] = critDV.Value
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.DistributionEvent:FireServer(unpack(args))
+end
+
+OnStat()
+return 
+end)
