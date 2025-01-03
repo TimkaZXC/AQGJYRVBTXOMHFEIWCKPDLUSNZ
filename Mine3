@@ -71,7 +71,7 @@ OnTest()
 return
 end)
 
-Kills:Image("[🇷🇺]Random Items (Rep, Id)", 4, "rbxassetid://119870169843024", Color3.fromRGB(150, 255,0), function(n, n2)
+Kills:Image("[🇷🇺]Random Items (Rep, Id)", 4, "rbxassetid://126454111627417", Color3.fromRGB(150, 255,0), function(n, n2)
 local function OnTest()
 local args = {
     [1] = n1
