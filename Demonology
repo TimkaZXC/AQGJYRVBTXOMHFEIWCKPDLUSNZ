@@ -1,0 +1,20 @@
+game:GetService("ReplicatedStorage").Events.ToggleFuseBox:FireServer()
+local args = {
+    [1] = 16
+}
+
+game:GetService("ReplicatedStorage").UpdateWalkspeed:FireServer(unpack(args))
+for _, light in pairs(workspace.Map.Rooms: GetChildren()) do
+local args = {
+    [1] = light
+}
+
+game:GetService("ReplicatedStorage").Events.UseLightSwitch:FireServer(unpack(args))
+end
+
+local args = {
+    [1] = workspace.Items:FindFirstChild("2")
+}
+
+game:GetService("ReplicatedStorage").Events.RequestItemPickup:FireServer(unpack(args))
+  
