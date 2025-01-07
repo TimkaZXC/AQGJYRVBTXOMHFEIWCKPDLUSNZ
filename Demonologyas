@@ -3,7 +3,7 @@ local Hub = Lib.Hub("[🎄]Demonology")
 local Main = Hub:Section("[☠]Main")
 Main:Title("[Info Demon]", Color3.fromRGB(255,255,255))
 
-for n, v in pairs(workspace.GhostGetAttributes()) do
-	Main:Title(n..': '.. v,Color3.fromRGB(255,255,255))
+for n, v in pairs(workspace.Ghost:GetAttributes()) do
+Main:Title(n..': '.. v,Color3.fromRGB(255,255,255))
 end
   
