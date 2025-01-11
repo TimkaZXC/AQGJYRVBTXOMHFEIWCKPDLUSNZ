@@ -1,12 +1,118 @@
 print("Executor")
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
-local Hub = Lib.Hub("[🎄]SPC Merge")
-local Kills = Hub:Section("[🐊]Main")
-Kills:Title("[🇷🇺]Auto", Color3.fromRGB(150, 255,0))
-Kills:Toggle("[🇷🇺]Kill", Color3.fromRGB(255,255,255), function(n)
+local Hub = Lib.Hub("[🎄]Sniper's")
+local Main = Hub:Section("[🐊]Main")
+Main:Title("[🇷🇺]Configuration", Color3.fromRGB(150, 255,0))
+Main:Change("[🇷🇺]Ammo", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").AmmoCapacity.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+Main:Change("[🇷🇺]BulletSpeed", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").BulletSpeed.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+Main:Change("[🇷🇺]Recoil", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").RecoilMin.Value = s
+tool:FindFirstChild("Configuration").RecoilMax.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+Main:Change("[🇷🇺]Recoil", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").RecoilMin.Value = s
+tool:FindFirstChild("Configuration").RecoilMax.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+Main:Change("[🇷🇺]ReloadTime", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").ReloadTime.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+Main:Change("[🇷🇺]ShotCooldown", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+local s = tonumber(n)
+local player = game:GetService("Players").LocalPlayer
+local backpack = player.Backpack
+local char = player.Character
+for _, tool in pairs(backpack:GetChildren()) do
+  if tool then
+if tool:FindFirstChild("Configuration") then
+tool:FindFirstChild("Configuration").ShotCooldown.Value = s
+end
+  end
+end
+end
+Test()
+end)
+
+local Kills = Hub:Section("[🐊]Kills")
+Kills:Title("[🇷🇺]Kill", Color3.fromRGB(150, 255,0))
+Kills:Toggle("[🇷🇺]Target", Color3.fromRGB(255,255,255), function(n)
 local function Test()
 for _, targ in pairs(workspace:GetChildren()) do
-if targ:IsA("Model") and targ.Name ~= game.Players.LocalPlayer.Name then
+if targ:IsA("Model") and targ.Name == "Target" then
 if targ:FindFirstChild("Humanoid") then
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
@@ -33,11 +139,12 @@ end
 Test() 
 end)
 
-Kills:Toggle("[🇷🇺]Players Kill", Color3.fromRGB(255,255,255), function(n)
+Kills:Toggle("[🇷🇺]Players", Color3.fromRGB(255,255,255), function(n)
 local function Test()
 for _, targ in pairs(game.Players:GetChildren()) do
 if not targ then return end
 if targ.Name ~= game:GetService("Players").LocalPlayer.Name then
+pcall(function()
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
     [2] = {
@@ -55,6 +162,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+end)
 end
 end
 end
