@@ -1,0 +1,63 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]SPC Merge")
+local Kills = Hub:Section("[🐊]Main")
+Kills:Title("[🇷🇺]Auto", Color3.fromRGB(150, 255,0))
+Kills:Toggle("[🇷🇺]Kill", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+for _, targ in pairs(workspace:GetChildren()) do
+if targ:IsA("Model") and targ.Name ~= game.Players.LocalPlayer.Name then
+if targ:FindFirstChild("Humanoid") then
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
+    [2] = {
+        ["p"] = Vector3.new(1230.68603515625, 186.65036010742188, 524.1776123046875),
+        ["pid"] = 1,
+        ["part"] = targ.Head,
+        ["d"] = 0,
+        ["maxDist"] = 900000,
+        ["h"] = targ.Humanoid,
+        ["m"] = Enum.Material.Plastic,
+        ["sid"] = 2,
+        ["t"] = 0,
+        ["n"] = Vector3.new(-0.9999999403953552, 6.622575909887018e-08, 6.62257733097249e-08)
+    }
+}
+
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+end
+end
+end
+end
+
+Test() 
+end)
+
+Kills:Toggle("[🇷🇺]Players Kill", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+for _, targ in pairs(game.Players:GetChildren()) do
+if not targ then return end
+if targ.Name ~= game:GetService("Players").LocalPlayer.Name then
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool"),
+    [2] = {
+        ["p"] = targ.Character.Head.Position,
+        ["pid"] = 1,
+        ["part"] = targ.Character.Head,
+        ["d"] = 0,
+        ["maxDist"] = 900000,
+        ["h"] = targ.Character.Humanoid,
+        ["m"] = Enum.Material.Neon,
+        ["sid"] = 2,
+        ["t"] = 0,
+        ["n"] = Vector3.new(0, 0, 0)
+    }
+}
+
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+end
+end
+end
+
+Test() 
+end)
