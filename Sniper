@@ -77,31 +77,6 @@ end
 Test()
 end)
 
-Main:Change("[🇷🇺]Recoil", 2, 1, Color3.fromRGB(255,255,255), function(n)
-local function Test()
-local s = tonumber(n)
-local player = game:GetService("Players").LocalPlayer
-local backpack = player.Backpack
-local char = player.Character
-for _, tool in pairs(backpack:GetChildren()) do
-  if tool then
-if tool:FindFirstChild("Configuration") then
-tool:FindFirstChild("Configuration").RecoilMin.Value = s
-tool:FindFirstChild("Configuration").RecoilMax.Value = s
-end
-  end
-end
-for _, tool in pairs(char:GetChildren()) do
-  if tool then
-if tool:FindFirstChild("Configuration") then
-tool:FindFirstChild("Configuration").RecoilMin.Value = s
-tool:FindFirstChild("Configuration").RecoilMax.Value = s
-end
-  end
-end
-end
-Test()
-end)
 
 Main:Change("[🇷🇺]ReloadTime", 2, 1, Color3.fromRGB(255,255,255), function(n)
 local function Test()
