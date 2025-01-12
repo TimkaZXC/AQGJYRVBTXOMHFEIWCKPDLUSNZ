@@ -201,7 +201,7 @@ local Humanoid = Character.Humanoid
 local HumanoidR = Character.HumanoidRootPart
 local HR = plr.Character.HumanoidRootPart
 local look = HR.CFrame.LookVector
-HumanoidR.CFrame = CFrame.new(HumanoidR.Position, HR.Position + Vector3.new(look.X, 0, look.Z))
+HumanoidR.CFrame = CFrame.new(HumanoidR.Position, HumanoidR.Position + Vector3.new(look.X, 0, look.Z))
 Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
     end
   end
