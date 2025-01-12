@@ -198,7 +198,11 @@ pcall(function()
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
-Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 2.5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
+local HumanoidR = Character.HumanoidRootPart
+local HR = plr.Character.HumanoidRootPart
+local look = HR.CFrame.LookVector
+HumanoidR.CFrame = CFrame.new(HumanoidR.Position, HR.Position + Vector3.new(look.X, 0, look.Z))
+Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
     end
   end
 end)
