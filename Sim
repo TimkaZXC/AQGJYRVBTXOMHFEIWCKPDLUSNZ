@@ -1,0 +1,189 @@
+print("Executor")
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Test")
+local Main = Hub:Section("[🐊]Main")
+Main:Title("[🇷🇺]Tg", Color3.fromRGB(150, 255,0))
+Main:Toggle("[🇷🇺]Noclip Other", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+for _, plr in pairs(game.Players:GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+for _, no in pairs(plr.Character: GetChildren()) do
+if no:IsA("Part") or no:IsA("MeshPart") then
+no.CanCollide = false
+end
+end
+end
+end
+end)
+end
+
+Test() 
+end)
+
+Main:Toggle("[🇷🇺]Noclip All", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+for _, plr in pairs(game.Players:GetChildren()) do
+for _, no in pairs(plr.Character: GetChildren()) do
+if no:IsA("Part") or no:IsA("MeshPart") then
+no.CanCollide = false
+end
+end
+end
+end)
+end
+
+Test() 
+end)
+
+Main:Toggle("[🇷🇺]Sign Bug", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local args = {
+    [1] = math.random(1,11)
+}
+
+game:GetService("ReplicatedStorage").ChangeSign:FireServer(unpack(args))
+end)
+end
+
+Test() 
+end)
+
+Main:Title("[🇷🇺]Animation", Color3.fromRGB(150, 255,0))
+Main:Change("[🇷🇺]Custom", 1, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local animID = "http://www.roblox.com/asset/?id="..n
+local hum = game.Players.LocalPlayer.Character.Humanoid
+local animator = hum:FindFirstChild("Animator")
+
+if animator then
+local anim = Instance.new("Animation")
+anim.AnimationId = animID
+local trak = animator:LoadAnimation(anim)
+trak.Priority = Enum.AnimationPriority.Action
+trak:Play()
+trak.Looped = true
+end
+end)
+end
+
+Test() 
+end)
+
+Main:Active("[🇷🇺]Idle", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local animID = "http://www.roblox.com/asset/?id=133806214992291"
+local hum = workspace.Timka_q1t.Humanoid
+local animator = hum:FindFirstChild("Animator")
+
+if animator then
+local anim = Instance.new("Animation")
+anim.AnimationId = animID
+local trak = animator:LoadAnimation(anim)
+trak:Play()
+end
+end)
+end
+
+Test() 
+end)
+Main:Active("[🇷🇺]Down", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local animID = "http://www.roblox.com/asset/?id=92294537340807"
+local hum = game.Players.LocalPlayer.Character.Humanoid
+local animator = hum:FindFirstChild("Animator")
+
+if animator then
+local anim = Instance.new("Animation")
+anim.AnimationId = animID
+local trak = animator:LoadAnimation(anim)
+trak:Play()
+end
+end)
+end
+
+Test()
+end)
+
+Main:Active("[🇷🇺]Dice", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local animID = "http://www.roblox.com/asset/?id=8206307935"
+local hum = game.Players.LocalPlayer.Character.Humanoid
+local animator = hum:FindFirstChild("Animator")
+
+if animator then
+local anim = Instance.new("Animation")
+anim.AnimationId = animID
+local trak = animator:LoadAnimation(anim)
+trak:Play()
+trak.Looped = true
+end
+end)
+end
+
+Test() 
+end)
+
+local Kills = Hub:Section("[🐊]Tp")
+Kills:Title("[🇷🇺]Tp", Color3.fromRGB(150, 255,0))
+Kills:Change("[🇷🇺]👈🏻👉🏻", 2, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local s = tonumber(n)
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(-s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(-s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(s, 0,0)
+end)
+end
+
+Test() 
+end)
+
+Kills:Change("[🇷🇺]🫵🏻👇🏻", 2, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local s = tonumber(n)
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(0, 0,s)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(0, 0,-s)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(0, 0,-s)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(0, 0,s)
+end)
+end
+
+Test() 
+end)
+
+Kills:Change("[🇷🇺]👈🏻👉🏻(2x)", 2, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+local s = tonumber(n)
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(-s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(-s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(-s, 0,0)
+wait()
+workspace.Timka_q1t.HumanoidRootPart.CFrame = workspace.Timka_q1t.HumanoidRootPart.CFrame * CFrame.new(s, 0,0)
+wait()
+end)
+end
+
+Test() 
+end)
