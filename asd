@@ -193,11 +193,11 @@ Kills:Title("[🇷🇺]Follow", Color3.fromRGB(150, 255,0))
 Kills:Choice("[🌌]Players", 2, Color3.fromRGB(255,0,255), function(n)
 local function OnTp(n)
 pcall(function()
+  for _, plr in pairs(game.Players:GetChildren()) do
+    if plr.Name == n then
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
-  for _, plr in pairs(game.Players:GetChildren()) do
-    if plr.Name == n then
 Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
     end
   end
