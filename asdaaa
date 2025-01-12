@@ -198,7 +198,7 @@ pcall(function()
 local Player = game:GetService("Players").LocalPlayer
 local Character = Player.Character
 local Humanoid = Character.Humanoid
-Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
+Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z + 2.5)))
     end
   end
 end)
