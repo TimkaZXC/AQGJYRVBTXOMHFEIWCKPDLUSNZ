@@ -198,7 +198,7 @@ local Character = Player.Character
 local Humanoid = Character.Humanoid
   for _, plr in pairs(game.Players:GetChildren()) do
     if plr.Name == n then
-      Humanoid:MoveTo(plr.Character.HumanoidRootPart.Position * Vector3.new(3, 0, 0))
+Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X + 5, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z)))
     end
   end
 end)
