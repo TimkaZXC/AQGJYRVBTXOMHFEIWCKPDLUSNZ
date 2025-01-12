@@ -191,7 +191,7 @@ end)
 Kills:Title("[🇷🇺]Follow", Color3.fromRGB(150, 255,0))
 
 Kills:Choice("[🌌]Players", 2, Color3.fromRGB(255,0,255), function(n)
-local function OnTp(n)
+local function OnTp()
 pcall(function()
   for _, plr in pairs(game.Players:GetChildren()) do
     if plr.Name == n then
