@@ -21,6 +21,25 @@ end
 Test() 
 end)
 
+Main:Toggle("[🇷🇺]Noclip Other + Anti Sit", Color3.fromRGB(255,255,255), function(n)
+local function Test()
+pcall(function()
+for _, plr in pairs(game.Players:GetChildren()) do
+if plr.Name ~= game.Players.LocalPlayer.Name then
+for _, no in pairs(plr.Character: GetChildren()) do
+if no:IsA("Part") or no:IsA("MeshPart") then
+no.CanCollide = false
+game.Players.LocalPlayer.Character.Humanoid.Sit = false
+end
+end
+end
+end
+end)
+end
+
+Test() 
+end)
+
 Main:Toggle("[🇷🇺]Noclip All", Color3.fromRGB(255,255,255), function(n)
 local function Test()
 pcall(function()
