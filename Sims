@@ -209,7 +209,7 @@ end)
 
 Kills:Title("[🇷🇺]Follow", Color3.fromRGB(150, 255,0))
 
-Kills:Choice("[🌌]Players", 2, Color3.fromRGB(255,0,255), function(n)
+Kills:Choice("[🌌]Front", 2, Color3.fromRGB(255,0,255), function(n)
 local function OnTp()
 pcall(function()
   for _, plr in pairs(game.Players:GetChildren()) do
@@ -221,7 +221,29 @@ local HumanoidR = Character.HumanoidRootPart
 local HR = plr.Character.HumanoidRootPart
 local look = HR.CFrame.LookVector
 HumanoidR.CFrame = CFrame.new(HumanoidR.Position, HumanoidR.Position + Vector3.new(look.X, 0, look.Z))
-Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z - 3)))
+Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z - 5)))
+    end
+  end
+end)
+end
+
+OnTp()
+return
+end)
+
+Kills:Choice("[🌌]Back", 2, Color3.fromRGB(255,0,255), function(n)
+local function OnTp()
+pcall(function()
+  for _, plr in pairs(game.Players:GetChildren()) do
+    if plr.Name == n then
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+local HumanoidR = Character.HumanoidRootPart
+local HR = plr.Character.HumanoidRootPart
+local look = HR.CFrame.LookVector
+HumanoidR.CFrame = CFrame.new(HumanoidR.Position, HumanoidR.Position + Vector3.new(look.X, 0, look.Z))
+Humanoid:MoveTo((Vector3.new(plr.Character.HumanoidRootPart.Position.X, plr.Character.HumanoidRootPart.Position.Y,plr.Character.HumanoidRootPart.Position.Z + 5)))
     end
   end
 end)
