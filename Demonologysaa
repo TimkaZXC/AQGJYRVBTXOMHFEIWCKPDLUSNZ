@@ -1,0 +1,58 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Demonology")
+local Main = Hub:Section("[☠]Main")
+Main:Title("[Player]", Color3.fromRGB(255,255,255))
+Main:Change("[🎞]Speed", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = tonumber(n)
+}
+
+game:GetService("ReplicatedStorage").UpdateWalkspeed:FireServer(unpack(args))
+end)
+
+Main:Title("[Funny]", Color3.fromRGB(255,255,255))
+Main:Toggle("[🎞]Light", Color3.fromRGB(255,255,255), function()
+local function Test()
+pcall(function()
+for _, light in pairs(workspace.Map.Rooms:GetChildren()) do
+local args = {
+    [1] = light
+}
+
+game:GetService("ReplicatedStorage").Events.UseLightSwitch:FireServer(unpack(args))
+end
+end)
+end
+
+Test()
+return
+end)
+
+Main:Toggle("[🎞]Fuse Box", Color3.fromRGB(255,255,255), function()
+local function Test()
+pcall(function()
+game:GetService("ReplicatedStorage").Events.ToggleFuseBox:FireServer()
+end)
+end
+
+Test()
+return
+end)
+
+local Info = Hub:Section("[☠]Demon")
+Info:Title("[Function]", Color3.fromRGB(255,255,255))
+
+Info:Title("[Info Demon]", Color3.fromRGB(255,255,255))
+for n, v in pairs(workspace.Ghost:GetAttributes()) do
+Info:Title(n..': '..tostring(v),Color3.fromRGB(255,255,255))
+end
+
+
+
+
+
+local args = {
+    [1] = workspace.Items:FindFirstChild("100")
+}
+
+game:GetService("ReplicatedStorage").Events.RequestItemPickup:FireServer(unpack(args))
