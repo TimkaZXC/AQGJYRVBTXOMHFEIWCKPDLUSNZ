@@ -48,7 +48,7 @@ Info:Title(n..': '..tostring(v),Color3.fromRGB(255,255,255))
 end
 
 Info:Active("[]ESP BOX", Color3.new(1,1,1), function()
-    local function EspBox(parent, name,color:Color3, thickness:number)
+    local function EspBox(parent, name, color:Color3, thickness:number)
 	if parent then
 		if parent:IsA("Part") or parent:IsA("MeshPart") then
 			local BillboardGui = Instance.new("BillboardGui")
@@ -97,19 +97,16 @@ Info:Active("[]ESP BOX", Color3.new(1,1,1), function()
 			Frame.Parent = BillboardGui
 			UIStroke.Parent = Frame
 			BillboardGui.Name = "Ghost_ "..parent.Name
-			
-			
             end
-		    end
 	    end
-    end
+	end
 
 for _, ghost in pairs(workspace.Ghost:GetChildren()) do
 if ghost:IsA("Part") then
 
 for n, v in pairs(workspace.Ghost:GetAttributes()) do
 if n == "GhostType" then
-EspBox(ghost, tostring(n), Color3.new(1,1,1), 1)
+EspBox(ghost, tostring(v), Color3.new(1,1,1), 1)
 end
 end
 
