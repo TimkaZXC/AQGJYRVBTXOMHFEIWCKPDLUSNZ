@@ -53,3 +53,62 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events.PlantC4:FireServer(unpack(args))
+
+local args = {
+    [1] = {
+        ["MinDmg"] = 0,
+        ["Animations"] = game:GetService("ReplicatedStorage").Modules.WeaponData.Assets.Glock.Configuration,
+        ["Bullets"] = 901,
+        ["Range"] = 409600,
+        ["FireRate"] = 0,
+        ["CanDrop"] = true,
+        ["DMG"] = 3000,
+        ["Penetration"] = 10000,
+        ["BulletPerTrail"] = 1,
+        ["Gun"] = game:GetService("ReplicatedStorage").Modules.WeaponData.Assets.Glock.Gun,
+        ["Spread"] = {
+            ["Move"] = 0,
+            ["Crouch"] = 0,
+            ["Stand"] = 0,
+            ["MaxInaccuracy"] = 0,
+            ["Land"] = 0,
+            ["Value"] = 0,
+            ["Jump"] = 0,
+            ["Ladder"] = 0,
+            ["RecoveryTime"] = {
+                ["Value"] = 0.2,
+                ["Crouched"] = 0.2
+            }
+        },
+        ["AccuracyOffset"] = 0,
+        ["ArmorPenetration"] = 40007,
+        ["ReloadTime"] = 0,
+        ["Auto"] = true,
+        ["Burst"] = 9000,
+        ["Ammo"] = 2000000,
+        ["PointsAward"] = 10002,
+        ["RangeModifier"] = 900000,
+        ["EquipTime"] = 0,
+        ["StoredAmmo"] = 1200000,
+        ["Secondary"] = true,
+        ["Name"] = "Glock",
+        ["Tagging"] = 1,
+        ["KillAward"] = 100000000000050,
+        ["AccuracyDivisor"] = 0,
+        ["Cooldown"] = 0,
+        ["Recoil"] = {
+            ["Value"] = 0,
+            ["X"] = 0,
+            ["Y"] = 0
+        }
+    },
+    [2] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame,
+    [3] = 90000,
+    [4] = 120000,
+    [5] = false,
+    [6] = game:GetService("Players").LocalPlayer,
+    [7] = false,
+    [8] = false
+}
+
+game:GetService("ReplicatedStorage").Events.Drop:FireServer(unpack(args))
