@@ -43,7 +43,7 @@ return
 end)
 
 Main:Title("[Kills]", Color3.fromRGB(0,255,0))
-Main:Toggle("[🐊]Kill_All (Shot)", Color3.fromRGB(0,255,0), function()
+Main:Change("[🐊]Kill_All (Shot)", 1, 4, Color3.fromRGB(0,255,0), function(s)
 local function Test(player, tool)
 local args = {
     [1] = player.Character.HumanoidRootPart,
@@ -61,7 +61,7 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
 end
 
 local toolE = workspace.TheCutieSmile.EquippedTool
@@ -71,7 +71,7 @@ end
 return
 end)
 
-Main:Toggle("[🐊]Kill_All (Head)", Color3.fromRGB(0,255,0), function()
+Main:Change("[🐊]Kill_All (Head)", 1,4,Color3.fromRGB(0,255,0), function(s)
 local function Test(player, tool)
 pcall(function()
 local args = {
@@ -90,7 +90,7 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
 end)
 end
 local toolE = workspace.TheCutieSmile.EquippedTool
@@ -100,7 +100,7 @@ end
 return
 end)
 
-Main:Toggle("[🐊]Kill_All (Head + Shoot)", Color3.fromRGB(0,255,0), function()
+Main:Change("[🐊]Kill_All (Head + Shoot)",1,4,Color3.fromRGB(0,255,0), function(s)
 local function Test(player, tool)
 pcall(function()
 local args = {
@@ -119,7 +119,7 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
 end)
 end
 local toolE = workspace.TheCutieSmile.EquippedTool
@@ -130,7 +130,7 @@ return
 end)
 
 Main:Title("[Shoot]", Color3.fromRGB(0,255,0))
-Main:Toggle("[🐊]Mouse", Color3.fromRGB(0,255,0), function()
+Main:Change("[🐊]Mouse",2, 4, Color3.fromRGB(0,255,0), function(s)
 local function Test(target, position, tool)
 pcall(function()
 local args = {
@@ -149,7 +149,7 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
 end)
 end
 
