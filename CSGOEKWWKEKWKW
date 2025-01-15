@@ -1,0 +1,17 @@
+local args = {
+    [1] = game:GetService("Players").Timka_q1t.Character.Head,
+    [2] = game:GetService("Players").Timka_q1t.Character.Head.Position,
+    [3] = "M4A4",
+    [4] = 4096,
+    [5] = game:GetService("Players").LocalPlayer.Character.Gun,
+    [8] = 200,
+    [10] = false,
+    [11] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position,
+    [12] = 244,
+    [13] = Vector3.new(-0.9990445971488953, 0, 0.04370403289794922),
+    [14] = true,
+    [15] = 36,
+    [16] = 86
+}
+
+game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
