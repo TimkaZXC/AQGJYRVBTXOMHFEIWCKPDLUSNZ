@@ -160,7 +160,7 @@ local mouse = player:GetMouse()
 mouse.Move:Connect(function()
 	local hitP = mouse.Hit.Position
 	local hitC = mouse.Hit
-	if mouse.Target then
+	if mouse.Target:IsA("Player") then
 Test(mouse.Target, hitP, toolE.Value)
 	end
 end)
