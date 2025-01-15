@@ -48,7 +48,7 @@ Info:Title(n..': '..tostring(v),Color3.fromRGB(255,255,255))
 end
 
 Info:Active("[]ESP BOX", Color3.new(1,1,1), function()
-    local function EspBox(parent:Part, name,color:Color3, thickness:number)
+    local function EspBox(parent, name,color:Color3, thickness:number)
 	if parent then
 		if parent:IsA("Part") or parent:IsA("MeshPart") then
 			local BillboardGui = Instance.new("BillboardGui")
@@ -71,7 +71,7 @@ Info:Active("[]ESP BOX", Color3.new(1,1,1), function()
 				TypeG.Size = UDim2.fromScale(1, 0.65)
 				TypeG.Position = UDim2.fromScale(0.0, 0.0)
 				TypeG.BackgroundTransparency = 1
-				TypeG.Text = parent.Name
+				TypeG.Text = name
 				TypeG.TextScaled = true
 				TypeG.Font = Enum.Font.PatrickHand
 				TypeG.TextColor3 = color
