@@ -328,7 +328,6 @@ end)
 local SPositions = Hub:Section("[📫]Positions")
 SPositions:Active("[🕶]EspBox", Color3.new(1,1,1), function()
     local function EspBox(parent, name, color:Color3, thickness:number)
-	if not parent:FindFirsChildOfClass("BillboardGui") then
 		if parent:IsA("Part") or parent:IsA("MeshPart") then
 			local BillboardGui = Instance.new("BillboardGui")
 			local Frame = Instance.new("Frame")
@@ -377,21 +376,23 @@ SPositions:Active("[🕶]EspBox", Color3.new(1,1,1), function()
 			UIStroke.Parent = Frame
 			BillboardGui.Name = "Player_ "..parent.Name
             end
-	    end
 	end
 
 for _, player in pairs(game.Players:GetPlayers()) do
 if player.Name ~= game.Players.LocalPlayer.Name then
 for _, part in pairs(player.Character:GetChildren()) do
+if part:IsA("Part") or part:IsA("MeshPart") then 
+if not part:FindFirstChildOfClass("BillboardGui") then
 if player.Team == game.Players.LocalPlayer.Team then
-EspBox(part, player.Name, Color.fromRGB(0,255,0), 1)
+EspBox(part, player.Name, Color3.fromRGB(0,255,0), 1)
 else
-EspBox(part, player.Name, Color.fromRGB(255,0,0), 1)
+EspBox(part, player.Name, Color3.fromRGB(255,0,0), 1)
 end
 end
 end
 end
-
+end
+end
 end)
 
 SPositions:Choice("[🌌]Teleport", 1, Color3.fromRGB(255,0,255), function(n)
