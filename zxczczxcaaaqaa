@@ -61,10 +61,10 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(s):FireServer(unpack(args))
 end
 
-local toolE = workspace.TheCutieSmile.EquippedTool
+local toolE = game.Players.LocalPlayer.Character.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
 Test(plr, toolE.Value)
 end
@@ -90,10 +90,10 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(s):FireServer(unpack(args))
 end)
 end
-local toolE = workspace.TheCutieSmile.EquippedTool
+local toolE = game.Players.LocalPlayer.Character.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
 Test(plr, toolE.Value)
 end
@@ -119,10 +119,10 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(s):FireServer(unpack(args))
 end)
 end
-local toolE = workspace.TheCutieSmile.EquippedTool
+local toolE = game.Players.LocalPlayer.Character.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
 Test(plr, toolE.Value)
 end
@@ -149,11 +149,11 @@ local args = {
     [16] = 86
 }
 
-game:GetService("ReplicatedStorage").Events:FindFirstChild(tostring(s)):FireServer(unpack(args))
+game:GetService("ReplicatedStorage").Events:FindFirstChild(s):FireServer(unpack(args))
 end)
 end
 
-local toolE = workspace.TheCutieSmile.EquippedTool
+local toolE = game.Players.LocalPlayer.Character.EquippedTool
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
