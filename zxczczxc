@@ -93,6 +93,7 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
 end
+end
 local toolE = workspace.TheCutieSmile.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
 Test(plr, toolE.Value)
