@@ -73,8 +73,7 @@ end)
 
 Main:Toggle("[🐊]Kill_All (Head)", Color3.fromRGB(0,255,0), function()
 local function Test(player, tool)
-if player and tool then
-
+pcall(function()
 local args = {
     [1] = player.Character.HumanoidRootPart,
     [2] = player.Character.HumanoidRootPart.Position,
@@ -92,7 +91,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
-end
+end)
 end
 local toolE = workspace.TheCutieSmile.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
@@ -103,8 +102,7 @@ end)
 
 Main:Toggle("[🐊]Kill_All (Head + Shoot)", Color3.fromRGB(0,255,0), function()
 local function Test(player, tool)
-if player and tool then
-
+pcall(function()
 local args = {
     [1] = player.Character.HumanoidRootPart,
     [2] = player.Character.HumanoidRootPart.Position,
@@ -122,7 +120,7 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
-end
+end)
 end
 local toolE = workspace.TheCutieSmile.EquippedTool
 for _, plr in pairs(game.Players:GetPlayers()) do
@@ -392,7 +390,7 @@ local args = {
         ["EquipTime"] = 0,
         ["StoredAmmo"] = storageAmmo,
         ["Secondary"] = true,
-        ["Name"] = "Glock",
+        ["Name"] = weapon.Name,
         ["Tagging"] = 1,
         ["KillAward"] = 1000000,
         ["AccuracyDivisor"] = 0,
