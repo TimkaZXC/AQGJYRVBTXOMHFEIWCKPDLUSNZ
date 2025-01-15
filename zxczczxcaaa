@@ -180,7 +180,7 @@ end)
 
 local Fun = Hub:Section("[🐊]Fun")
 Fun:Title("[Win/Others]", Color3.fromRGB(0,255,0))
-Main:Active("[🐊]Win (ME)", Color3.fromRGB(0,255,0), function(n)
+Fun:Active("[🐊]Win (ME)", Color3.fromRGB(0,255,0), function(n)
 local function Test()
 pcall(function()
 local args = {
@@ -195,7 +195,7 @@ Test()
 return
 end)
 
-Main:Choice("[🐊]Win", 1, Color3.fromRGB(0,255,0), function(n)
+Fun:Choice("[🐊]Win", 1, Color3.fromRGB(0,255,0), function(n)
 local function Test(player)
 pcall(function()
 local args = {
@@ -213,7 +213,7 @@ Test(plr)
 return
 end)
 
-Main:Toggle("[🐊]Spin", Color3.fromRGB(0,255,0), function()
+Fun:Toggle("[🐊]Spin", Color3.fromRGB(0,255,0), function()
 local function Test(s)
 pcall(function()
 local args = {
@@ -242,7 +242,7 @@ return
 end)
 
 
-Main:Active("[🐊]Soon...", Color3.fromRGB(0,255,0), function(n)
+Fun:Active("[🐊]Soon...", Color3.fromRGB(0,255,0), function(n)
 local function Test()
 pcall(function()
 local args = {
