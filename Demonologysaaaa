@@ -109,7 +109,7 @@ if ghost:IsA("Part") then
 
 for n, v in pairs(workspace.Ghost:GetAttributes()) do
 if n == "GhostType" then
-Test(ghost, tostring(n), Color3.new(1,1,1), 1)
+EspBox(ghost, tostring(n), Color3.new(1,1,1), 1)
 end
 end
 
