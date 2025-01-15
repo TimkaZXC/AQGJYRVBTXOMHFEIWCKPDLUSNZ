@@ -1,0 +1,422 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄RNG]Counter Blox: Evolved")
+local Main = Hub:Section("[🐊]Main")
+Main:Title("[Character]", Color3.fromRGB(0,255,0))
+Main:Change("[🐊]Speed", 2, 1, Color3.fromRGB(0,255,0), function(n)
+local function Test()
+local s1 = tonumber(n)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+Humanoid.WalkSpeed = s1
+end
+
+Test()
+return
+end)
+
+Main:Change("[🐊]Power", 2, 1, Color3.fromRGB(0,255,0), function(n)
+local function Test()
+local s1 = tonumber(n)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+Humanoid.JumpHeight = s1
+Humanoid.JumpPower = s1
+end
+
+Test()
+return
+end)
+
+Main:Change("[🐊]Height", 2, 1, Color3.fromRGB(0,255,0), function(n)
+local function Test()
+local s1 = tonumber(n)
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+Humanoid.HipHeight = s1
+end
+
+Test()
+return
+end)
+
+Main:Title("[Kills]", Color3.fromRGB(0,255,0))
+Main:Toggle("[🐊]Kill_All (Shot)", Color3.fromRGB(0,255,0), function()
+local function Test(player, tool)
+local args = {
+    [1] = player.Character.HumanoidRootPart,
+    [2] = player.Character.HumanoidRootPart.Position,
+    [3] = ""..tool,
+    [4] = 4096,
+    [5] = game:GetService("Players").LocalPlayer.Character.Gun,
+    [8] = 1,
+    [10] = true,
+    [11] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position,
+    [12] = 244,
+    [13] = Vector3.new(-0.9990445971488953, 0, 0.04370403289794922),
+    [14] = true,
+    [15] = 36,
+    [16] = 86
+}
+
+game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+end
+
+local toolE = workspace.TheCutieSmile.EquippedTool
+for _, plr in pairs(game.Players:GetPlayers()) do
+Test(plr, toolE.Value)
+end
+return
+end)
+
+Main:Toggle("[🐊]Kill_All (Head)", Color3.fromRGB(0,255,0), function()
+local function Test(player, tool)
+if player and tool then
+
+local args = {
+    [1] = player.Character.HumanoidRootPart,
+    [2] = player.Character.HumanoidRootPart.Position,
+    [3] = ""..tool,
+    [4] = 4096,
+    [5] = game:GetService("Players").LocalPlayer.Character.Gun,
+    [8] = 1,
+    [10] = false,
+    [11] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position,
+    [12] = 244,
+    [13] = Vector3.new(-0.9990445971488953, 0, 0.04370403289794922),
+    [14] = true,
+    [15] = 36,
+    [16] = 86
+}
+
+game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+end
+local toolE = workspace.TheCutieSmile.EquippedTool
+for _, plr in pairs(game.Players:GetPlayers()) do
+Test(plr, toolE.Value)
+end
+return
+end)
+
+Main:Toggle("[🐊]Kill_All (Head + Shoot)", Color3.fromRGB(0,255,0), function()
+local function Test(player, tool)
+if player and tool then
+
+local args = {
+    [1] = player.Character.HumanoidRootPart,
+    [2] = player.Character.HumanoidRootPart.Position,
+    [3] = ""..tool,
+    [4] = 4096,
+    [5] = game:GetService("Players").LocalPlayer.Character.Gun,
+    [8] = 1,
+    [10] = true,
+    [11] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position,
+    [12] = 244,
+    [13] = Vector3.new(-0.9990445971488953, 0, 0.04370403289794922),
+    [14] = true,
+    [15] = 36,
+    [16] = 86
+}
+
+game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+end
+local toolE = workspace.TheCutieSmile.EquippedTool
+for _, plr in pairs(game.Players:GetPlayers()) do
+Test(plr, toolE.Value)
+end
+return
+end)
+
+Main:Title("[Shoot]", Color3.fromRGB(0,255,0))
+Main:Toggle("[🐊]Mouse", Color3.fromRGB(0,255,0), function()
+local function Test(target, position, tool)
+pcall(function()
+local args = {
+    [1] = player.Character.HumanoidRootPart,
+    [2] = player.Character.HumanoidRootPart.Position,
+    [3] = ""..tool,
+    [4] = 4096,
+    [5] = game:GetService("Players").LocalPlayer.Character.Gun,
+    [8] = 1,
+    [10] = true,
+    [11] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position,
+    [12] = 244,
+    [13] = Vector3.new(-0.9990445971488953, 0, 0.04370403289794922),
+    [14] = true,
+    [15] = 36,
+    [16] = 86
+}
+
+game:GetService("ReplicatedStorage").Events:FindFirstChild("a1797c6a-0ea3-4"):FireServer(unpack(args))
+end)
+end
+
+local toolE = workspace.TheCutieSmile.EquippedTool
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+mouse.Move:Connect(function()
+	local hitP = mouse.Hit.Position
+	local hitC = mouse.Hit
+	if mouse.Target then
+Test(mouse.Target, hitP, toolE.Value)
+	end
+end)
+
+mouse.Idle:Connect(function()
+	local hitP = mouse.Hit.Position
+	local hitC = mouse.Hit
+	if mouse.Target then
+Test(mouse.Target, hitP, toolE.Value)
+	end
+end)
+
+return
+end)
+
+local Fun = Hub:Section("[🐊]Fun")
+Fun:Title("[Win/Others]", Color3.fromRGB(0,255,0))
+Main:Active("[🐊]Win (ME)", Color3.fromRGB(0,255,0), function(n)
+local function Test()
+pcall(function()
+local args = {
+    [1] = game.Players.LocalPlayer
+}
+
+game:GetService("Players").LocalPlayer.Backpack.Defuse:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
+
+Main:Choice("[🐊]Win", 1, Color3.fromRGB(0,255,0), function(n)
+local function Test(player)
+pcall(function()
+local args = {
+    [1] = player
+}
+
+player.Backpack.Defuse:FireServer(unpack(args))
+end)
+end
+for _, plr in pairs(game.Players:GetPlayers()) do
+    if plr.Name == n then
+Test(plr)
+    end
+  end
+return
+end)
+
+Main:Toggle("[🐊]Spin", Color3.fromRGB(0,255,0), function()
+local function Test(s)
+pcall(function()
+local args = {
+    [1] = s,
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").Events.Control:FireServer(unpack(args))
+local args = {
+    [1] = s,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events.Control:FireServer(unpack(args))
+end)
+end
+
+local random = math.random(0, 100)
+if random <= 51 then
+Test(math.random())
+elseif random >= 50 then
+Test(-math.random())
+end
+
+return
+end)
+
+
+Main:Active("[🐊]Soon...", Color3.fromRGB(0,255,0), function(n)
+local function Test()
+pcall(function()
+local args = {
+    [1] = "I'm planting the bomb.",
+    [2] = false ,
+    [3] = "Innocent",
+    [4] = false,
+    [5] = true,
+    [6] = true
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerChatted:FireServer(unpack(args))
+local args = {
+    [1] = "voice"
+}
+
+game:GetService("ReplicatedStorage").Events.SendVoice:FireServer(unpack(args))
+local args = {
+    [1] = game:GetService("ReplicatedStorage").Voices.EC.plant:FindFirstChild("2")
+}
+
+game:GetService("ReplicatedStorage").Events.SendVoice:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
+
+
+local Esp = Hub:Section("[🐊]Esp's")
+Esp:Title("[Player]", Color3.fromRGB(0,255,0))
+Esp:Toggle("[🕶]EspBox", Color3.new(1,1,1), function()
+   local function EspBox(parent, name, color:Color3, thickness:number)
+		if parent:IsA("Part") or parent:IsA("MeshPart") then
+			local BillboardGui = Instance.new("BillboardGui")
+			local Frame = Instance.new("Frame")
+			local UIStroke = Instance.new("UIStroke")
+
+			if parent.Name == "Head" then
+				local player = game:GetService("Players").LocalPlayer
+				local char = player.Character or player.CharacterAdded:Wait()
+				local humR = char:FindFirstChild("HumanoidRootPart")
+				
+				local BillboardGui1 = Instance.new("BillboardGui")
+				local TypeG = Instance.new("TextLabel")
+				
+				BillboardGui1.AlwaysOnTop = true
+				BillboardGui1.Enabled = true
+				BillboardGui1.ExtentsOffset = Vector3.new(0,2,0)
+				BillboardGui1.Name = "Player_Name: "..parent.Name
+				
+				TypeG.Size = UDim2.fromScale(1, 0.65)
+				TypeG.Position = UDim2.fromScale(0.0, 0.0)
+				TypeG.BackgroundTransparency = 1
+				TypeG.Text = name
+				TypeG.TextScaled = true
+				TypeG.Font = Enum.Font.PatrickHand
+				TypeG.TextColor3 = color
+				TypeG.Parent = BillboardGui1
+				
+				BillboardGui.Size = UDim2.fromScale(parent.Size.Y, parent.Size.Z)
+				BillboardGui1.Size = UDim2.fromScale(1.5, 1)
+				BillboardGui1.Parent = parent
+			else
+				BillboardGui.Size = UDim2.fromScale(parent.Size.X, parent.Size.Y)
+			end
+			BillboardGui.AlwaysOnTop = true
+			BillboardGui.Enabled = true
+
+			Frame.Size = UDim2.fromScale(0.98, 0.98)
+			Frame.Position = UDim2.fromScale(0.01, 0.01)
+			Frame.BackgroundTransparency = 1
+
+			UIStroke.Color = color
+			UIStroke.Thickness = thickness
+
+			BillboardGui.Parent = parent
+			Frame.Parent = BillboardGui
+			UIStroke.Parent = Frame
+			BillboardGui.Name = "Player_ "..parent.Name
+            end
+	end
+
+for _, player in pairs(game.Players:GetPlayers()) do
+if player.Name ~= game.Players.LocalPlayer.Name then
+pcall(function()
+for _, part in pairs(player.Character:GetChildren()) do
+if part:IsA("Part") or part:IsA("MeshPart") then 
+if not part:FindFirstChildOfClass("BillboardGui") then
+if player.Team == game.Players.LocalPlayer.Team then
+EspBox(part, player.Name, Color3.fromRGB(0,255,0), 1)
+elseif player.Team ~= game.Players.LocalPlayer.Team then
+EspBox(part, player.Name, Color3.fromRGB(255,0,0), 1)
+end
+end
+end
+end
+end)
+end
+end
+end)
+
+local Weapon = Hub:Section("[🐊]Weapon Give")
+Weapon:Title("[Weapons]", Color3.fromRGB(0,255,0))
+
+for _, weapon in pairs(game:GetService("ReplicatedStorage").Modules.WeaponData.Assets:GetChildren()) do
+    if weapon then
+
+Weapon:Change("[🐊]"..weapon.Name, 3, 1, Color3.fromRGB(0,255,0), function(n1, n2, n3)
+local function Test(ammo, storageAmmo, rate)
+pcall(function()
+local args = {
+    [1] = {
+        ["MinDmg"] = 0,
+        ["Animations"] = weapon.Configuration,
+        ["Bullets"] = 90,
+        ["Range"] = 4096,
+        ["FireRate"] = rate,
+        ["CanDrop"] = true,
+        ["DMG"] = 3000,
+        ["Penetration"] = 1000,
+        ["BulletPerTrail"] = 1,
+        ["Gun"] = weapon.Gun,
+        ["Spread"] = {
+            ["Move"] = 0,
+            ["Crouch"] = 0,
+            ["Stand"] = 0,
+            ["MaxInaccuracy"] = 0,
+            ["Land"] = 0,
+            ["Value"] = 0,
+            ["Jump"] = 0,
+            ["Ladder"] = 0,
+            ["RecoveryTime"] = {
+                ["Value"] = 0,
+                ["Crouched"] = 0
+            }
+        },
+        ["AccuracyOffset"] = 0,
+        ["ArmorPenetration"] = 40007,
+        ["ReloadTime"] = 0,
+        ["Auto"] = false,
+        ["Burst"] = 5,
+        ["Ammo"] = ammo,
+        ["PointsAward"] = 1000,
+        ["RangeModifier"] = 9000,
+        ["EquipTime"] = 0,
+        ["StoredAmmo"] = storageAmmo,
+        ["Secondary"] = true,
+        ["Name"] = "Glock",
+        ["Tagging"] = 1,
+        ["KillAward"] = 1000000,
+        ["AccuracyDivisor"] = 0,
+        ["Cooldown"] = 0.00000001,
+        ["Recoil"] = {
+            ["Value"] = 0.0000001,
+            ["X"] = 0,
+            ["Y"] = 0
+        }
+    },
+    [2] = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame,
+    [3] = ammo,
+    [4] = storageAmmo,
+    [5] = false,
+    [6] = game:GetService("Players").LocalPlayer,
+    [7] = false,
+    [8] = false
+}
+
+game:GetService("ReplicatedStorage").Events.Drop:FireServer(unpack(args))
+end)
+end
+
+Test(tonumber(n1),tonumber(n2),tonumber(n3))
+return
+end)
+
+    end
+end
