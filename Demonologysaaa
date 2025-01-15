@@ -1,0 +1,127 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]Demonology")
+local Main = Hub:Section("[☠]Main")
+Main:Title("[Player]", Color3.fromRGB(255,255,255))
+Main:Change("[🎞]Speed", 2, 1, Color3.fromRGB(255,255,255), function(n)
+local args = {
+    [1] = tonumber(n)
+}
+
+game:GetService("ReplicatedStorage").UpdateWalkspeed:FireServer(unpack(args))
+end)
+
+Main:Title("[Funny]", Color3.fromRGB(255,255,255))
+Main:Toggle("[🎞]Light", Color3.fromRGB(255,255,255), function()
+local function Test()
+pcall(function()
+for _, light in pairs(workspace.Map.Rooms:GetChildren()) do
+local args = {
+    [1] = light
+}
+
+game:GetService("ReplicatedStorage").Events.UseLightSwitch:FireServer(unpack(args))
+end
+end)
+end
+
+Test()
+return
+end)
+
+Main:Toggle("[🎞]Fuse Box", Color3.fromRGB(255,255,255), function()
+local function Test()
+pcall(function()
+game:GetService("ReplicatedStorage").Events.ToggleFuseBox:FireServer()
+end)
+end
+
+Test()
+return
+end)
+
+local Info = Hub:Section("[☠]Demon")
+Info:Title("[Function]", Color3.fromRGB(255,255,255))
+
+Info:Title("[Info Demon]", Color3.fromRGB(255,255,255))
+for n, v in pairs(workspace.Ghost:GetAttributes()) do
+Info:Title(n..': '..tostring(v),Color3.fromRGB(255,255,255))
+end
+
+Info:Active("[]ESP BOX", Color3.new(1,1,1), function()
+    local function EspBox(parent:Part, name,color:Color3, thickness:number)
+	if parent then
+		if parent:IsA("Part") or parent:IsA("MeshPart") then
+			local BillboardGui = Instance.new("BillboardGui")
+			local Frame = Instance.new("Frame")
+			local UIStroke = Instance.new("UIStroke")
+
+			if parent.Name == "Head" then
+				local player = game:GetService("Players").LocalPlayer
+				local char = player.Character or player.CharacterAdded:Wait()
+				local humR = char:FindFirstChild("HumanoidRootPart")
+				
+				local BillboardGui1 = Instance.new("BillboardGui")
+				local TypeG = Instance.new("TextLabel")
+				
+				BillboardGui1.AlwaysOnTop = true
+				BillboardGui1.Enabled = true
+				BillboardGui1.ExtentsOffset = Vector3.new(0,2,0)
+				BillboardGui1.Name = "Type_Ghost: "..parent.Name
+				
+				TypeG.Size = UDim2.fromScale(1, 0.65)
+				TypeG.Position = UDim2.fromScale(0.0, 0.0)
+				TypeG.BackgroundTransparency = 1
+				TypeG.Text = parent.Name
+				TypeG.TextScaled = true
+				TypeG.Font = Enum.Font.PatrickHand
+				TypeG.TextColor3 = color
+				TypeG.Parent = BillboardGui1
+				
+				BillboardGui.Size = UDim2.fromScale(parent.Size.Y, parent.Size.Z)
+				BillboardGui1.Size = UDim2.fromScale(1.5, 1)
+				BillboardGui1.Parent = parent
+			else
+				BillboardGui.Size = UDim2.fromScale(parent.Size.X, parent.Size.Y)
+			end
+			BillboardGui.AlwaysOnTop = true
+			BillboardGui.Enabled = true
+
+			Frame.Size = UDim2.fromScale(0.98, 0.98)
+			Frame.Position = UDim2.fromScale(0.01, 0.01)
+			Frame.BackgroundTransparency = 1
+
+			UIStroke.Color = color
+			UIStroke.Thickness = thickness
+
+			BillboardGui.Parent = parent
+			Frame.Parent = BillboardGui
+			UIStroke.Parent = Frame
+			BillboardGui.Name = "Ghost_ "..parent.Name
+			
+			
+            end
+		    end
+	    end
+    end
+
+for _, ghost in pairs(workspace.Ghost:GetChildren()) do
+if ghost:IsA("Part") then
+
+for n, v in pairs(workspace.Ghost:GetAttributes()) do
+if n == "GhostType" then
+Test(ghost, tostring(n), Color3.new(1,1,1), 1)
+end
+end
+
+end
+end
+
+end)
+
+
+
+local args = {
+    [1] = workspace.Items:FindFirstChild("100")
+}
+
+game:GetService("ReplicatedStorage").Events.RequestItemPickup:FireServer(unpack(args))
