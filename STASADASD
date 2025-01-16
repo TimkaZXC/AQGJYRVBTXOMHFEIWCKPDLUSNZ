@@ -14,3 +14,32 @@ end
 Test()
 return
 end)
+
+
+local args = {
+    [1] = {
+        ["muzzle_position"] = Vector3.new(384.20635986328125, -103.19562530517578, 10.165443420410156),
+        ["keep_ammo"] = false,
+        ["is_stitched"] = false,
+        ["weapon_name"] = "USP",
+        ["cframe"] = CFrame.new(611.365234375, -115.24064636230469, 151.90174865722656) * CFrame.Angles(0, 0.8007779717445374, -0),
+        ["actions"] = {
+            ["crouching"] = false,
+            ["flashed"] = false,
+            ["aimming"] = false,
+            ["jumping"] = false,
+            ["shifting"] = false,
+            ["strength"] = 0,
+            ["running"] = false
+        },
+        ["spread_cframe"] = CFrame.new(0, 0, 0) * CFrame.Angles(-0, 0, -0)
+    },
+    [2] = "USP",
+    [3] = {
+        ["Instance"] = game:GetService("Players").Kostyauz33222.Character.Head,
+        ["Normal"] = Vector3.new(0, 0, 1),
+        ["Position"] = Vector3.new(384.20635986328125, -103.19562530517578, 10.165443420410156)
+    }
+}
+
+game:GetService("ReplicatedStorage").remote.Fire:FireServer(unpack(args))
