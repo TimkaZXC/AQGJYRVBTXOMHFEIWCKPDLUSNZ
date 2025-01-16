@@ -141,7 +141,7 @@ Test(tonumber(n))
 return
 end)
 else
-Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 1, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
+Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
 local function Test(s)
 local args = {
     [1] = item.Name,
