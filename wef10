@@ -116,6 +116,38 @@ return
 end)
 
 local Troll = Hub:Section("[🤡]Troll")
+Troll:Title("[        So🤡und        ]", Color3.fromRGB(200,0,0))
+
+for _, sound in pairs(game:GetService("ReplicatedStorage").GameSounds:GetDescendants()) do
+if sound:IsA("Sound") then
+Troll:Choice("[🤡]"..sound.Name, 1, Color3.fromRGB(200,0,0), function(n2)
+local function Test()
+pcall(function()
+local player = game:GetService("Players").LocalPlayer
+local char = player.Character
+if char:FindFirstChildOfClass("Tool") then
+if char:FindFirstChildOfClass("Tool"):FindFirstChild("SoundPlay") then
+
+for _, plr in pairs(game.Players:GetPlayers()) do
+if plr.Name == n2 then
+local test = {
+    [1] = sound,
+    [2] = plr.Character.HumanoidRootPart
+}
+char:FindFirstChildOfClass("Tool").SoundPlay:FireServer(unpack(test))
+end
+end
+
+end
+end
+end)
+end
+
+Test()
+return
+end)
+end
+end
 Troll:Title("[        Sc🤡am        ]", Color3.fromRGB(200,0,0))
 
 Troll:Image("[🤡]Drop", 3, "", Color3.fromRGB(200,0,0), function(n1, n2)
@@ -183,29 +215,6 @@ end)
 end
 end
 
-local Potions = Hub:Section("[🧪]Potions (Amount)")
-Potions:Title("[🧪]GETTING", Color3.fromRGB(255,255,255))
-
-for _, item in pairs(game:GetService("ReplicatedStorage").PotionsToUse:GetChildren()) do
-if item:IsA("Model") then
-
-Potions:Change("[🧪]"..item.Name, 1, 4, Color3.fromRGB(255,255,255), function(n)
-local function Test(s)
-local args = {
-    [1] = item.Name,
-    [2] = s,
-    [3] = false
-}
-
-game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
-end
-
-Test(tonumber(n))
-return
-end)
-
-end
-end
 
 local Item = Hub:Section("[🎲]Items")
 Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
