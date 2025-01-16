@@ -119,6 +119,7 @@ local Troll = Hub:Section("[🤡]Troll")
 Troll:Title("[        So🤡und        ]", Color3.fromRGB(200,0,0))
 
 for _, sound in pairs(game:GetDescendants()) do
+if sound:IsA("Sound") then
 Troll:Choice("[🤡]"..sound.Name, 1, Color3.fromRGB(200,0,0), function(n2)
 local function Test()
 pcall(function()
@@ -145,6 +146,7 @@ end
 Test()
 return
 end)
+end
 end
 
 Troll:Title("[        Sc🤡am        ]", Color3.fromRGB(200,0,0))
