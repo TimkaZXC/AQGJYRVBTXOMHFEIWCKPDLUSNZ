@@ -1,6 +1,25 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]QuestWorld")
 local Stat = Hub:Section("[🍀]Stats")
+Stat:Title("[🍀]AUTO", Color3.fromRGB(0,235,0))
+Stat:Change("[🍀]LVL UP", 1, 1, Color3.fromRGB(0,235,0), function()
+local function Test(s)
+pcall(function()
+local args = {
+    [1] = "Experience",
+    [2] = game:GetService("Players").LocalPlayer.Info.MaxXP.Value,
+    [3] = 0
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
+
+
 Stat:Title("[🍀]GETTING", Color3.fromRGB(0,235,0))
 Stat:Change("[🍀]EXPERIENCE", 1, 1, Color3.fromRGB(0,235,0), function(n)
 local function Test(s)
