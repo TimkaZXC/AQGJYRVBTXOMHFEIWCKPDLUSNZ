@@ -10,3 +10,39 @@ end
 Test()
 return
 end)
+-- Potion
+game:GetService("ReplicatedStorage").PotionsToUse
+--Weapon
+game:GetService("ReplicatedStorage").Weapons
+--Items
+game:GetService("ReplicatedStorage").Items
+--Armors
+game:GetService("ReplicatedStorage").Armors
+
+local args = {
+    [1] = "Scepter of time"
+}
+
+game:GetService("ReplicatedStorage").Events.MobDropAddToInventory:FireServer(unpack(args))
+
+local args = {
+    [1] = "Experience",
+    [2] = 10000000,
+    [3] = 50000
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+local args = {
+    [1] = "Akhalo Sword",
+    [2] = 1,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+local args = {
+    [1] = "Dwarf",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
+
