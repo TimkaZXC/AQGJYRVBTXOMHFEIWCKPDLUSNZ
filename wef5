@@ -2,7 +2,6 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/
 local Hub = Lib.Hub("[🎄]QuestWorld")
 local Stat = Hub:Section("[🍀]Stats")
 Stat:Title("[🍀]AUTO", Color3.fromRGB(0,235,0))
-
 Stat:Toggle("[🍀]LVL UP", Color3.fromRGB(0,235,0), function()
 local function Test(s)
 pcall(function()
@@ -116,6 +115,95 @@ Test()
 return
 end)
 
+local Stat = Hub:Section("[🤡]Scam")
+Stat:Title("[        🤡        ]", Color3.fromRGB(200,0,0))
+Stat:Image("[🤡]Drop", 3, "", Color3.fromRGB(200,0,0), function(n1, n2)
+local function Test()
+pcall(function()
+local args = {
+    [1] = n1,
+    [2] = tonumber(n2)
+}
+
+game:GetService("ReplicatedStorage").Events.DropItemFromInventory:FireServer(unpack(args))
+local args = {
+    [1] = tonumber(n2)
+}
+
+game:GetService("ReplicatedStorage").Events2.InventoryCapacityAdding:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
+
+local Weapons = Hub:Section("[⚔]Weapons (Amount)")
+Weapons:Title("[⚔]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").Weapons:GetChildren()) do
+if item:IsA("Tool") then
+Weapons:Change("[⚔]"..item.Name.." DMG: "..item.DMG.Value, 1, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+end
+end
+
+local Armors = Hub:Section("[🛡️]Armors (Amount)")
+Armors:Title("[🛡️]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").Armors:GetChildren()) do
+if item:IsA("Model") then
+Armors:Change("[🛡️]"..item.Name.." Health: "..item.Health.Valie, 1, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+end
+end
+
+local Potions = Hub:Section("[🧪]Potions (Amount)")
+Potions:Title("[🧪]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").PotionsToUse:GetChildren()) do
+if item:IsA("Model") then
+Potions:Change("[🧪]"..item.Name, 1, 4, Color3.fromRGB(255,255,255), function(n)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+end
+end
+
 local Item = Hub:Section("[🎲]Items")
 Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
 
@@ -189,26 +277,6 @@ end)
 end
 end
 end
-
--- Potion
---game:GetService("ReplicatedStorage").PotionsToUse
---Weapon
---game:GetService("ReplicatedStorage").Weapons
---Armors
---game:GetService("ReplicatedStorage").Armors
-
-
-local args = {
-    [1] = "Haha",
-    [2] = -1
-}
-
-game:GetService("ReplicatedStorage").Events.DropItemFromInventory:FireServer(unpack(args))
-local args = {
-    [1] = -1
-}
-
-game:GetService("ReplicatedStorage").Events2.InventoryCapacityAdding:FireServer(unpack(args))
 
 
 
