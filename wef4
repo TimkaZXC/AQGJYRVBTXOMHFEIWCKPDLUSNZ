@@ -2,6 +2,7 @@ local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/
 local Hub = Lib.Hub("[🎄]QuestWorld")
 local Stat = Hub:Section("[🍀]Stats")
 Stat:Title("[🍀]AUTO", Color3.fromRGB(0,235,0))
+
 Stat:Toggle("[🍀]LVL UP", Color3.fromRGB(0,235,0), function()
 local function Test(s)
 pcall(function()
@@ -12,6 +13,17 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
+
+Stat:Toggle("[🍀]KILL PLAYER (V)", Color3.fromRGB(0,235,0), function()
+local function Test(s)
+pcall(function()
+game:GetService("ReplicatedStorage").Events2.KilledPlayer:FireServer()
 end)
 end
 
