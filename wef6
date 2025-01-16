@@ -165,7 +165,7 @@ Armors:Title("[🛡️]GETTING", Color3.fromRGB(255,255,255))
 
 for _, item in pairs(game:GetService("ReplicatedStorage").Armors:GetChildren()) do
 if item:IsA("Model") then
-Armors:Change("[🛡️]"..item.Name.." Health: "..item.Health.Valie, 1, 4, Color3.fromRGB(255,255,255), function(n)
+Armors:Change("[🛡️]"..item.Name.." Health: "..item.Health.Value, 1, 4, Color3.fromRGB(255,255,255), function(n)
 local function Test(s)
 local args = {
     [1] = item.Name,
