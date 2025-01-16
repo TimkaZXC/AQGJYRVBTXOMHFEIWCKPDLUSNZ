@@ -1,6 +1,37 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
 local Hub = Lib.Hub("[🎄]QuestWorld")
 local Stat = Hub:Section("[🍀]Stats")
+Stat:Title("[🍀]GETTING", Color3.fromRGB(0,235,0))
+Stat:Change("[🍀]EXPERIENCE", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = s,
+    [3] = 0
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+
+Stat:Change("[🍀]GOLD", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = 0,
+    [3] = s
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+
 Stat:Title("[🍀]CHANGE RACE", Color3.fromRGB(0,235,0))
 Stat:Image("[🍀]Human", 1, "rbxassetid://17582233408",Color3.fromRGB(0,235,0), function()
 local function Test()
@@ -51,38 +82,6 @@ game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unp
 end
 
 Test()
-return
-end)
-
-
-Stat:Title("[🍀]GETTING", Color3.fromRGB(0,235,0))
-Stat:Change("[🍀]EXPERIENCE", 1, 1, Color3.fromRGB(0,235,0), function(n)
-local function Test(s)
-local args = {
-    [1] = "Experience",
-    [2] = s,
-    [3] = 0
-}
-
-game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
-end
-
-Test(tonumber(n))
-return
-end)
-
-Stat:Change("[🍀]GOLD", 1, 1, Color3.fromRGB(0,235,0), function(n)
-local function Test(s)
-local args = {
-    [1] = "Experience",
-    [2] = 0,
-    [3] = s
-}
-
-game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
-end
-
-Test(tonumber(n))
 return
 end)
 
