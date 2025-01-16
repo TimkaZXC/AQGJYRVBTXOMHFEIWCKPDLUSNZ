@@ -54,4 +54,16 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+ local image = {
+["Elf"] = "rbxassetid://17582237629",
+["Human"] = "rbxassetid://17582233408",
+["Dwarf"] = "rbxassetid://17582238917",
+["Ork"] = "rbxassetid://17582232337" 
+}
+-- Teams
+game:GetService("Teams")
+local args = {
+    [1] = "Elf"
+}
 
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
