@@ -229,7 +229,7 @@ end
 end
 Troll:Title("[        Sc🤡am        ]", Color3.fromRGB(200,0,0))
 
-Troll:Image("[🤡]Drop", 3, "", Color3.fromRGB(200,0,0), function(n1, n2)
+Troll:Image("[🤡]Drop", 4, "", Color3.fromRGB(200,0,0), function(n1, n2)
 local function Test()
 pcall(function()
 local args = {
