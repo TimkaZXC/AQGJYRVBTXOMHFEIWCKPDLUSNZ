@@ -1,0 +1,172 @@
+local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
+local Hub = Lib.Hub("[🎄]QuestWorld")
+local Stat = Hub:Section("[🍀]Stats")
+Stat:Title("[🍀]CHANGE RACE", Color3.fromRGB(0,235,0))
+Stat:Image("[🍀]Human", 1, "rbxassetid://17582233408",Color3.fromRGB(0,235,0), function()
+local function Test()
+local args = {
+    [1] = "Human"
+}
+
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+
+Stat:Image("[🍀]Elf", 1, "rbxassetid://17582237629",Color3.fromRGB(0,235,0), function()
+local function Test()
+local args = {
+    [1] = "Elf"
+}
+
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+
+Stat:Image("[🍀]Orc", 1, "rbxassetid://17582232337",Color3.fromRGB(0,235,0), function()
+local function Test()
+local args = {
+    [1] = "Orc"
+}
+
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+
+Stat:Image("[🍀]Dwarf", 1, "rbxassetid://17582238917",Color3.fromRGB(0,235,0), function()
+local function Test()
+local args = {
+    [1] = "Dwarf"
+}
+
+game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+
+
+Stat:Title("[🍀]GETTING", Color3.fromRGB(0,235,0))
+Stat:Change("[🍀]EXPERIENCE", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = s,
+    [3] = 0
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+
+Stat:Change("[🍀]GOLD", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = 0,
+    [3] = s
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+
+local Item = Hub:Section("[🎲]Items")
+Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
+if item:IsA("Model") then
+if not item:FindFirstChild("Req") then
+Item:Image("[🎲]"..item.Name, 1, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function()
+local function Test()
+local args = {
+    [1] = item.Name
+}
+
+game:GetService("ReplicatedStorage").Events.MobDropAddToInventory:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+else
+Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 1, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function()
+local function Test()
+local args = {
+    [1] = item.Name
+}
+
+game:GetService("ReplicatedStorage").Events.MobDropAddToInventory:FireServer(unpack(args))
+end
+
+Test()
+return
+end)
+end
+end
+end
+
+local Item = Hub:Section("[🎲]Items (Amount)")
+Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
+if item:IsA("Model") then
+if not item:FindFirstChild("Req") then
+Item:Image("[🎲]"..item.Name, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+else
+Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 1, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+end
+end
+end
+
+-- Potion
+--game:GetService("ReplicatedStorage").PotionsToUse
+--Weapon
+--game:GetService("ReplicatedStorage").Weapons
+--Armors
+--game:GetService("ReplicatedStorage").Armors
+
+
+
+
