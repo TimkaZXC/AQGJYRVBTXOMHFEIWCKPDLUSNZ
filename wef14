@@ -142,7 +142,7 @@ Armors:Title("[🛡️]GETTING", Color3.fromRGB(255,255,255))
 
 for _, item in pairs(game:GetService("ReplicatedStorage").Armors:GetChildren()) do
 if item:IsA("Model") then
-Armors:Change("[🛡️]"..item.Name.." Health: "..item.Health.Value, 1, 4, Color3.fromRGB(255,255,255), function(n)
+Armors:Change("[🛡️]"..item.Name, 1, 4, Color3.fromRGB(255,255,255), function(n)
 local function Test(s)
 local args = {
     [1] = item.Name,
@@ -159,7 +159,29 @@ end)
 end
 end
 
+local Troll = Hub:Section("[🤡]Troll")
+Troll:Title("[        Sc🤡am        ]", Color3.fromRGB(200,0,0))
 
+Troll:Image("[🤡]Drop", 4, "", Color3.fromRGB(200,0,0), function(n1, n2)
+local function Test()
+pcall(function()
+local args = {
+    [1] = n1,
+    [2] = tonumber(n2)
+}
+
+game:GetService("ReplicatedStorage").Events.DropItemFromInventory:FireServer(unpack(args))
+local args = {
+    [1] = tonumber(n2)
+}
+
+game:GetService("ReplicatedStorage").Events2.InventoryCapacityAdding:FireServer(unpack(args))
+end)
+end
+
+Test()
+return
+end)
 local Item = Hub:Section("[🎲]Items")
 Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
 
@@ -194,29 +216,7 @@ end)
 end
 end
 end
-local Troll = Hub:Section("[🤡]Troll")
-Troll:Title("[        Sc🤡am        ]", Color3.fromRGB(200,0,0))
 
-Troll:Image("[🤡]Drop", 4, "", Color3.fromRGB(200,0,0), function(n1, n2)
-local function Test()
-pcall(function()
-local args = {
-    [1] = n1,
-    [2] = tonumber(n2)
-}
-
-game:GetService("ReplicatedStorage").Events.DropItemFromInventory:FireServer(unpack(args))
-local args = {
-    [1] = tonumber(n2)
-}
-
-game:GetService("ReplicatedStorage").Events2.InventoryCapacityAdding:FireServer(unpack(args))
-end)
-end
-
-Test()
-return
-end)
 
 local Item = Hub:Section("[🎲]Items (Amount)")
 Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
