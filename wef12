@@ -194,46 +194,6 @@ end)
 end
 end
 end
-
-local Item = Hub:Section("[🎲]Items (Amount)")
-Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
-
-for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
-if item:IsA("Model") then
-if not item:FindFirstChild("Req") then
-Item:Image("[🎲]"..item.Name, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
-local function Test(s)
-local args = {
-    [1] = item.Name,
-    [2] = s,
-    [3] = false
-}
-
-game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
-end
-
-Test(tonumber(n))
-return
-end)
-else
-Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
-local function Test(s)
-local args = {
-    [1] = item.Name,
-    [2] = s,
-    [3] = false
-}
-
-game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
-end
-
-Test(tonumber(n))
-return
-end)
-end
-end
-end
-
 local Troll = Hub:Section("[🤡]Troll")
 Troll:Title("[        So🤡und        ]", Color3.fromRGB(200,0,0))
 
@@ -289,3 +249,42 @@ end
 Test()
 return
 end)
+local Item = Hub:Section("[🎲]Items (Amount)")
+Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
+
+for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
+if item:IsA("Model") then
+if not item:FindFirstChild("Req") then
+Item:Image("[🎲]"..item.Name, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+else
+Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 3, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function(n, n2)
+local function Test(s)
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+end
+end
+end
+
