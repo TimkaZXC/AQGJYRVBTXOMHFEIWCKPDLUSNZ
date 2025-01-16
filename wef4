@@ -198,5 +198,17 @@ end
 --game:GetService("ReplicatedStorage").Armors
 
 
+local args = {
+    [1] = "Haha",
+    [2] = -1
+}
+
+game:GetService("ReplicatedStorage").Events.DropItemFromInventory:FireServer(unpack(args))
+local args = {
+    [1] = -1
+}
+
+game:GetService("ReplicatedStorage").Events2.InventoryCapacityAdding:FireServer(unpack(args))
+
 
 
