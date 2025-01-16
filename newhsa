@@ -1,15 +1,37 @@
 local Lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/TimkaZXC/AQGJYRVBTXOMHFEIWCKPDLUSNZ/refs/heads/main/Library"))()
-local Hub = Lib.Hub("[🎄]")
-local Fun = Hub:Section("[😊]Stats")
-Fun:Title("[GIVE]", Color3.fromRGB(0,255,255))
-Fun:Toggle("[🌅]", Color3.fromRGB(0,255,255), function()
-local function Test()
+local Hub = Lib.Hub("[🎄]QuestWorld")
+local Stat = Hub:Section("[🍀]Stats")
+Stat:Title("[🍀]GETTING", Color3.fromRGB(0,235,0))
+Stat:Change("[🍀]EXPERIENCE", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = s,
+    [3] = 0
+}
 
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
 end
 
-Test()
+Test(tonumber(n))
 return
 end)
+
+Stat:Change("[🍀]GOLD", 1, 1, Color3.fromRGB(0,235,0), function(n)
+local function Test(s)
+local args = {
+    [1] = "Experience",
+    [2] = 0,
+    [3] = s
+}
+
+game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+end
+
+Test(tonumber(n))
+return
+end)
+
 -- Potion
 game:GetService("ReplicatedStorage").PotionsToUse
 --Weapon
@@ -26,23 +48,10 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MobDropAddToInventory:FireServer(unpack(args))
 
 local args = {
-    [1] = "Experience",
-    [2] = 10000000,
-    [3] = 50000
-}
-
-game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
-local args = {
     [1] = "Akhalo Sword",
     [2] = 1,
     [3] = false
 }
 
 game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
-local args = {
-    [1] = "Dwarf",
-    [2] = false
-}
-
-game:GetService("ReplicatedStorage").Events2.SetTeamToPlayerEvent:FireServer(unpack(args))
 
