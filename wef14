@@ -257,3 +257,60 @@ end
 end
 end
 
+local args = {
+    [1] = Vector3.new(295.0279541015625, 167.35411071777344, -426.2721252441406),
+    [2] = game:GetService("Players").Timka_q1t.Character.Torso,
+    [3] = true
+}
+
+game:GetService("Players").LocalPlayer.Character:FindFirstChild("Staff of Magnus").StaffServerEvent:FireServer(unpack(args))
+
+for _, q in pairs(game:GetService("Players").LocalPlayer.Info.Quests:GetChildren()) do
+pcall(function()
+local args = {
+    [1] = q.Name,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events3.ChangeValue:FireServer(unpack(args))
+end)
+end
+
+local args = {
+    [1] = 374354338760345
+}
+
+game:GetService("ReplicatedStorage").Events3.GiveBadge:FireServer(unpack(args))
+local args = {
+    [1] = "ItemsFolder",
+    [2] = "Lava Crystal",
+    [3] = 1,
+    [4] = true,
+    [5] = false
+}
+
+game:GetService("ReplicatedStorage").Events.AddToItemsPlayerValues:FireServer(unpack(args))
+
+local args = {
+    [1] = true,
+    [2] = 50,
+    [3] = true,
+    [4] = 200
+}
+
+game:GetService("ReplicatedStorage").Events3.AddCoinsOrXp:FireServer(unpack(args))
+
+local args = {
+    [1] = "FlowersSaved",
+    [2] = 1
+}
+
+game:GetService("ReplicatedStorage").Events3.QuestValues:FireServer(unpack(args))
+
+
+local args = {
+    [1] = "FlowersCatch",
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage").Events3.ChangeValue:FireServer(unpack(args))
