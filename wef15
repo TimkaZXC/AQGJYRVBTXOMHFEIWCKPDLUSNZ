@@ -16,7 +16,7 @@ local args = {
     [1] = true,
     [2] = game:GetService("Players").LocalPlayer.Info.MaxXP.Value,
     [3] = true,
-    [4] = 0
+    [4] = game:GetService("Players").LocalPlayer.Info.MaxXP.Value
 }
 
 game:GetService("ReplicatedStorage").Events3.AddCoinsOrXp:FireServer(unpack(args))
