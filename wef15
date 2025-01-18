@@ -12,6 +12,14 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").Events2.LevelingSystemChanging:FireServer(unpack(args))
+local args = {
+    [1] = true,
+    [2] = game:GetService("Players").LocalPlayer.Info.MaxXP.Value,
+    [3] = true,
+    [4] = 0
+}
+
+game:GetService("ReplicatedStorage").Events3.AddCoinsOrXp:FireServer(unpack(args))
 end)
 end
 
