@@ -192,6 +192,24 @@ return
 end)
 local Item = Hub:Section("[🎲]Items")
 Item:Title("[🎲]GETTING", Color3.fromRGB(255,255,255))
+Item:Change("[🎲]GET ALL ITEMS", 1, 1, Color3.fromRGB(255,255,255), function(n)
+local function Test(s)
+for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
+if item:IsA("Model") then
+local args = {
+    [1] = item.Name,
+    [2] = s,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage").Events2.CraftingAddingAndRemovingFromInventory:FireServer(unpack(args))
+end
+end
+end
+
+Test(tonumber(n))
+return
+end)
 
 for _, item in pairs(game:GetService("ReplicatedStorage").Items:GetChildren()) do
 if item:IsA("Model") then
@@ -205,9 +223,10 @@ local args = {
 game:GetService("ReplicatedStorage").Events.MobDropAddToInventory:FireServer(unpack(args))
 end
 
-Test()
+Test(tonumber(n))
 return
 end)
+
 else
 Item:Image("[🎲]"..item.Name.." Req: "..item.Req.Value, 1, "rbxassetid://"..item.Image.Value, Color3.fromRGB(255,255,255), function()
 local function Test()
